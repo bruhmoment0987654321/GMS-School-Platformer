@@ -1,7 +1,6 @@
 // Inherit the parent event
-event_inherited();
-
 transform = keyboard_check_pressed(ord("T"));
-if (transform){
+if (transform) && (vsp = 0){
 	instance_change(Obj_transfoslime,true);
 }
+event_inherited();
