@@ -5,8 +5,10 @@ walksp = 2.5; //how fast the player goes
 vspjump = -3.9; //how high the player jumps
 canjump = 0; //are we touching the ground?
 candash = false; //resets when touching ground
-dashdistance = 80;
-dashtime = 12;
+dashdistance = 80; // how far the dash goes
+dashtime = 12; // the amount of time the dash is used
+onawall = 0; //are we touching a wall?
+slimeprts = 0; //slime particles
 
 
 stateFree = function(){
