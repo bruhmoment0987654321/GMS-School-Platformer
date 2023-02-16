@@ -1,6 +1,11 @@
 hsp = 0; //current horizontal speed
-vsp = 0;//current vertical speed
+hsp_wlljp = 4; //speed of how far you go in wall jump
+vsp = 0; //current vertical speed
+vsp_wlljp = -6; //how far you go up during the wall jump
+vsp_max = 10; //max speed when falling
+vsp_max_wall = 4; //max speed when falling during wall jump
 grv = 0.2; //gravity
+grv_wall = 0.1; //gravity when you're on a wall
 walksp = 2.5; //how fast the player goes
 vspjump = -3.9; //how high the player jumps
 canjump = 0; //are we touching the ground?
@@ -13,16 +18,32 @@ slimeprts = 0; //slime particles
 
 stateFree = function(){
 	#region movement
+	//horizontal movement
 	var move = right - left;
 	if (!run){
 		hsp = move*walksp;
 	}else{
 		hsp = move*(walksp+1);
 	}
-
+	//wall jump 
+	if (object_index = Obj_boy){
+		if(onawall != 0) && (!place_meeting(x,y+vsp,Obj_wall)) && (jump){
+			hsp = -onawall * hsp_wlljp;
+			vsp = vsp_wlljp;
+			
+		}
+		
+	}
+	//gravity
+	var grv_final = grv;
+	var vsp_max_final = vsp_max;
+	if (onawall != 0) && (vsp > 0){
+		grv_final = grv_wall;
+		vsp_max_final = vsp_max_wall;
+	}
+	vsp += grv_final;
+	vsp = clamp(vsp,-vsp_max_final,vsp_max_final);
 	//jump
-	vsp = vsp + grv;
-
 	if (canjump -- > 0)&& (jump){
 		vsp = vspjump;
 		canjump = 0;
