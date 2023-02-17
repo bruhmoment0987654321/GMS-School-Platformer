@@ -12,7 +12,7 @@ if (!place_meeting(x,y+1,Obj_wall)){
 		var side = bbox_left;
 		if(onawall) side = bbox_right;
 		slimeprts++;
-		if ((slimeprts > 2) && (vsp > 0)) with (instance_create_layer(side,bbox_top,"Behind",Obj_slimespark)){
+		if ((slimeprts > 2) && (vsp > 0)) with (instance_create_layer(side,bbox_top+15,"Behind",Obj_slimespark)){
 			other.slimeprts = 0;	
 			hspeed = -other.onawall*0.5;
 		}

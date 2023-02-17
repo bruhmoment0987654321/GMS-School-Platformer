@@ -21,6 +21,7 @@
     {"name":"Obj_transfoman","order":7,"path":"objects/Obj_transfoman/Obj_transfoman.yy",},
     {"name":"Spr_slimeidle","order":4,"path":"sprites/Spr_slimeidle/Spr_slimeidle.yy",},
     {"name":"Spr_schoolboy","order":1,"path":"sprites/Spr_schoolboy/Spr_schoolboy.yy",},
+    {"name":"Spr_slimewallstuck","order":12,"path":"sprites/Spr_slimewallstuck/Spr_slimewallstuck.yy",},
     {"name":"Obj_game","order":5,"path":"objects/Obj_game/Obj_game.yy",},
     {"name":"Spr_slimewalk","order":6,"path":"sprites/Spr_slimewalk/Spr_slimewalk.yy",},
     {"name":"Spr_schoolboyrun","order":11,"path":"sprites/Spr_schoolboyrun/Spr_schoolboyrun.yy",},

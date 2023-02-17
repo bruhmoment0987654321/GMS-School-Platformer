@@ -1,36 +1,50 @@
+//horizontal speed variables 
 hsp = 0; //current horizontal speed
-hsp_wlljp = 4; //speed of how far you go in wall jump
+walksp = 2.5; //how fast the player goes
+hsp_wlljp = 3.5; //speed of how far you go in wall jump
+
+//vertical speed variables
 vsp = 0; //current vertical speed
-vsp_wlljp = -6; //how far you go up during the wall jump
+vsp_wlljp = -4; //how high you go up during the wall jump
 vsp_max = 10; //max speed when falling
 vsp_max_wall = 4; //max speed when falling during wall jump
-grv = 0.2; //gravity
-grv_wall = 0.1; //gravity when you're on a wall
-walksp = 2.5; //how fast the player goes
 vspjump = -3.9; //how high the player jumps
 canjump = 0; //are we touching the ground?
+
+//gravity variables
+grv = 0.2; //gravity
+grv_wall = 0.01; //gravity when you're on a wall
+
+//dash variables
 candash = false; //resets when touching ground
 dashdistance = 80; // how far the dash goes
 dashtime = 12; // the amount of time the dash is used
+
+//wall jump variables
 onawall = 0; //are we touching a wall?
 slimeprts = 0; //slime particles
+walljumpdelay = 0; //removing movement to the player when wall jumping
+wlljumpdelaymax = 18; //time of removing movement during the wall jump
 
 
 stateFree = function(){
 	#region movement
-	//horizontal movement
-	var move = right - left;
-	if (!run){
-		hsp = move*walksp;
-	}else{
-		hsp = move*(walksp+1);
+	walljumpdelay = max(walljumpdelay - 1,0);
+	if (walljumpdelay == 0){
+		//horizontal movement
+		var move = right - left;
+		if (!run){
+			hsp = move*walksp;
+		}else{
+			hsp = move*(walksp+1);
+		}
 	}
 	//wall jump 
 	if (object_index = Obj_boy){
 		if(onawall != 0) && (!place_meeting(x,y+vsp,Obj_wall)) && (jump){
+			walljumpdelay = wlljumpdelaymax;
 			hsp = -onawall * hsp_wlljp;
 			vsp = vsp_wlljp;
-			
 		}
 		
 	}
