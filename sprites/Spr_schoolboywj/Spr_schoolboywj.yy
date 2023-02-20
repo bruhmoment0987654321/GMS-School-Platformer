@@ -3,7 +3,7 @@
   "resourceVersion": "1.0",
   "name": "Spr_schoolboywj",
   "bbox_bottom": 29,
-  "bbox_left": 9,
+  "bbox_left": 10,
   "bbox_right": 31,
   "bbox_top": 6,
   "bboxMode": 0,
@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "schoolboy",
+    "path": "folders/Sprites/schoolboy.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

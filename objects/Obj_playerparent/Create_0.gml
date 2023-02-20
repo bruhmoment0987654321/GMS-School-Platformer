@@ -17,8 +17,8 @@ grv_wall = 0.01; //gravity when you're on a wall
 
 //dash variables
 candash = false; //resets when touching ground
-dashdistance = 80; // how far the dash goes
-dashtime = 12; // the amount of time the dash is used
+dashdistance = 82; // how far the dash goes
+dashtime = 10; // the amount of time the dash is used
 
 //wall jump variables
 onawall = 0; //are we touching a wall?
@@ -104,38 +104,48 @@ stateFree = function(){
 
 }
 	
-	statedash = function(){
-	//move via the dash 
-	hsp = lengthdir_x(dashsp,dashdirection);
-	vsp = lengthdir_y(dashsp,dashdirection);
+statedash = function(){
+	#region dashing
+		//move via the dash 
+		hsp = lengthdir_x(dashsp,dashdirection);
+		vsp = lengthdir_y(dashsp,dashdirection);
 	
-	//horizontal collision
-	if (place_meeting(x+hsp,y,Obj_wall)){
-		while(abs(hsp) > 0.1){
-			hsp *= 0.5;
-			if(!place_meeting(x+hsp,y,Obj_wall)) x +=hsp;
+		//trail effect
+	
+		with (instance_create_depth(x,y,depth+1,Obj_trail)){
+			sprite_index = other.sprite_index;
+			image_blend = #09E444;
+			image_alpha = 0.9;
 		}
-		hsp = 0;
-	}
-	x += hsp; 
+	
+		//horizontal collision
+		if (place_meeting(x+hsp,y,Obj_wall)){
+			while(abs(hsp) > 0.1){
+				hsp *= 0.5;
+				if(!place_meeting(x+hsp,y,Obj_wall)) x +=hsp;
+			}
+			hsp = 0;
+		}
+		x += hsp; 
 
-	//vertical collision
-	if (place_meeting(x,y+vsp,Obj_wall)){
-		while (abs(vsp) > 0.1){
-			vsp *= 0.5;
-			if(!place_meeting(x,y+vsp,Obj_wall)) y += vsp
+		//vertical collision
+		if (place_meeting(x,y+vsp,Obj_wall)){
+			while (abs(vsp) > 0.1){
+				vsp *= 0.5;
+				if(!place_meeting(x,y+vsp,Obj_wall)) y += vsp
+			}
+			vsp = 0;
 		}
-		vsp = 0;
-	}
-	y += vsp;
+		y += vsp;
 	
-	//ending the dash
-	dashenergy -= dashsp;
-	if (dashenergy <= 0){
-		vsp = 0;
-		hsp = 0;
-		state = stateFree;
-	}
+		//ending the dash
+		dashenergy -= dashsp;
+		if (dashenergy <= 0){
+			vsp = 0;
+			hsp = 0;
+			state = stateFree;
+		}
+	#endregion
 }
 	
 state = stateFree;
