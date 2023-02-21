@@ -1,8 +1,11 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "Obj_playerparent",
-  "spriteId": null,
+  "name": "Obj_bigman",
+  "spriteId": {
+    "name": "bIG_man",
+    "path": "sprites/bIG_man/bIG_man.yy",
+  },
   "solid": false,
   "visible": true,
   "managed": true,
@@ -24,11 +27,12 @@
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":58,"eventType":7,"collisionObjectId":null,},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "player(s)",
-    "path": "folders/Objects/player(s).yy",
+    "name": "Enemies",
+    "path": "folders/Objects/Enemies.yy",
   },
 }

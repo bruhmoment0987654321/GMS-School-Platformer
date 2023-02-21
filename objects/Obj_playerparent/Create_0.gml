@@ -26,6 +26,10 @@ slimeprts = 0; //slime particles
 walljumpdelay = 0; //removing movement to the player when wall jumping
 wlljumpdelaymax = 18; //time of removing movement during the wall jump
 
+//health variables
+HP = 6; //how much health the player has
+HP_max = 6; //the max amount of health the player can have
+
 
 stateFree = function(){
 	#region movement

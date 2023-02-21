@@ -1,8 +1,11 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "Obj_playerparent",
-  "spriteId": null,
+  "name": "Obj_health",
+  "spriteId": {
+    "name": "Spr_health_strip2",
+    "path": "sprites/Spr_health_strip2/Spr_health_strip2.yy",
+  },
   "solid": false,
   "visible": true,
   "managed": true,
@@ -21,14 +24,11 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,},
-  ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "player(s)",
-    "path": "folders/Objects/player(s).yy",
+    "name": "Objects and game assests",
+    "path": "folders/Objects/Objects and game assests.yy",
   },
 }
