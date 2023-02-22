@@ -1,7 +1,10 @@
 //horizontal speed variables 
 hsp = 0; //current horizontal speed
-walksp = 2.5; //how fast the player goes
+max_hsp = 3;
+walksp = 0.7; //how fast the player goes
 hsp_wlljp = 3.5; //speed of how far you go in wall jump
+//friction
+friction_ = 0.2; //this slows you down if you're not moving
 
 //vertical speed variables
 vsp = 0; //current vertical speed
@@ -12,7 +15,7 @@ vspjump = -3.9; //how high the player jumps
 canjump = 0; //are we touching the ground?
 
 //gravity variables
-grv = 0.2; //gravity
+global.grv = 0.2; //gravity
 grv_wall = 0.01; //gravity when you're on a wall
 
 //dash variables
@@ -29,7 +32,9 @@ wlljumpdelaymax = 18; //time of removing movement during the wall jump
 //health variables
 HP = 6; //how much health the player has
 HP_max = 6; //the max amount of health the player can have
-
+invincibility = false; //if you got hit or not and gives you iframes
+invincible_timer = 20; //how long the iframes last
+blinktimer = invincible_timer; //the player flashes white when hit
 
 stateFree = function(){
 	#region movement
@@ -37,10 +42,11 @@ stateFree = function(){
 	if (walljumpdelay == 0){
 		//horizontal movement
 		var move = right - left;
-		if (!run){
-			hsp = move*walksp;
+		if (move !=0){
+			hsp += move*walksp;
+			hsp = clamp(hsp,-max_hsp,max_hsp);
 		}else{
-			hsp = move*(walksp+1);
+			hsp = lerp(hsp,0,friction_);
 		}
 	}
 	//wall jump 
@@ -53,7 +59,7 @@ stateFree = function(){
 		
 	}
 	//gravity
-	var grv_final = grv;
+	var grv_final = global.grv;
 	var vsp_max_final = vsp_max;
 	if (onawall != 0) && (vsp > 0){
 		grv_final = grv_wall;
@@ -107,7 +113,9 @@ stateFree = function(){
 	#endregion
 
 }
+stateHit = function(){
 	
+}
 statedash = function(){
 	#region dashing
 		//move via the dash 
