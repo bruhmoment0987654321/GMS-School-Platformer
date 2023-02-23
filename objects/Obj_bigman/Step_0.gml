@@ -6,6 +6,13 @@ if (place_meeting(x,y-10,Obj_slime)){
 	hp -= 1;	
 }
 
+if (place_meeting(x+(sign(Obj_slime.hsp)),y,Obj_slime)){
+	if (Obj_slime.dashkill == true){
+		sprite_index = Spr_bigmanhit;
+		if(Obj_slime.hsp != 0) image_xscale = sign(Obj_slime.hsp)
+}	
+}
+
 //animations
 if (!place_meeting(x,y+1,Obj_wall)){
 		slimeprts = 0;

@@ -41,7 +41,6 @@ stateFree = function(){
 	#endregion
 }
 stateDead = function(){
-	instance_create_layer(x,y,"Behind",Obj_pop);
 	instance_destroy();
 }
 	

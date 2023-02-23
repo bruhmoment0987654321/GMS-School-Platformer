@@ -1,7 +1,8 @@
 //horizontal speed variables 
 hsp = 0; //current horizontal speed
-max_hsp = 3;
+max_hsp = 3; //the max horizontal speed you go
 walksp = 0.7; //how fast the player goes
+runsp = 1; // how fast you can go while running
 hsp_wlljp = 3.5; //speed of how far you go in wall jump
 //friction
 friction_ = 0.2; //this slows you down if you're not moving
@@ -22,6 +23,7 @@ grv_wall = 0.01; //gravity when you're on a wall
 candash = false; //resets when touching ground
 dashdistance = 82; // how far the dash goes
 dashtime = 10; // the amount of time the dash is used
+dashkill = false;
 
 //wall jump variables
 onawall = 0; //are we touching a wall?
@@ -33,7 +35,7 @@ wlljumpdelaymax = 18; //time of removing movement during the wall jump
 HP = 6; //how much health the player has
 HP_max = 6; //the max amount of health the player can have
 invincibility = false; //if you got hit or not and gives you iframes
-invincible_timer = 20; //how long the iframes last
+invincible_timer = 60; //how long the iframes last
 blinktimer = invincible_timer; //the player flashes white when hit
 
 stateFree = function(){
@@ -43,9 +45,24 @@ stateFree = function(){
 		//horizontal movement
 		var move = right - left;
 		if (move !=0){
-			hsp += move*walksp;
+			if (!run){
+				hsp += move*walksp;
+			}else{
+				hsp += move*runsp;
+				max_hsp = 5;
+			}
 			hsp = clamp(hsp,-max_hsp,max_hsp);
 		}else{
+			if(image_xscale = 1){
+				if(hsp < 0.1){
+					hsp = 0;	
+				}
+			}
+			if(image_xscale = -1){
+				if(hsp < -0.1){
+					hsp = 0;	
+				}
+			}
 			hsp = lerp(hsp,0,friction_);
 		}
 	}
@@ -76,6 +93,7 @@ stateFree = function(){
 	//dash input
 	if (inputs) && (candash) && (dash){
 		candash = false;
+		dashkill = true;
 		canjump = 0;
 		dashdirection = point_direction(0,0, right-left,down-up);
 		dashsp = dashdistance/dashtime;
@@ -123,7 +141,6 @@ statedash = function(){
 		vsp = lengthdir_y(dashsp,dashdirection);
 	
 		//trail effect
-	
 		with (instance_create_depth(x,y,depth+1,Obj_trail)){
 			sprite_index = other.sprite_index;
 			image_blend = #09E444;
@@ -153,6 +170,7 @@ statedash = function(){
 		//ending the dash
 		dashenergy -= dashsp;
 		if (dashenergy <= 0){
+			dashkill = false;
 			vsp = 0;
 			hsp = 0;
 			state = stateFree;
