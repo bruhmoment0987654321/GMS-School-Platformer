@@ -1,32 +1,60 @@
-// Inherit the parent event
-event_inherited();
-
-//when hit?
-if (place_meeting(x,y-10,Obj_slime)){
-	hp -= 1;	
-}
-
-if (place_meeting(x+(sign(Obj_slime.hsp)),y,Obj_slime)){
-	if (Obj_slime.dashkill == true){
+switch(_state){
+	case ("WALK"):
+		sprite_index = Spr_bIGmanwalk;
+		image_speed = animationspeed;
+		//movement
+		hsp = dir*maxSpeed;
+		
+	break;
+	
+	case ("DASHED"):
 		sprite_index = Spr_bigmanhit;
-		if(Obj_slime.hsp != 0) image_xscale = sign(Obj_slime.hsp)
-}	
+		if (Obj_slime.x<x){
+			hsp = 10;
+			vsp = -10;
+		}else{
+			hsp = -10;
+			vsp = -10;
+		}
+	break;
+	
+		case ("SHOT"):
+		sprite_index = Spr_bigmanhit;
+		if (Obj_slime.x<x){
+			hsp = 10;
+			vsp = -10;
+		}else{
+			hsp = -10;
+			vsp = -10;
+		}
+	break;
+	
+	case ("STOMPED"):
+		sprite_index = Spr_bIGmanstomp;
+		hsp = 0; 
+		vsp = 0;
+	break;
 }
 
-//animations
-if (!place_meeting(x,y+1,Obj_wall)){
-		slimeprts = 0;
-		sprite_index = Spr_bIGmanjump;
-		image_speed = 0;
-		if (sign(vsp) > 0) image_index = 1;	else image_index = 0; 
-}else{
-	image_speed = 1;
-	if (hsp == 0){
-		sprite_index = Spr_bIGmanidle;	
-	 }else{
-		 sprite_index = Spr_bIGmanwalk;
-		 
-	 }
-}
+//gravity
+if (vsp < 5) vsp += global.grv;
 
-if (hsp != 0) image_xscale = sign(hsp);
+//collisions
+	//horizontal collision
+	if (place_meeting(x+hsp,y,Obj_wall)){
+		dir *= -1;
+	}
+
+	//vertical collision
+	if (place_meeting(x,y+vsp,Obj_wall)){
+		while (abs(vsp) > 0.1){
+			vsp *= 0.5;
+			if(!place_meeting(x,y+vsp,Obj_wall)) y += vsp
+		}
+		vsp = 0;
+	}
+	if(hsp != 0){
+	image_xscale = -sign(hsp);
+	}
+	x += hsp; 
+	y += vsp;

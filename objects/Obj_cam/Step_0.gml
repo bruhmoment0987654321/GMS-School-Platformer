@@ -3,8 +3,8 @@ if (follow != noone){
 	yTo = follow.y;
 }
 
-global.xcam = clamp(xTo - camW/2,0,room_width-camW);
-global.ycam = clamp(yTo - camH/2,0,room_height-camH);
+global.xcam = clamp(xTo - global.camW/2,0,room_width-global.camW);
+global.ycam = clamp(yTo - global.camH/2,0,room_height-global.camH);
 
 curx = camera_get_view_x(view_camera[0]);
 cury = camera_get_view_y(view_camera[0]);

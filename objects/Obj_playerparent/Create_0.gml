@@ -23,7 +23,7 @@ grv_wall = 0.01; //gravity when you're on a wall
 candash = false; //resets when touching ground
 dashdistance = 82; // how far the dash goes
 dashtime = 10; // the amount of time the dash is used
-dashkill = false;
+dashhit = false;
 
 //wall jump variables
 onawall = 0; //are we touching a wall?
@@ -33,9 +33,12 @@ wlljumpdelaymax = 18; //time of removing movement during the wall jump
 
 //health variables
 HP = 6; //how much health the player has
-HP_max = 6; //the max amount of health the player can have
+HP_max = HP; //the max amount of health the player can have
+healthbar_x = 85;
+healthbar_y = 60;
+tears = 0; //crying particles
 invincibility = false; //if you got hit or not and gives you iframes
-invincible_timer = 60; //how long the iframes last
+invincible_timer = room_speed*1.5; //how long the iframes last
 blinktimer = invincible_timer; //the player flashes white when hit
 
 stateFree = function(){
@@ -59,7 +62,7 @@ stateFree = function(){
 				}
 			}
 			if(image_xscale = -1){
-				if(hsp < -0.1){
+				if(hsp > -0.1){
 					hsp = 0;	
 				}
 			}
@@ -93,7 +96,7 @@ stateFree = function(){
 	//dash input
 	if (inputs) && (candash) && (dash){
 		candash = false;
-		dashkill = true;
+		dashhit = true;
 		canjump = 0;
 		dashdirection = point_direction(0,0, right-left,down-up);
 		dashsp = dashdistance/dashtime;
@@ -131,9 +134,7 @@ stateFree = function(){
 	#endregion
 
 }
-stateHit = function(){
-	
-}
+
 statedash = function(){
 	#region dashing
 		//move via the dash 
@@ -170,7 +171,6 @@ statedash = function(){
 		//ending the dash
 		dashenergy -= dashsp;
 		if (dashenergy <= 0){
-			dashkill = false;
 			vsp = 0;
 			hsp = 0;
 			state = stateFree;

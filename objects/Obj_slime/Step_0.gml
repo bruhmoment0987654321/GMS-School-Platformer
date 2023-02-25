@@ -4,8 +4,29 @@ up = keyboard_check(ord("W"));
 down = keyboard_check(ord("S"));
 dash = keyboard_check_pressed(vk_enter);
 event_inherited();
-
-//animations
+//enemy collision
+if (place_meeting(x,y,Obj_enemypar)){
+	var _enemy = instance_place(x,y,Obj_enemypar)
+	if (y < _enemy.bbox_top +10) && (_enemy._state != "STOMPED"){ //if touched on top?
+		candash = true;
+		vsp = vspjump;
+		with(_enemy){
+			_state = "STOMPED";
+			alarm[0] = room_speed/2;
+		}
+	}else{ //if touched anywhere :L?
+		if (state == statedash){
+			with(_enemy){
+				_state = "DASHED";
+				alarm[0] = room_speed/3;
+			}
+			}else if(invincibility == false){
+				invincibility = true;
+				HP -= 1;
+		}
+	}
+}
+#region animations
 if (!place_meeting(x,y+1,Obj_wall)){
 	image_speed = 0;
 	if (dashtime > 0) && (dash){
@@ -58,6 +79,7 @@ if (!place_meeting(x,y+1,Obj_wall)){
 }
 
 if (hsp != 0) image_xscale = sign(hsp);
+#endregion
 
 
 

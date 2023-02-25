@@ -3,6 +3,20 @@ transform = keyboard_check_pressed(ord("T"));
 
 event_inherited();
 
+if (place_meeting(x,y,Obj_enemypar)){
+	var _enemy = instance_place(x,y,Obj_enemypar)
+	if (_enemy.hp <= 0) && (_enemy._state != "DEATH"){ //if hp = 0?
+		with(_enemy){
+			_state = "DEATH";
+			alarm[0] = room_speed/2;
+		}
+	}else{ //if touched anywhere :L?
+		if(invincibility == false){
+			invincibility = true;
+			HP -= 1;
+		}
+	}
+}
 //animations
 if (!place_meeting(x,y+1,Obj_wall)){
 	if (onawall != 0){

@@ -1,7 +1,9 @@
 //variables for cam 
+global.xcam = 0;
+global.ycam = 0;
 
-camW = 400;
-camH = 225;
+global.camW = 400;
+global.camH = 225;
 
 follow = Obj_playerparent;
 
