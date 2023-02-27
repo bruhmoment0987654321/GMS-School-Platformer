@@ -32,8 +32,8 @@ walljumpdelay = 0; //removing movement to the player when wall jumping
 wlljumpdelaymax = 18; //time of removing movement during the wall jump
 
 //health variables
-HP = 6; //how much health the player has
-HP_max = HP; //the max amount of health the player can have
+global.HP = 6; //how much health the player has
+HP_max = global.HP; //the max amount of health the player can have
 healthbar_x = 85;
 healthbar_y = 60;
 tears = 0; //crying particles

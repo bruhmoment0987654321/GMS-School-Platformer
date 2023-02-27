@@ -1,8 +1,11 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "Obj_trail",
-  "spriteId": null,
+  "name": "Obj_healthPickUp",
+  "spriteId": {
+    "name": "Spr_health_pickup",
+    "path": "sprites/Spr_health_pickup/Spr_health_pickup.yy",
+  },
   "solid": false,
   "visible": true,
   "managed": true,
@@ -22,12 +25,13 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"Obj_playerparent","path":"objects/Obj_playerparent/Obj_playerparent.yy",},},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "particle effects",
-    "path": "folders/Objects/particle effects.yy",
+    "name": "Objects and game assests",
+    "path": "folders/Objects/Objects and game assests.yy",
   },
 }

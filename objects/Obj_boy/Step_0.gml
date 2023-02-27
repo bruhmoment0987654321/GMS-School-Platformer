@@ -13,7 +13,7 @@ if (place_meeting(x,y,Obj_enemypar)){
 	}else{ //if touched anywhere :L?
 		if(invincibility == false){
 			invincibility = true;
-			HP -= 1;
+			global.HP -= 1;
 		}
 	}
 }
