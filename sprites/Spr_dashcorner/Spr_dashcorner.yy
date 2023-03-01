@@ -69,6 +69,6 @@
   "nineSlice": null,
   "parent": {
     "name": "slime",
-    "path": "folders/Sprites/slime.yy",
+    "path": "folders/Sprites/Player/slime.yy",
   },
 }

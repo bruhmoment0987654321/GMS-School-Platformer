@@ -83,6 +83,6 @@
   "nineSlice": null,
   "parent": {
     "name": "schoolboy",
-    "path": "folders/Sprites/schoolboy.yy",
+    "path": "folders/Sprites/Player/schoolboy.yy",
   },
 }
