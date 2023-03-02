@@ -30,14 +30,14 @@ if (place_meeting(x,y,Obj_bigman)){
 #endregion
 #region bat
 if (place_meeting(x,y,Obj_bat)){
-	var _enemy = instance_place(x,y,Obj_bat)
-	if (y < _enemy.bbox_top +10) && (_enemy._state != "STOMPED"){ //if touched on top?
-		candash = true;
-		vsp = vspjump;
-		with(_enemy){
+	var _enemy1 = instance_place(x,y,Obj_bat)
+	if (y < _enemy1.bbox_top+10) && (_enemy1._state != "STOMPED"){ //if touched on top?
+		with(_enemy1){
 			_state = "STOMPED";
 			alarm[0] = room_speed/2;
 		}
+		candash = true;
+		vsp = vspjump;
 	}else{ //if touched anywhere :L?
 		if(invincibility == false){
 				invincibility = true;

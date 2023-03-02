@@ -50,6 +50,7 @@ stateFree = function(){
 		if (move !=0){
 			if (!run){
 				hsp += move*walksp;
+				max_hsp = 3;
 			}else{
 				hsp += move*runsp;
 				max_hsp = 5;
