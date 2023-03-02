@@ -1,0 +1,1 @@
+instance_change(Obj_checkpoint,true);

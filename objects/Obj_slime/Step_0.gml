@@ -5,8 +5,9 @@ down = keyboard_check(ord("S"));
 dash = keyboard_check_pressed(vk_enter);
 event_inherited();
 //enemy collision
-if (place_meeting(x,y,Obj_enemypar)){
-	var _enemy = instance_place(x,y,Obj_enemypar)
+#region big man
+if (place_meeting(x,y,Obj_bigman)){
+	var _enemy = instance_place(x,y,Obj_bigman)
 	if (y < _enemy.bbox_top +10) && (_enemy._state != "STOMPED"){ //if touched on top?
 		candash = true;
 		vsp = vspjump;
@@ -26,6 +27,25 @@ if (place_meeting(x,y,Obj_enemypar)){
 		}
 	}
 }
+#endregion
+#region bat
+if (place_meeting(x,y,Obj_bat)){
+	var _enemy = instance_place(x,y,Obj_bat)
+	if (y < _enemy.bbox_top +10) && (_enemy._state != "STOMPED"){ //if touched on top?
+		candash = true;
+		vsp = vspjump;
+		with(_enemy){
+			_state = "STOMPED";
+			alarm[0] = room_speed/2;
+		}
+	}else{ //if touched anywhere :L?
+		if(invincibility == false){
+				invincibility = true;
+				global.HP -= 1;
+		}
+	}
+}
+#endregion
 #region animations
 if (!place_meeting(x,y+1,Obj_wall)){
 	image_speed = 0;

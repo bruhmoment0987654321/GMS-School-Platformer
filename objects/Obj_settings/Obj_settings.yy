@@ -10,7 +10,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "menu system",
-    "path": "folders/Objects/Objects and game assests/menu system.yy",
+    "path": "folders/Objects/Objects and game assests/GUI & essencials/menu system.yy",
   },
   "parentObjectId": null,
   "persistent": true,
