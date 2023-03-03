@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "Obj_teleout",
+  "name": "Obj_solid",
   "eventList": [],
   "managed": true,
   "overriddenProperties": [],
@@ -9,10 +9,7 @@
     "name": "outside objects",
     "path": "folders/Objects/Objects and game assests/outside objects.yy",
   },
-  "parentObjectId": {
-    "name": "Obj_solid",
-    "path": "objects/Obj_solid/Obj_solid.yy",
-  },
+  "parentObjectId": null,
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
@@ -28,10 +25,7 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": {
-    "name": "Spr_tele_out",
-    "path": "sprites/Spr_tele_out/Spr_tele_out.yy",
-  },
+  "spriteId": null,
   "spriteMaskId": null,
   "visible": true,
 }

@@ -110,24 +110,25 @@ stateFree = function(){
 		image_speed = 2;	
 	}
 	//horizontal collision
-	if (place_meeting(x+hsp,y,Obj_wall)){
+	if (place_meeting(x+hsp,y,Obj_solid)){
 		while(abs(hsp) > 0.1){
 			hsp *= 0.5;
-			if(!place_meeting(x+hsp,y,Obj_wall)) x +=hsp;
+			if(!place_meeting(x+hsp,y,Obj_solid)) x += hsp;
 		}
 		hsp = 0;
 	}
 	x += hsp; 
 
 	//vertical collision
-	if (place_meeting(x,y+vsp,Obj_wall)){
+	//walls
+	if (place_meeting(x,y+vsp,Obj_solid)){
 		if(vsp>0){
 			candash = true;
 			canjump = 7;
 		}
 		while (abs(vsp) > 0.1){
 			vsp *= 0.5;
-			if(!place_meeting(x,y+vsp,Obj_wall)) y += vsp
+			if(!place_meeting(x,y+vsp,Obj_solid)) y += vsp
 		}
 		vsp = 0;
 	}
@@ -148,8 +149,8 @@ statedash = function(){
 			image_blend = #09E444;
 			image_alpha = 0.9;
 		}
-	
-		//horizontal collision
+		//wall
+		//horizontal collision 
 		if (place_meeting(x+hsp,y,Obj_wall)){
 			while(abs(hsp) > 0.1){
 				hsp *= 0.5;
@@ -168,6 +169,13 @@ statedash = function(){
 			vsp = 0;
 		}
 		y += vsp;
+		
+		if (place_meeting(x,y,Obj_hardwall)){
+			var _break = instance_place(x,y,Obj_hardwall);
+			with(_break){
+				instance_destroy();	
+			}
+		}
 	
 		//ending the dash
 		dashenergy -= dashsp;

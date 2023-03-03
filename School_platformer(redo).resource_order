@@ -68,6 +68,7 @@
     {"name":"Obj_wall","order":4,"path":"objects/Obj_wall/Obj_wall.yy",},
     {"name":"Spr_dashsideup","order":11,"path":"sprites/Spr_dashsideup/Spr_dashsideup.yy",},
     {"name":"Rm_level1","order":3,"path":"rooms/Rm_level1/Rm_level1.yy",},
+    {"name":"Obj_solid","order":10,"path":"objects/Obj_solid/Obj_solid.yy",},
     {"name":"Spr_wall","order":5,"path":"sprites/Spr_wall/Spr_wall.yy",},
     {"name":"Spr_Ground_bg","order":1,"path":"sprites/Spr_Ground_bg/Spr_Ground_bg.yy",},
     {"name":"Spr_schoolboyjump","order":1,"path":"sprites/Spr_schoolboyjump/Spr_schoolboyjump.yy",},

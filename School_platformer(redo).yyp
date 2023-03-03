@@ -98,6 +98,7 @@
     {"id":{"name":"Obj_bigman","path":"objects/Obj_bigman/Obj_bigman.yy",},"order":0,},
     {"id":{"name":"Spr_dashsideup","path":"sprites/Spr_dashsideup/Spr_dashsideup.yy",},"order":11,},
     {"id":{"name":"Rm_level1","path":"rooms/Rm_level1/Rm_level1.yy",},"order":3,},
+    {"id":{"name":"Obj_solid","path":"objects/Obj_solid/Obj_solid.yy",},"order":10,},
     {"id":{"name":"Spr_wall","path":"sprites/Spr_wall/Spr_wall.yy",},"order":5,},
     {"id":{"name":"Spr_Ground_bg","path":"sprites/Spr_Ground_bg/Spr_Ground_bg.yy",},"order":1,},
     {"id":{"name":"Spr_schoolboyjump","path":"sprites/Spr_schoolboyjump/Spr_schoolboyjump.yy",},"order":1,},

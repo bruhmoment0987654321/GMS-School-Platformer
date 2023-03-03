@@ -1,6 +1,3 @@
-// Inherit the parent event
-transform = keyboard_check_pressed(ord("T"));
-
 event_inherited();
 
 if (place_meeting(x,y,Obj_enemypar)){
@@ -40,10 +37,7 @@ if (!place_meeting(x,y+1,Obj_wall)){
 }else{
 	image_speed = 1;
 	if (hsp == 0){
-		sprite_index = Spr_schoolboy;	
-		if (transform) && (vsp == 0){
-			instance_change(Obj_transfoslime,true);
-	}
+		sprite_index = Spr_schoolboy;
 	 }else{
 		 sprite_index = Spr_schoolboyrun;
 		 

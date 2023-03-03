@@ -9,7 +9,10 @@
     "name": "outside objects",
     "path": "folders/Objects/Objects and game assests/outside objects.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "Obj_solid",
+    "path": "objects/Obj_solid/Obj_solid.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,

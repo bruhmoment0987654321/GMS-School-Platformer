@@ -1,5 +1,4 @@
 // Inherit the parent event
-transform = keyboard_check_pressed(ord("T"));
 up = keyboard_check(ord("W"));
 down = keyboard_check(ord("S"));
 dash = keyboard_check_pressed(vk_enter);
@@ -7,7 +6,7 @@ event_inherited();
 //enemy collision
 #region big man
 if (place_meeting(x,y,Obj_bigman)){
-	var _enemy = instance_place(x,y,Obj_bigman)
+	var _enemy = instance_place(x,y,Obj_bigman);
 	if (y < _enemy.bbox_top +10) && (_enemy._state != "STOMPED"){ //if touched on top?
 		candash = true;
 		vsp = vspjump;
@@ -47,7 +46,7 @@ if (place_meeting(x,y,Obj_bat)){
 }
 #endregion
 #region animations
-if (!place_meeting(x,y+1,Obj_wall)){
+if (!place_meeting(x,y+1,Obj_solid)){
 	image_speed = 0;
 	if (dashtime > 0) && (dash){
 		if (left){
@@ -88,10 +87,6 @@ if (!place_meeting(x,y+1,Obj_wall)){
 	image_speed = 1;
 	if (hsp == 0){
 		sprite_index = Spr_slimeidle;	
-		//transforming character
-		if (transform) && (vsp == 0){
-			instance_change(Obj_transfoman,true);
-		}
 	 }else{
 		 sprite_index = Spr_slimewalk;
 		 
