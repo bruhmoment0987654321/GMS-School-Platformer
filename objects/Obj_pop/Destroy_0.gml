@@ -1,0 +1,1 @@
+Obj_spawner.spawn -= 1;

@@ -12,11 +12,11 @@ vsp = 0; //current vertical speed
 vsp_wlljp = -4; //how high you go up during the wall jump
 vsp_max = 10; //max speed when falling
 vsp_max_wall = 4; //max speed when falling during wall jump
-vspjump = -3.9; //how high the player jumps
+vspjump = -4.9; //how high the player jumps
 canjump = 0; //are we touching the ground?
 
 //gravity variables
-global.grv = 0.2; //gravity
+global.grv = 0.3; //gravity
 grv_wall = 0.01; //gravity when you're on a wall
 
 //dash variables
@@ -32,16 +32,18 @@ walljumpdelay = 0; //removing movement to the player when wall jumping
 wlljumpdelaymax = 18; //time of removing movement during the wall jump
 
 //health variables
-global.HP = 6; //how much health the player has
+global.HP = 3; //how much health the player has
 HP_max = global.HP; //the max amount of health the player can have
-healthbar_x = 85;
-healthbar_y = 60;
 tears = 0; //crying particles
 invincibility = false; //if you got hit or not and gives you iframes
 invincible_timer = room_speed*1.5; //how long the iframes last
 blinktimer = invincible_timer; //the player flashes white when hit
+slime_splat = 0; //used when you die and game over screen
 
 stateFree = function(){
+	if(global.HP <= 0){
+		state = stateDead;	
+	}
 	#region movement
 	walljumpdelay = max(walljumpdelay - 1,0);
 	if (walljumpdelay == 0){
@@ -109,6 +111,7 @@ stateFree = function(){
 		if (run){
 		image_speed = 2;	
 	}
+	//solid collision
 	//horizontal collision
 	if (place_meeting(x+hsp,y,Obj_solid)){
 		while(abs(hsp) > 0.1){
@@ -117,10 +120,8 @@ stateFree = function(){
 		}
 		hsp = 0;
 	}
-	x += hsp; 
 
 	//vertical collision
-	//walls
 	if (place_meeting(x,y+vsp,Obj_solid)){
 		if(vsp>0){
 			candash = true;
@@ -132,11 +133,11 @@ stateFree = function(){
 		}
 		vsp = 0;
 	}
+	x += hsp; 
 	y += vsp;
 	#endregion
 
 }
-
 statedash = function(){
 	#region dashing
 		//move via the dash 
@@ -186,5 +187,17 @@ statedash = function(){
 		}
 	#endregion
 }
-	
+stateDead = function(){
+	hsp = 0;
+	vsp = 0;
+	//cause of splatter and death screen
+	if(slime_splat <= 0){
+		image_alpha = 0;
+		repeat(10){
+			instance_create_layer(global.curx,global.cury,"Behind",Obj_slimesplatter);
+		}
+		slime_splat = 1;
+	}
+	Obj_game.timer--;
+}
 state = stateFree;

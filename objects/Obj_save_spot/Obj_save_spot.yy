@@ -8,8 +8,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "outside objects",
-    "path": "folders/Objects/Objects and game assests/outside objects.yy",
+    "name": "visible",
+    "path": "folders/Objects/Objects and game assests/outside objects/visible.yy",
   },
   "parentObjectId": null,
   "persistent": false,

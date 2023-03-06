@@ -1,5 +1,5 @@
 //variables for cam 
-global.xcam = 0;
+xcam = 0;
 global.ycam = 0;
 
 global.camW = 400;

@@ -6,8 +6,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "outside objects",
-    "path": "folders/Objects/Objects and game assests/outside objects.yy",
+    "name": "invisible",
+    "path": "folders/Objects/Objects and game assests/outside objects/invisible.yy",
   },
   "parentObjectId": {
     "name": "Obj_solid",

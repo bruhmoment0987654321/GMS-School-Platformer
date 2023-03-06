@@ -41,15 +41,15 @@ if (vsp < 5) vsp += global.grv;
 
 //collisions
 	//horizontal collision
-	if (place_meeting(x+hsp,y,Obj_wall)){
+	if (place_meeting(x+hsp,y,Obj_solid)){
 		dir *= -1;
 	}
 
 	//vertical collision
-	if (place_meeting(x,y+vsp,Obj_wall)){
+	if (place_meeting(x,y+vsp,Obj_solid)){
 		while (abs(vsp) > 0.1){
 			vsp *= 0.5;
-			if(!place_meeting(x,y+vsp,Obj_wall)) y += vsp
+			if(!place_meeting(x,y+vsp,Obj_solid)) y += vsp
 		}
 		vsp = 0;
 	}
