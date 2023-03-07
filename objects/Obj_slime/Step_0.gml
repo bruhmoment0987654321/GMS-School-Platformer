@@ -1,7 +1,4 @@
 // Inherit the parent event
-up = keyboard_check(ord("W"));
-down = keyboard_check(ord("S"));
-dash = keyboard_check_pressed(vk_enter);
 event_inherited();
 //enemy collision
 #region big man
@@ -53,7 +50,7 @@ if (place_meeting(x,y,Obj_bat)){
 #region animations
 if (!place_meeting(x,y+1,Obj_solid)){
 	image_speed = 0;
-	if (dashtime > 0) && (dash){
+	if (dashtime > 0) && (dashshoot){
 		if (left){
 			sprite_index = Spr_dashsideleft;
 		}

@@ -1,13 +1,15 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "Obj_start",
-  "eventList": [],
+  "name": "Obj_paperball",
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
+  ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "essiencials",
-    "path": "folders/Objects/Objects and game assests/GUI & essencials/essiencials.yy",
+    "name": "paper ball",
+    "path": "folders/Objects/player(s)/paper ball.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -25,7 +27,10 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": null,
+  "spriteId": {
+    "name": "Spr_paperball",
+    "path": "sprites/Spr_paperball/Spr_paperball.yy",
+  },
   "spriteMaskId": null,
   "visible": true,
 }

@@ -19,10 +19,10 @@ canjump = 0; //are we touching the ground?
 global.grv = 0.3; //gravity
 grv_wall = 0.01; //gravity when you're on a wall
 
-//dash variables
+//dashshoot variables
 candash = false; //resets when touching ground
-dashdistance = 82; // how far the dash goes
-dashtime = 10; // the amount of time the dash is used
+dashdistance = 82; // how far the dashshoot goes
+dashtime = 10; // the amount of time the dashshoot is used
 dashhit = false;
 
 //wall jump variables
@@ -30,6 +30,11 @@ onawall = 0; //are we touching a wall?
 slimeprts = 0; //slime particles
 walljumpdelay = 0; //removing movement to the player when wall jumping
 wlljumpdelaymax = 18; //time of removing movement during the wall jump
+
+//shoot variables
+shoot = false;
+global.ammo = 0;
+shootdelay = 7;
 
 //health variables
 global.HP = 3; //how much health the player has
@@ -46,6 +51,7 @@ stateFree = function(){
 	}
 	#region movement
 	walljumpdelay = max(walljumpdelay - 1,0);
+	shootdelay = max(shootdelay - 1,0);
 	if (walljumpdelay == 0){
 		//horizontal movement
 		var move = right - left;
@@ -91,20 +97,37 @@ stateFree = function(){
 	vsp += grv_final;
 	vsp = clamp(vsp,-vsp_max_final,vsp_max_final);
 	//jump
-	if (canjump -- > 0)&& (jump){
+	if (canjump -- > 0) && (jump){
 		vsp = vspjump;
 		canjump = 0;
 	}
 	
+	//shoot inputs
+	if(object_index = Obj_boy){
+		if(place_meeting(x,y,Obj_paper)){
+			shoot = true;	
+		}
+	}
+	
+	if(shoot == true){
+		if(shootdelay == 0){
+			if(dashshoot){
+				instance_create_layer(x,y,"Player",Obj_paperball);
+			}
+		}
+	}
+	
 	//dash input
-	if (inputs) && (candash) && (dash){
-		candash = false;
-		dashhit = true;
-		canjump = 0;
-		dashdirection = point_direction(0,0, right-left,down-up);
-		dashsp = dashdistance/dashtime;
-		dashenergy = dashdistance;
-		state = statedash;
+	if(object_index = Obj_slime){
+		if (inputs) && (candash) && (dashshoot){
+			candash = false;
+			dashhit = true;
+			canjump = 0;
+			dashdirection = point_direction(0,0, right-left,down-up);
+			dashsp = dashdistance/dashtime;
+			dashenergy = dashdistance;
+			state = statedash;
+		}
 	}
 
 	//run animation
@@ -140,7 +163,7 @@ stateFree = function(){
 }
 statedash = function(){
 	#region dashing
-		//move via the dash 
+		//move via the dashshoot 
 		hsp = lengthdir_x(dashsp,dashdirection);
 		vsp = lengthdir_y(dashsp,dashdirection);
 	
@@ -178,7 +201,7 @@ statedash = function(){
 		}
 		y += vsp;
 	
-		//ending the dash
+		//ending the dashshoot
 		dashenergy -= dashsp;
 		if (dashenergy <= 0){
 			vsp = 0;
