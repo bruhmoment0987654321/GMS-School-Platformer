@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "invisible",
-    "path": "folders/Sprites/outside objects/invisible.yy",
+    "name": "visible",
+    "path": "folders/Sprites/outside objects/visible.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

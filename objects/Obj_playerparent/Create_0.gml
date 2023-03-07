@@ -150,33 +150,33 @@ statedash = function(){
 			image_blend = #09E444;
 			image_alpha = 0.9;
 		}
-		//wall
-		//horizontal collision 
-		if (place_meeting(x+hsp,y,Obj_wall)){
-			while(abs(hsp) > 0.1){
-				hsp *= 0.5;
-				if(!place_meeting(x+hsp,y,Obj_wall)) x +=hsp;
-			}
-			hsp = 0;
-		}
-		x += hsp; 
 
-		//vertical collision
-		if (place_meeting(x,y+vsp,Obj_wall)){
-			while (abs(vsp) > 0.1){
-				vsp *= 0.5;
-				if(!place_meeting(x,y+vsp,Obj_wall)) y += vsp
-			}
-			vsp = 0;
-		}
-		y += vsp;
-		
 		if (place_meeting(x,y,Obj_hardwall)){
 			var _break = instance_place(x,y,Obj_hardwall);
 			with(_break){
 				instance_destroy();	
 			}
 		}
+		//wall
+		//horizontal collision 
+		if (place_meeting(x+hsp,y,Obj_solid)){
+			while(abs(hsp) > 0.1){
+				hsp *= 0.5;
+				if(!place_meeting(x+hsp,y,Obj_solid)) x +=hsp;
+			}
+			hsp = 0;
+		}
+		x += hsp; 
+
+		//vertical collision
+		if (place_meeting(x,y+vsp,Obj_solid)){
+			while (abs(vsp) > 0.1){
+				vsp *= 0.5;
+				if(!place_meeting(x,y+vsp,Obj_solid)) y += vsp
+			}
+			vsp = 0;
+		}
+		y += vsp;
 	
 		//ending the dash
 		dashenergy -= dashsp;

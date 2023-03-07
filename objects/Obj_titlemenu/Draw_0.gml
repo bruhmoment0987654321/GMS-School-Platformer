@@ -9,8 +9,8 @@ for (var i = 0; i < op_length; i++){
 	var op_w = string_width(options[menu_level,i]);
 	new_w = max(new_w,op_w);
 }
-width = (new_w + op_border*2)/200;
-height = (op_border *2 + string_height(options[0,0]) + (op_length-1)*op_space)/200;
+width = (new_w + op_border*2)/40;
+height = (op_border *2 + string_height(options[0,0]) + (op_length-1)*op_space)/45;
 
 //draw the menu background
 draw_sprite_ext(sprite_index,0,x,y,width,height,0,c_white,1);
