@@ -30,8 +30,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "Menu System",
-    "path": "folders/Sprites/Menu System.yy",
+    "name": "visible",
+    "path": "folders/Sprites/outside objects/visible.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

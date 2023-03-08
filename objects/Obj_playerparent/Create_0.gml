@@ -29,12 +29,12 @@ dashhit = false;
 onawall = 0; //are we touching a wall?
 slimeprts = 0; //slime particles
 walljumpdelay = 0; //removing movement to the player when wall jumping
-wlljumpdelaymax = 18; //time of removing movement during the wall jump
+walljumpdelaymax = 18; //time of removing movement during the wall jump
 
 //shoot variables
-shoot = false;
-global.ammo = 0;
-shootdelay = 7;
+global.ammo = 0; //how much ammo the boy has
+shootdelay = 0; // the cooldown of shooting the balls
+shootdelaymax = 7; 
 
 //health variables
 global.HP = 3; //how much health the player has
@@ -81,7 +81,7 @@ stateFree = function(){
 	//wall jump 
 	if (object_index = Obj_boy){
 		if(onawall != 0) && (!place_meeting(x,y+vsp,Obj_wall)) && (jump){
-			walljumpdelay = wlljumpdelaymax;
+			walljumpdelay = walljumpdelaymax;
 			hsp = -onawall * hsp_wlljp;
 			vsp = vsp_wlljp;
 		}
@@ -105,14 +105,15 @@ stateFree = function(){
 	//shoot inputs
 	if(object_index = Obj_boy){
 		if(place_meeting(x,y,Obj_paper)){
-			shoot = true;	
+				global.ammo += 1;
 		}
 	}
 	
-	if(shoot == true){
+	if(global.ammo > 0){
 		if(shootdelay == 0){
 			if(dashshoot){
 				instance_create_layer(x,y,"Player",Obj_paperball);
+				shootdelay = shootdelaymax;
 			}
 		}
 	}
@@ -216,7 +217,7 @@ stateDead = function(){
 	//cause of splatter and death screen
 	if(slime_splat <= 0){
 		image_alpha = 0;
-		repeat(10){
+		repeat(15){
 			instance_create_layer(global.curx,global.cury,"Behind",Obj_slimesplatter);
 		}
 		slime_splat = 1;

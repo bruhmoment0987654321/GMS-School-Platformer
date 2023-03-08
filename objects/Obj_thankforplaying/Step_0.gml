@@ -9,9 +9,6 @@ if(place_meeting(x+hsp,y,Obj_solid)){
 	hsp = -hsp;
 }
 
-if(x > 466){
-	goodbye = true;	
-}
 vsp += global.grv;
 x += hsp;
 y += vsp;
