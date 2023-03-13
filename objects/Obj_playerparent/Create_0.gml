@@ -2,7 +2,7 @@
 hsp = 0; //current horizontal speed
 max_hsp = 3; //the max horizontal speed you go
 walksp = 0.7; //how fast the player goes
-runsp = 1; // how fast you can go while running
+runsp = 1.3; // how fast you can go while running
 hsp_wlljp = 3.5; //speed of how far you go in wall jump
 //friction
 friction_ = 0.2; //this slows you down if you're not moving
@@ -10,20 +10,20 @@ friction_ = 0.2; //this slows you down if you're not moving
 //vertical speed variables
 vsp = 0; //current vertical speed
 vsp_wlljp = -4; //how high you go up during the wall jump
-vsp_max = 10; //max speed when falling
+vsp_max = 15; //max speed when falling
 vsp_max_wall = 4; //max speed when falling during wall jump
-vspjump = -4.9; //how high the player jumps
+vspjump = -6.5; //how high the player jumps
 canjump = 0; //are we touching the ground?
 
 //gravity variables
 global.grv = 0.3; //gravity
 grv_wall = 0.01; //gravity when you're on a wall
 
-//dashshoot variables
+//dash variables
 candash = false; //resets when touching ground
-dashdistance = 82; // how far the dashshoot goes
-dashtime = 10; // the amount of time the dashshoot is used
-dashhit = false;
+dashdistance = 82; // how far the dash goes
+dashdisrun = 1.3; //
+dashtime = 10; // the amount of time the dash is used
 
 //wall jump variables
 onawall = 0; //are we touching a wall?
@@ -31,14 +31,19 @@ slimeprts = 0; //slime particles
 walljumpdelay = 0; //removing movement to the player when wall jumping
 walljumpdelaymax = 18; //time of removing movement during the wall jump
 
+//wall climbing variables
+climbsp = runsp* 0.33;
+
 //shoot variables
 global.ammo = 0; //how much ammo the boy has
 shootdelay = 0; // the cooldown of shooting the balls
-shootdelaymax = 7; 
+shootdelaymax = 7; // the amount for the cooldown
 
 //health variables
-global.HP = 3; //how much health the player has
-HP_max = global.HP; //the max amount of health the player can have
+global.HP = 1; //how much health the player has
+HP_max_slime = 1; //the max amount of health the slime can have
+HP_max_boy = 2;
+
 tears = 0; //crying particles
 invincibility = false; //if you got hit or not and gives you iframes
 invincible_timer = room_speed*1.5; //how long the iframes last
@@ -60,8 +65,8 @@ stateFree = function(){
 				hsp += move*walksp;
 				max_hsp = 3;
 			}else{
-				hsp += move*runsp;
-				max_hsp = 5;
+				hsp += move*runsp*0.2;
+				max_hsp = 5.5;
 			}
 			hsp = clamp(hsp,-max_hsp,max_hsp);
 		}else{
@@ -80,28 +85,45 @@ stateFree = function(){
 	}
 	//wall jump 
 	if (object_index = Obj_boy){
-		if(onawall != 0) && (!place_meeting(x,y+vsp,Obj_wall)) && (jump){
-			walljumpdelay = walljumpdelaymax;
-			hsp = -onawall * hsp_wlljp;
-			vsp = vsp_wlljp;
+		if(onawall != 0) && (!place_meeting(x,y+vsp,Obj_wall)) && (move != 0){
+			if (jump){
+				walljumpdelay = walljumpdelaymax;
+				hsp = -onawall * hsp_wlljp;
+				vsp = vsp_wlljp;
+			}
+			vsp = 0;
 		}
-		
+	}
+	
+	//clinging on the wall
+	if(object_index = Obj_slime){
+		if(onawall != 0) && (move != 0) && (up){	
+			if(move = -1){
+				if (run){
+					vsp += move*climbsp;
+				}
+			}else{
+				if(run){
+					vsp += -move*climbsp;
+				}
+			}	
+		}
 	}
 	//gravity
 	var grv_final = global.grv;
 	var vsp_max_final = vsp_max;
-	if (onawall != 0) && (vsp > 0){
-		grv_final = grv_wall;
-		vsp_max_final = vsp_max_wall;
-	}
+		if (onawall != 0) && (vsp > 0){
+			grv_final = grv_wall;
+			vsp_max_final = vsp_max_wall;
+		}
 	vsp += grv_final;
 	vsp = clamp(vsp,-vsp_max_final,vsp_max_final);
+	
 	//jump
 	if (canjump -- > 0) && (jump){
 		vsp = vspjump;
 		canjump = 0;
 	}
-	
 	//shoot inputs
 	if(object_index = Obj_boy){
 		if(place_meeting(x,y,Obj_paper)){
@@ -122,10 +144,25 @@ stateFree = function(){
 	if(object_index = Obj_slime){
 		if (inputs) && (candash) && (dashshoot){
 			candash = false;
-			dashhit = true;
 			canjump = 0;
+			var move = right - left;
+			if (move !=0){
+				if (!run){
+					hsp += move*walksp;
+					max_hsp = 3;
+				}else{
+					hsp += move*runsp;
+					max_hsp = 5;
+				}
+			}
 			dashdirection = point_direction(0,0, right-left,down-up);
-			dashsp = dashdistance/dashtime;
+			if(!run){
+				dashdistance = 82;
+				dashsp = dashdistance/dashtime;
+			}else{
+				dashdistance = 82*dashdisrun;
+				dashsp = dashdistance/dashtime
+			}
 			dashenergy = dashdistance;
 			state = statedash;
 		}
@@ -135,7 +172,7 @@ stateFree = function(){
 		if (run){
 		image_speed = 2;	
 	}
-	//solid collision
+	
 	//horizontal collision
 	if (place_meeting(x+hsp,y,Obj_solid)){
 		while(abs(hsp) > 0.1){
@@ -164,7 +201,18 @@ stateFree = function(){
 }
 statedash = function(){
 	#region dashing
-		//move via the dashshoot 
+	//move while dashing
+		var move = right - left;
+		if (move !=0){
+			if (!run){
+				hsp += move*walksp;
+				max_hsp = 3;
+			}else{
+				hsp += move*runsp;
+				max_hsp = 5;
+			}
+		}
+		//move via the dash
 		hsp = lengthdir_x(dashsp,dashdirection);
 		vsp = lengthdir_y(dashsp,dashdirection);
 	
@@ -181,7 +229,6 @@ statedash = function(){
 				instance_destroy();	
 			}
 		}
-		//wall
 		//horizontal collision 
 		if (place_meeting(x+hsp,y,Obj_solid)){
 			while(abs(hsp) > 0.1){
@@ -214,14 +261,15 @@ statedash = function(){
 stateDead = function(){
 	hsp = 0;
 	vsp = 0;
-	//cause of splatter and death screen
+	//cause of splatter
 	if(slime_splat <= 0){
 		image_alpha = 0;
 		repeat(15){
-			instance_create_layer(global.curx,global.cury,"Behind",Obj_slimesplatter);
+			instance_create_layer(x,y,"Behind",Obj_slimesplatter);
 		}
 		slime_splat = 1;
 	}
 	Obj_game.timer--;
+	
 }
 state = stateFree;

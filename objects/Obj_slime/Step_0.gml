@@ -32,8 +32,8 @@ if (place_meeting(x,y,Obj_bat)){
 			_state = "STOMPED";
 			alarm[0] = room_speed/2;
 		}
+		vsp = vspjump
 		candash = true;
-		vsp = vspjump;
 	}else{ //if touched anywhere :L?
 		if (state == statedash){
 			with(_enemy1){
@@ -50,6 +50,9 @@ if (place_meeting(x,y,Obj_bat)){
 #region animations
 if (!place_meeting(x,y+1,Obj_solid)){
 	image_speed = 0;
+	if(onawall != 0) && (left||right){
+		sprite_index = Spr_slime_wall_hang;
+	}else{
 	if (dashtime > 0) && (dashshoot){
 		if (left){
 			sprite_index = Spr_dashsideleft;
@@ -84,6 +87,7 @@ if (!place_meeting(x,y+1,Obj_solid)){
 		sprite_index = Spr_slimejump;
 		if (sign(vsp) > 0) image_index = 1;	else image_index = 0; 	
 	}
+}
 
 }else{
 	image_speed = 1;

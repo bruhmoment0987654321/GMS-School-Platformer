@@ -35,8 +35,8 @@
     "path": "sprites/Spr_slimeidle/Spr_slimeidle.yy",
   },
   "spriteMaskId": {
-    "name": "Spr_slimeidle",
-    "path": "sprites/Spr_slimeidle/Spr_slimeidle.yy",
+    "name": "Spr_slimehat",
+    "path": "sprites/Spr_slimehat/Spr_slimehat.yy",
   },
   "visible": true,
 }

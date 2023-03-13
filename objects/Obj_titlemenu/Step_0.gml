@@ -5,7 +5,7 @@ accept_key = keyboard_check_pressed(vk_enter);
 
 //storing # of options in current menu
 op_length = array_length(options[menu_level]);
- 
+
 //move through the menu
 pos += down - up;
 
@@ -33,7 +33,7 @@ if (accept_key){
 				//brightness
 				case 1: break;
 				//controls
-				case 2: break;
+				case 2: room = Rm_ctrls break;
 				//go back to start menu
 				case 3: menu_level = 0; break;
 				
