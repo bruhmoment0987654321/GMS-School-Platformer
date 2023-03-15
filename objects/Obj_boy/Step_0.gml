@@ -1,5 +1,11 @@
 event_inherited();
-
+#region changing player in control room 
+if(room = Rm_ctrls){
+	if(keyboard_check_pressed(ord("T"))){
+		instance_change(Obj_slime,true);
+	}
+}
+#endregion
 if (place_meeting(x,y,Obj_enemypar)){
 	var _enemy = instance_place(x,y,Obj_enemypar)
 	if (_enemy.hp <= 0) && (_enemy._state != "DEATH"){ //if hp = 0?
@@ -14,26 +20,11 @@ if (place_meeting(x,y,Obj_enemypar)){
 		}
 	}
 }
-//animations
-if (!place_meeting(x,y+1,Obj_wall)){
-	if (onawall != 0){
-		sprite_index = Spr_schoolboywj;
-		image_xscale = onawall;
-		
-		var side = bbox_left;
-		if(onawall) side = bbox_right;
-		slimeprts++;
-		if ((slimeprts > 2) && (vsp > 0)) with (instance_create_layer(side,bbox_top+15,"Behind",Obj_slimespark)){
-			other.slimeprts = 0;	
-			hspeed = -other.onawall*0.5;
-		}
-		
-	}else{
-		slimeprts = 0;
-		sprite_index = Spr_schoolboyjump;
-		image_speed = 0;
-		if (sign(vsp) > 0) image_index = 1;	else image_index = 0; 
-	}
+#region animations
+if (!place_meeting(x,y+1,Obj_solid)){
+	sprite_index = Spr_schoolboyjump;
+	image_speed = 0;
+	if (sign(vsp) > 0) image_index = 1;	else image_index = 0; 
 }else{
 	image_speed = 1;
 	if (hsp == 0){
@@ -43,5 +34,5 @@ if (!place_meeting(x,y+1,Obj_wall)){
 		 
 	 }
 }
-
+#endregion
 if (hsp != 0) image_xscale = sign(hsp);

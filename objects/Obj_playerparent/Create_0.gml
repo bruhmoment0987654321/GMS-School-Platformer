@@ -3,36 +3,22 @@ hsp = 0; //current horizontal speed
 max_hsp = 3; //the max horizontal speed you go
 walksp = 0.7; //how fast the player goes
 runsp = 1.3; // how fast you can go while running
-hsp_wlljp = 3.5; //speed of how far you go in wall jump
+
 //friction
 friction_ = 0.2; //this slows you down if you're not moving
 
 //vertical speed variables
 vsp = 0; //current vertical speed
-vsp_wlljp = -4; //how high you go up during the wall jump
 vsp_max = 15; //max speed when falling
-vsp_max_wall = 4; //max speed when falling during wall jump
 vspjump = -6.5; //how high the player jumps
 canjump = 0; //are we touching the ground?
-
-//gravity variables
 global.grv = 0.3; //gravity
-grv_wall = 0.01; //gravity when you're on a wall
 
 //dash variables
 candash = false; //resets when touching ground
 dashdistance = 82; // how far the dash goes
 dashdisrun = 1.3; //
 dashtime = 10; // the amount of time the dash is used
-
-//wall jump variables
-onawall = 0; //are we touching a wall?
-slimeprts = 0; //slime particles
-walljumpdelay = 0; //removing movement to the player when wall jumping
-walljumpdelaymax = 18; //time of removing movement during the wall jump
-
-//wall climbing variables
-climbsp = runsp* 0.33;
 
 //shoot variables
 global.ammo = 0; //how much ammo the boy has
@@ -42,7 +28,7 @@ shootdelaymax = 7; // the amount for the cooldown
 //health variables
 global.HP = 1; //how much health the player has
 HP_max_slime = 1; //the max amount of health the slime can have
-HP_max_boy = 2;
+HP_max_boy = 2; //max health of boy
 
 tears = 0; //crying particles
 invincibility = false; //if you got hit or not and gives you iframes
@@ -55,9 +41,7 @@ stateFree = function(){
 		state = stateDead;	
 	}
 	#region movement
-	walljumpdelay = max(walljumpdelay - 1,0);
 	shootdelay = max(shootdelay - 1,0);
-	if (walljumpdelay == 0){
 		//horizontal movement
 		var move = right - left;
 		if (move !=0){
@@ -82,42 +66,9 @@ stateFree = function(){
 			}
 			hsp = lerp(hsp,0,friction_);
 		}
-	}
-	//wall jump 
-	if (object_index = Obj_boy){
-		if(onawall != 0) && (!place_meeting(x,y+vsp,Obj_wall)) && (move != 0){
-			if (jump){
-				walljumpdelay = walljumpdelaymax;
-				hsp = -onawall * hsp_wlljp;
-				vsp = vsp_wlljp;
-			}
-			vsp = 0;
-		}
-	}
 	
-	//clinging on the wall
-	if(object_index = Obj_slime){
-		if(onawall != 0) && (move != 0) && (up){	
-			if(move = -1){
-				if (run){
-					vsp += move*climbsp;
-				}
-			}else{
-				if(run){
-					vsp += -move*climbsp;
-				}
-			}	
-		}
-	}
-	//gravity
-	var grv_final = global.grv;
-	var vsp_max_final = vsp_max;
-		if (onawall != 0) && (vsp > 0){
-			grv_final = grv_wall;
-			vsp_max_final = vsp_max_wall;
-		}
-	vsp += grv_final;
-	vsp = clamp(vsp,-vsp_max_final,vsp_max_final);
+	vsp += global.grv;
+	vsp = clamp(vsp,-vsp_max,vsp_max);
 	
 	//jump
 	if (canjump -- > 0) && (jump){
@@ -169,7 +120,7 @@ stateFree = function(){
 	}
 
 	//run animation
-		if (run){
+	if (run){
 		image_speed = 2;	
 	}
 	

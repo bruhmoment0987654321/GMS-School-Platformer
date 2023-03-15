@@ -1,5 +1,4 @@
 bye = keyboard_check_pressed(ord("L"));
-
 //stopping the watch
 if(global.stopwatchstart = true){
 	stopwatch += delta_time/1000000;
@@ -38,6 +37,25 @@ switch(room){
 		if(keyboard_check_pressed(ord(1))){
 			room = Rm_start;
 		}
+		
+		if(instance_exists(Obj_slime)){	
+			controls = @"Default Controls for slime:
+
+			W & D: Left and Right
+
+			Shift (either one): Run
+
+			WASD + Enter: Dash";
+		}else if(instance_exists(Obj_boy)){
+			controls = @"Default controls for boy:
+		
+			W & D: Left and Right
+		
+			Shift (either one): Run 
+		
+			Enter: Shoot";	
+		}
+
 	
 	break;
 }

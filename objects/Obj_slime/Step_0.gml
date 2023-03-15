@@ -1,5 +1,12 @@
 // Inherit the parent event
 event_inherited();
+#region in the control room
+if(room = Rm_ctrls){
+	if(keyboard_check_pressed(ord("T"))){
+		instance_change(Obj_boy,true);
+	}
+}
+#endregion
 //enemy collision
 #region big man
 if (place_meeting(x,y,Obj_bigman)){
@@ -101,6 +108,7 @@ if (!place_meeting(x,y+1,Obj_solid)){
 
 if (hsp != 0) image_xscale = sign(hsp);
 #endregion
+
 
 
 
