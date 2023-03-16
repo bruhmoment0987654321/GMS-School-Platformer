@@ -84,7 +84,7 @@ stateFree = function(){
 	
 	if(global.ammo > 0){
 		if(shootdelay == 0){
-			if(dashshoot){
+			if(shoot){
 				instance_create_layer(x,y,"Player",Obj_paperball);
 				shootdelay = shootdelaymax;
 			}
@@ -93,7 +93,7 @@ stateFree = function(){
 	
 	//dash input
 	if(object_index = Obj_slime){
-		if (inputs) && (candash) && (dashshoot){
+		if (inputs) && (candash) && (dash){
 			candash = false;
 			canjump = 0;
 			var move = right - left;
@@ -193,7 +193,7 @@ statedash = function(){
 		}
 		y += vsp;
 	
-		//ending the dashshoot
+		//ending the dash
 		dashenergy -= dashsp;
 		if (dashenergy <= 0){
 			vsp = 0;

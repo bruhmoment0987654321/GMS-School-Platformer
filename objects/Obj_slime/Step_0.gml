@@ -60,7 +60,7 @@ if (!place_meeting(x,y+1,Obj_solid)){
 	if(onawall != 0) && (left||right){
 		sprite_index = Spr_slime_wall_hang;
 	}else{
-	if (dashtime > 0) && (dashshoot){
+	if (dashtime > 0) && (dash){
 		if (left){
 			sprite_index = Spr_dashsideleft;
 		}
