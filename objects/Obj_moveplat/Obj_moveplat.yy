@@ -1,13 +1,13 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "Obj_trampoline",
+  "name": "Obj_moveplat",
   "eventList": [],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "visible",
-    "path": "folders/Objects/Objects and game assests/outside objects/visible.yy",
+    "name": "platforms",
+    "path": "folders/Objects/Objects and game assests/outside objects/visible/platforms.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -26,8 +26,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "Spr_trampoline",
-    "path": "sprites/Spr_trampoline/Spr_trampoline.yy",
+    "name": "Spr_moveplathor",
+    "path": "sprites/Spr_moveplathor/Spr_moveplathor.yy",
   },
   "spriteMaskId": null,
   "visible": true,

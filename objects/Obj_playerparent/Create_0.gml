@@ -9,7 +9,7 @@ friction_ = 0.2; //this slows you down if you're not moving
 
 //vertical speed variables
 vsp = 0; //current vertical speed
-vsp_max = 15; //max speed when falling
+vsp_max = 9; //max speed when falling
 vspjump = -6.5; //how high the player jumps
 canjump = 0; //are we touching the ground?
 global.grv = 0.3; //gravity
@@ -17,7 +17,7 @@ global.grv = 0.3; //gravity
 //dash variables
 candash = false; //resets when touching ground
 dashdistance = 82; // how far the dash goes
-dashdisrun = 1.3; //
+dashdist = 1.3; 
 dashtime = 10; // the amount of time the dash is used
 
 //shoot variables
@@ -27,7 +27,6 @@ shootdelaymax = 7; // the amount for the cooldown
 
 //health variables
 global.HP = 1; //how much health the player has
-HP_max_slime = 1; //the max amount of health the slime can have
 HP_max_boy = 2; //max health of boy
 
 tears = 0; //crying particles
@@ -39,6 +38,7 @@ slime_splat = 0; //used when you die and game over screen
 stateFree = function(){
 	if(global.HP <= 0){
 		state = stateDead;	
+		slime_splat = 0;
 	}
 	#region movement
 	shootdelay = max(shootdelay - 1,0);
@@ -111,7 +111,7 @@ stateFree = function(){
 				dashdistance = 82;
 				dashsp = dashdistance/dashtime;
 			}else{
-				dashdistance = 82*dashdisrun;
+				dashdistance = 82*dashdist;
 				dashsp = dashdistance/dashtime
 			}
 			dashenergy = dashdistance;
@@ -172,13 +172,6 @@ statedash = function(){
 			sprite_index = other.sprite_index;
 			image_blend = #09E444;
 			image_alpha = 0.9;
-		}
-
-		if (place_meeting(x,y,Obj_hardwall)){
-			var _break = instance_place(x,y,Obj_hardwall);
-			with(_break){
-				instance_destroy();	
-			}
 		}
 		//horizontal collision 
 		if (place_meeting(x+hsp,y,Obj_solid)){

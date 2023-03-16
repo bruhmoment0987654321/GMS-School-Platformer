@@ -1,17 +1,15 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "Obj_thankforplaying",
+  "name": "Obj_killyou",
   "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":{"name":"Obj_playerparent","path":"objects/Obj_playerparent/Obj_playerparent.yy",},"eventNum":0,"eventType":4,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "pickups & interact",
-    "path": "folders/Objects/Objects and game assests/outside objects/visible/pickups & interact.yy",
+    "name": "killing",
+    "path": "folders/Objects/Objects and game assests/outside objects/visible/killing.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -29,10 +27,7 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": {
-    "name": "Spr_play",
-    "path": "sprites/Spr_play/Spr_play.yy",
-  },
+  "spriteId": null,
   "spriteMaskId": null,
   "visible": true,
 }

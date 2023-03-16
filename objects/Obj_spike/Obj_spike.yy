@@ -1,17 +1,20 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "Obj_deathpit",
+  "name": "Obj_spike",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":{"name":"Obj_playerparent","path":"objects/Obj_playerparent/Obj_playerparent.yy",},"eventNum":0,"eventType":4,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "invisible",
-    "path": "folders/Objects/Objects and game assests/outside objects/invisible.yy",
+    "name": "killing",
+    "path": "folders/Objects/Objects and game assests/outside objects/visible/killing.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "Obj_killyou",
+    "path": "objects/Obj_killyou/Obj_killyou.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,

@@ -6,8 +6,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "visible",
-    "path": "folders/Objects/Objects and game assests/outside objects/visible.yy",
+    "name": "pickups & interact",
+    "path": "folders/Objects/Objects and game assests/outside objects/visible/pickups & interact.yy",
   },
   "parentObjectId": null,
   "persistent": false,

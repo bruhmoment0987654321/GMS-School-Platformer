@@ -1,17 +1,16 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "Obj_slimespark",
+  "name": "Obj_pause_menu",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":7,"eventType":7,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":77,"eventType":8,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "particle effects",
-    "path": "folders/Objects/particle effects.yy",
+    "name": "pause menu",
+    "path": "folders/Objects/Objects and game assests/GUI & essencials/pause menu.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -29,10 +28,7 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": {
-    "name": "Spr_slimespark",
-    "path": "sprites/Spr_slimespark/Spr_slimespark.yy",
-  },
+  "spriteId": null,
   "spriteMaskId": null,
   "visible": true,
 }

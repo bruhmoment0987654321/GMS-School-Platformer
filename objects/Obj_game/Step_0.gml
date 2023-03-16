@@ -9,17 +9,18 @@ switch(room){
 	case Rm_test:
 	case Rm_test_boy:
 	break;
-	case Rm_level1:
+	case Rm_level1ground:
+	case Rm_level2ground:
 		if(timer <= 0){
 			if(!instance_exists(Obj_checkpoint)){
 				room_restart();
 			}else{
+				var _near = instance_nearest(Obj_playerparent.x,Obj_playerparent.y,Obj_checkpoint);
 				global.HP = 1;
 				Obj_playerparent.image_alpha = 1;
 				Obj_playerparent.state = Obj_playerparent.stateFree;
-				Obj_playerparent.x = Obj_checkpoint.x;
-				Obj_playerparent.y = Obj_checkpoint.y;
-				Obj_playerparent.slime_splat = 0;
+				Obj_playerparent.x = _near.x;
+				Obj_playerparent.y = _near.y;
 				timer = room_speed;
 			}
 		}

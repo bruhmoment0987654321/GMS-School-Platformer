@@ -1,17 +1,17 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "Obj_hardwall",
+  "name": "Obj_saw",
   "eventList": [],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "visible",
-    "path": "folders/Objects/Objects and game assests/outside objects/visible.yy",
+    "name": "killing",
+    "path": "folders/Objects/Objects and game assests/outside objects/visible/killing.yy",
   },
   "parentObjectId": {
-    "name": "Obj_solid",
-    "path": "objects/Obj_solid/Obj_solid.yy",
+    "name": "Obj_killyou",
+    "path": "objects/Obj_killyou/Obj_killyou.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
@@ -29,8 +29,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "Spr_hardwall",
-    "path": "sprites/Spr_hardwall/Spr_hardwall.yy",
+    "name": "Spr_saw",
+    "path": "sprites/Spr_saw/Spr_saw.yy",
   },
   "spriteMaskId": null,
   "visible": true,

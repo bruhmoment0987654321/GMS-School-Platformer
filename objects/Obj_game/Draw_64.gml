@@ -29,7 +29,7 @@ switch(room){
 	
 	draw_text_ext_transformed(560,50,"Press 1 to go back to the title screen :)",10,300,3,3,0);
 	break;
-	case Rm_level1:
+	case Rm_level1ground:
 		if(instance_exists(Obj_slime)){
 			draw_sprite_general(Spr_healthbg,0,0,0,110,40,110/2+25,40/2-5,1.3,1.3,0,c_grey,c_gray,c_gray,c_gray,1);
 			draw_sprite_ext(Spr_health,global.HP,110,40,1.3,1.3,0,c_white,1);
