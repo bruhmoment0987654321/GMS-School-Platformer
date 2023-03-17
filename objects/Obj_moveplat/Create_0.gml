@@ -1,7 +1,7 @@
 platformSpeed = 1;
 currentSpeed = 1; 
-moveX = 0;
-moveY = 0;
+hsp1 = 0;
+vsp1 = 0;
 
-goingtostart = false;
-waittime = 60;
+goingtostart = choose(true,false);
+waittime = 10;

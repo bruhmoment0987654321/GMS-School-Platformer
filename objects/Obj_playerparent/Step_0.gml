@@ -10,5 +10,6 @@ run = keyboard_check(vk_lshift)||keyboard_check(vk_rshift);
 inputs = left||right||up||down;
 onawall = place_meeting(x+1,y,Obj_solid) - place_meeting(x-1,y,Obj_solid);
 shoot = keyboard_check_pressed(ord("P"));
+		
 
 state();

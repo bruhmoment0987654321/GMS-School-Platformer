@@ -123,6 +123,11 @@ stateFree = function(){
 	if (run){
 		image_speed = 2;	
 	}
+	#endregion
+	#region collisions
+	//making you move while on the platform
+	
+	
 	
 	//horizontal collision
 	if (place_meeting(x+hsp,y,Obj_solid)){
@@ -142,6 +147,10 @@ stateFree = function(){
 		while (abs(vsp) > 0.1){
 			vsp *= 0.5;
 			if(!place_meeting(x,y+vsp,Obj_solid)) y += vsp
+			var _moveplat = instance_place(x,y+1,Obj_moveplat);
+			if(_moveplat != noone){
+					
+			}
 		}
 		vsp = 0;
 	}
