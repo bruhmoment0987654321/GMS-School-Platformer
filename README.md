@@ -1,5 +1,5 @@
 # school-platformer-redo-
-this is a redo of a different commit I made for my game. I don't really know how to delete repositories
-So thats why they are still left in my github account
-as of right now, I will try to delete them.
-if this message is still here, I still haven't figured it out yet. 
+this is a redo of a different commit I made for my game.\
+
+So, It is a 2D platformer with the boy and his slime. The name hasn't been chosen yet but it'll be chosen soon
+It is a rage game, unfortunatly, so you'll have to be skilled to beat it.
