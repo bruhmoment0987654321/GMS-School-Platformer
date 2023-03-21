@@ -1,4 +1,4 @@
-//invincibility
+#region invincibility
 if (invincibility = true){
 	//crying 
 	var side = x + irandom_range(1,3);
@@ -29,6 +29,7 @@ if (invincibility == false){
 	image_blend = c_white;
 	blinktimer = invincible_timer;
 }
+#endregion
 
 
 

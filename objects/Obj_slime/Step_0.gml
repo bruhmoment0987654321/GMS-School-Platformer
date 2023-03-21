@@ -54,6 +54,7 @@ if (place_meeting(x,y,Obj_bat)){
 	}
 }
 #endregion
+
 #region animations
 if (!place_meeting(x,y+1,Obj_solid)){
 	image_speed = 0;

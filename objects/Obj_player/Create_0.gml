@@ -19,7 +19,6 @@ global.grv = 0.3; //gravity
 //dash variables
 candash = false; //resets when touching ground
 dashdistance = 82; // how far the dash goes
-dashdist = 1.3; 
 dashtime = 10; // the amount of time the dash is used
 
 //shoot variables
@@ -111,13 +110,8 @@ stateFree = function(){
 				}
 			}
 			dashdirection = point_direction(0,0, right-left,down-up);
-			if(!run){
-				dashdistance = 82;
-				dashsp = dashdistance/dashtime;
-			}else{
-				dashdistance = 82*dashdist;
-				dashsp = dashdistance/dashtime
-			}
+			dashdistance = 82;
+			dashsp = dashdistance/dashtime;
 			dashenergy = dashdistance;
 			state = statedash;
 		}
@@ -211,15 +205,17 @@ statedash = function(){
 stateDead = function(){
 	hsp = 0;
 	vsp = 0;
-	//cause of splatter
+	#region cause of splatter and other things after death
 	if(slime_splat <= 0){
 		image_alpha = 0;
 		repeat(15){
 			instance_create_layer(x,y,"Behind",Obj_slimesplatter);
 		}
+		global.death_total += 1;
 		slime_splat = 1;
 	}
 	Obj_game.timer--;
+	#endregion
 	
 }
 state = stateFree;

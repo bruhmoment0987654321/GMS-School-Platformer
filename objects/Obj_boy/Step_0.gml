@@ -6,6 +6,7 @@ if(room = Rm_ctrls){
 	}
 }
 #endregion
+#region enemies
 if (place_meeting(x,y,Obj_enemypar)){
 	var _enemy = instance_place(x,y,Obj_enemypar)
 	if (_enemy.hp <= 0) && (_enemy._state != "DEATH"){ //if hp = 0?
@@ -20,6 +21,7 @@ if (place_meeting(x,y,Obj_enemypar)){
 		}
 	}
 }
+#endregion
 #region animations
 if (!place_meeting(x,y+1,Obj_solid)){
 	sprite_index = Spr_schoolboyjump;
@@ -34,5 +36,6 @@ if (!place_meeting(x,y+1,Obj_solid)){
 		 
 	 }
 }
-#endregion
 if (hsp != 0) image_xscale = sign(hsp);
+#endregion
+

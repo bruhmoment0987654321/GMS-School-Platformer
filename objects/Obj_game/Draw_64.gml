@@ -31,6 +31,8 @@ switch(room){
 	break;
 	case Rm_level1ground:
 	case Rm_level2ground:
+		draw_text_transformed(1100,40,"Deaths: " + string(global.death_total),2.5,2.5,0);
+		
 		if(instance_exists(Obj_slime)){
 			draw_sprite_general(Spr_healthbg,0,0,0,110,40,110/2+25,40/2-5,1.3,1.3,0,c_grey,c_gray,c_gray,c_gray,1);
 			draw_sprite_ext(Spr_health,global.HP,110,40,1.3,1.3,0,c_white,1);
