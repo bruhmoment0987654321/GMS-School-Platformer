@@ -10,7 +10,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "essiencials",
-    "path": "folders/Objects/Objects and game assests/GUI & essencials/essiencials.yy",
+    "path": "folders/Objects/GUI & essencials/essiencials.yy",
   },
   "parentObjectId": null,
   "persistent": true,

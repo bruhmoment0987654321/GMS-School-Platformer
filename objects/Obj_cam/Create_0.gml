@@ -5,7 +5,7 @@ global.ycam = 0;
 global.camW = 400;
 global.camH = 225;
 
-follow = Obj_playerparent;
+follow = Obj_player;
 
 xTo = x;
 yTo = y;

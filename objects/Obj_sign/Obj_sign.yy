@@ -10,7 +10,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "pickups & interact",
-    "path": "folders/Objects/Objects and game assests/outside objects/visible/pickups & interact.yy",
+    "path": "folders/Objects/Outside Objects/visible/pickups & interact.yy",
   },
   "parentObjectId": null,
   "persistent": false,

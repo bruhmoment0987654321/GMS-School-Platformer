@@ -11,7 +11,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "pause menu",
-    "path": "folders/Objects/Objects and game assests/GUI & essencials/pause menu.yy",
+    "path": "folders/Objects/GUI & essencials/pause menu.yy",
   },
   "parentObjectId": null,
   "persistent": false,

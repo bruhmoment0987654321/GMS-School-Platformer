@@ -9,7 +9,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "invisible",
-    "path": "folders/Objects/Objects and game assests/outside objects/invisible.yy",
+    "path": "folders/Objects/Outside Objects/invisible.yy",
   },
   "parentObjectId": null,
   "persistent": false,

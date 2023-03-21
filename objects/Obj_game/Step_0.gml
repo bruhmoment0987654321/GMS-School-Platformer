@@ -15,12 +15,12 @@ switch(room){
 			if(!instance_exists(Obj_checkpoint)){
 				room_restart();
 			}else{
-				var _near = instance_nearest(Obj_playerparent.x,Obj_playerparent.y,Obj_checkpoint);
+				var _near = instance_nearest(Obj_player.x,Obj_player.y,Obj_checkpoint);
 				global.HP = 1;
-				Obj_playerparent.image_alpha = 1;
-				Obj_playerparent.state = Obj_playerparent.stateFree;
-				Obj_playerparent.x = _near.x;
-				Obj_playerparent.y = _near.y;
+				Obj_player.image_alpha = 1;
+				Obj_player.state = Obj_player.stateFree;
+				Obj_player.x = _near.x;
+				Obj_player.y = _near.y;
 				timer = room_speed;
 			}
 		}

@@ -29,11 +29,12 @@ if (accept_key){
 		//settings
 		case 1:
 			switch(pos){
-				case 0: menu_level = 2 break;
+				//window size
+				case 0: menu_level = 2; break;
 				//brightness
-				case 1: break;
+				case 1: room = Rm_brightness; break;
 				//controls
-				case 2: room = Rm_ctrls break;
+				case 2: room = Rm_ctrls; break;
 				//go back to start menu
 				case 3: menu_level = 0; break;
 				

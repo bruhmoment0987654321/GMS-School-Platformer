@@ -7,13 +7,15 @@ runsp = 1.3; // how fast you can go while running
 //friction
 friction_ = 0.2; //this slows you down if you're not moving
 
+//on the ground
+onground = false; //are we on the ground?
+
 //vertical speed variables
 vsp = 0; //current vertical speed
 vsp_max = 9; //max speed when falling
 vspjump = -6.5; //how high the player jumps
-canjump = 0; //are we touching the ground?
+canjump = 0; //can we jump?
 global.grv = 0.3; //gravity
-
 //dash variables
 candash = false; //resets when touching ground
 dashdistance = 82; // how far the dash goes
@@ -40,16 +42,18 @@ stateFree = function(){
 		state = stateDead;	
 		slime_splat = 0;
 	}
-	#region movement
+	
 	shootdelay = max(shootdelay - 1,0);
+	#region movement
+
 		//horizontal movement
 		var move = right - left;
 		if (move !=0){
 			if (!run){
-				hsp += move*walksp;
+				hsp += move*(onground ? walksp*2 : walksp);
 				max_hsp = 3;
 			}else{
-				hsp += move*runsp*0.2;
+				hsp += move*(onground ? (runsp*0.2)*2 : runsp*0.2);
 				max_hsp = 5.5;
 			}
 			hsp = clamp(hsp,-max_hsp,max_hsp);
@@ -125,10 +129,6 @@ stateFree = function(){
 	}
 	#endregion
 	#region collisions
-	//making you move while on the platform
-	
-	
-	
 	//horizontal collision
 	if (place_meeting(x+hsp,y,Obj_solid)){
 		while(abs(hsp) > 0.1){
@@ -147,10 +147,7 @@ stateFree = function(){
 		while (abs(vsp) > 0.1){
 			vsp *= 0.5;
 			if(!place_meeting(x,y+vsp,Obj_solid)) y += vsp
-			var _moveplat = instance_place(x,y+1,Obj_moveplat);
-			if(_moveplat != noone){
-					
-			}
+			
 		}
 		vsp = 0;
 	}

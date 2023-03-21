@@ -18,7 +18,7 @@ switch(_state){
 		}
 	break;
 	
-		case ("SHOT"):
+	case ("SHOT"):
 		sprite_index = Spr_bigmanhit;
 		if (Obj_slime.x<x){
 			hsp = 1;

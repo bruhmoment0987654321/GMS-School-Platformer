@@ -19,7 +19,7 @@ if (place_meeting(x,y,Obj_bigman)){
 			alarm[0] = room_speed/2;
 		}
 	}else{ //if touched anywhere :L?
-		if (state == statedash){
+		if(state == statedash){
 			with(_enemy){
 				_state = "DASHED";
 				alarm[0] = room_speed/3;

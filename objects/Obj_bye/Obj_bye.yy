@@ -7,7 +7,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "visible",
-    "path": "folders/Objects/Objects and game assests/outside objects/visible.yy",
+    "path": "folders/Objects/Outside Objects/visible.yy",
   },
   "parentObjectId": null,
   "persistent": false,

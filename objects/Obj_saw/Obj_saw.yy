@@ -7,7 +7,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "killing",
-    "path": "folders/Objects/Objects and game assests/outside objects/visible/killing.yy",
+    "path": "folders/Objects/Outside Objects/visible/killing.yy",
   },
   "parentObjectId": {
     "name": "Obj_killyou",
