@@ -36,12 +36,8 @@ invincible_timer = room_speed*1.5; //how long the iframes last
 blinktimer = invincible_timer; //the player flashes white when hit
 slime_splat = 0; //used when you die and game over screen
 
+#region the normal, free state
 stateFree = function(){
-	if(global.HP <= 0){
-		state = stateDead;	
-		slime_splat = 0;
-	}
-	
 	shootdelay = max(shootdelay - 1,0);
 	#region movement
 
@@ -150,6 +146,8 @@ stateFree = function(){
 	#endregion
 
 }
+#endregion
+#region the dashing state
 statedash = function(){
 	#region dashing
 	//move while dashing
@@ -202,6 +200,8 @@ statedash = function(){
 		}
 	#endregion
 }
+#endregion
+#region the dead state
 stateDead = function(){
 	hsp = 0;
 	vsp = 0;
@@ -218,4 +218,5 @@ stateDead = function(){
 	#endregion
 	
 }
+#endregion
 state = stateFree;

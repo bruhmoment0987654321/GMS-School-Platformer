@@ -1,1 +1,3 @@
-global.HP -= 1;
+if(global.HP != 0){
+	global.HP -= 1;
+}
