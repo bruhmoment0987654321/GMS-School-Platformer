@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "Obj_moveplatv",
+  "name": "Obj_sawhor",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":2,"eventType":3,"isDnD":false,},
@@ -9,12 +9,12 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "platforms",
-    "path": "folders/Objects/Outside Objects/visible/platforms.yy",
+    "name": "killing",
+    "path": "folders/Objects/Outside Objects/visible/killing.yy",
   },
   "parentObjectId": {
-    "name": "Obj_solid",
-    "path": "objects/Obj_solid/Obj_solid.yy",
+    "name": "Obj_killyou",
+    "path": "objects/Obj_killyou/Obj_killyou.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
@@ -30,13 +30,13 @@
   "physicsShapePoints": [],
   "physicsStartAwake": true,
   "properties": [
-    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"starty","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"0","varType":0,},
-    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"endy","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"0","varType":0,},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"movespeed","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"0","varType":0,},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"platdir","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"0","varType":0,},
   ],
   "solid": false,
   "spriteId": {
-    "name": "Spr_moveplat",
-    "path": "sprites/Spr_moveplat/Spr_moveplat.yy",
+    "name": "Spr_saw",
+    "path": "sprites/Spr_saw/Spr_saw.yy",
   },
   "spriteMaskId": null,
   "visible": true,

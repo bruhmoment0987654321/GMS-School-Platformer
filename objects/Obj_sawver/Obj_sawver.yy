@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "Obj_moveplath",
+  "name": "Obj_sawver",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":2,"eventType":3,"isDnD":false,},
@@ -9,12 +9,12 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "platforms",
-    "path": "folders/Objects/Outside Objects/visible/platforms.yy",
+    "name": "killing",
+    "path": "folders/Objects/Outside Objects/visible/killing.yy",
   },
   "parentObjectId": {
-    "name": "Obj_solid",
-    "path": "objects/Obj_solid/Obj_solid.yy",
+    "name": "Obj_killyou",
+    "path": "objects/Obj_killyou/Obj_killyou.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
@@ -35,8 +35,8 @@
   ],
   "solid": false,
   "spriteId": {
-    "name": "Spr_moveplat",
-    "path": "sprites/Spr_moveplat/Spr_moveplat.yy",
+    "name": "Spr_saw",
+    "path": "sprites/Spr_saw/Spr_saw.yy",
   },
   "spriteMaskId": null,
   "visible": true,

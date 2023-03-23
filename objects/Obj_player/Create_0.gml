@@ -171,6 +171,8 @@ statedash = function(){
 			image_blend = #09E444;
 			image_alpha = 0.9;
 		}
+		#endregion
+	#region collisions
 		//horizontal collision 
 		if (place_meeting(x+hsp,y,Obj_solid)){
 			while(abs(hsp) > 0.1){
@@ -198,7 +200,8 @@ statedash = function(){
 			hsp = 0;
 			state = stateFree;
 		}
-	#endregion
+		#endregion
+	
 }
 #endregion
 #region the dead state

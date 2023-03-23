@@ -8,8 +8,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "killing",
-    "path": "folders/Objects/Outside Objects/visible/killing.yy",
+    "name": "invisible",
+    "path": "folders/Objects/Outside Objects/invisible.yy",
   },
   "parentObjectId": null,
   "persistent": false,
