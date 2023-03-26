@@ -20,6 +20,7 @@ global.grv = 0.3; //gravity
 candash = false; //resets when touching ground
 dashdistance = 82; // how far the dash goes
 dashtime = 10; // the amount of time the dash is used
+dashlimit = 2; // the limit of the dash
 
 //shoot variables
 global.ammo = 0; //how much ammo the boy has
@@ -28,8 +29,10 @@ shootdelaymax = 7; // the amount for the cooldown
 
 //health variables
 global.HP = 1; //how much health the player has
+if(object_index = Obj_boy){
+	global.HP = 2;	
+}
 HP_max_boy = 2; //max health of boy
-
 tears = 0; //crying particles
 invincibility = false; //if you got hit or not and gives you iframes
 invincible_timer = room_speed*1.5; //how long the iframes last
@@ -75,7 +78,7 @@ stateFree = function(){
 		canjump = 0;
 	}
 	//shoot inputs
-	if(object_index = Obj_boy){
+	if(object_index != Obj_slime){
 		if(place_meeting(x,y,Obj_paper)){
 				global.ammo += 1;
 		}
@@ -91,9 +94,8 @@ stateFree = function(){
 	}
 	
 	//dash input
-	if(object_index = Obj_slime){
-		if (inputs) && (candash) && (dash){
-			candash = false;
+	if(object_index != Obj_boy){
+		if (inputs) && (dash) && (dash >=0){
 			canjump = 0;
 			var move = right - left;
 			if (move !=0){
@@ -132,6 +134,7 @@ stateFree = function(){
 	if (place_meeting(x,y+vsp,Obj_solid)){
 		if(vsp>0){
 			candash = true;
+			dashlimit = 2;
 			canjump = 7;
 		}
 		while (abs(vsp) > 0.1){
@@ -199,6 +202,7 @@ statedash = function(){
 			vsp = 0;
 			hsp = 0;
 			state = stateFree;
+			dashlimit -= 1;
 		}
 		#endregion
 	
