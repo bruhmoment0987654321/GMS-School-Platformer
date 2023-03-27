@@ -95,7 +95,8 @@ stateFree = function(){
 	
 	//dash input
 	if(object_index != Obj_boy){
-		if (inputs) && (dash) && (dash >=0){
+		if (inputs) && (dash) && (dashlimit > 0){
+			candash = false;
 			canjump = 0;
 			var move = right - left;
 			if (move !=0){
@@ -133,9 +134,9 @@ stateFree = function(){
 	//vertical collision
 	if (place_meeting(x,y+vsp,Obj_solid)){
 		if(vsp>0){
-			candash = true;
-			dashlimit = 2;
 			canjump = 7;
+			dashlimit = 2;
+			candash = true;
 		}
 		while (abs(vsp) > 0.1){
 			vsp *= 0.5;
@@ -143,6 +144,7 @@ stateFree = function(){
 			
 		}
 		vsp = 0;
+		
 	}
 	x += hsp; 
 	y += vsp;
