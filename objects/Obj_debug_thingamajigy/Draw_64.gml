@@ -10,3 +10,4 @@ if(instance_exists(Obj_cam)){
 }
 draw_set_color(c_white);
 draw_text(200,33,string(Obj_player.vsp));
+

@@ -13,8 +13,8 @@
     "path": "folders/Objects/Outside Objects/visible/killing.yy",
   },
   "parentObjectId": {
-    "name": "Obj_killyou",
-    "path": "objects/Obj_killyou/Obj_killyou.yy",
+    "name": "Obj_sawpar",
+    "path": "objects/Obj_sawpar/Obj_sawpar.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
@@ -35,8 +35,8 @@
   ],
   "solid": false,
   "spriteId": {
-    "name": "Spr_saw",
-    "path": "sprites/Spr_saw/Spr_saw.yy",
+    "name": "Spr_saw_idle",
+    "path": "sprites/Spr_saw_idle/Spr_saw_idle.yy",
   },
   "spriteMaskId": null,
   "visible": true,

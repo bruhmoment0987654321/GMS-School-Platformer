@@ -30,8 +30,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "visible",
-    "path": "folders/Sprites/outside objects/visible.yy",
+    "name": "non-interact",
+    "path": "folders/Sprites/outside objects/visible/non-interact.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
