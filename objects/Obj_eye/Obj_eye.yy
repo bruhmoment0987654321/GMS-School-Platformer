@@ -9,8 +9,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "visible",
-    "path": "folders/Objects/Outside Objects/visible.yy",
+    "name": "killing",
+    "path": "folders/Objects/Outside Objects/visible/killing.yy",
   },
   "parentObjectId": null,
   "persistent": false,

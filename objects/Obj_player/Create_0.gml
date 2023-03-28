@@ -14,20 +14,23 @@ onground = false; //are we on the ground?
 vsp = 0; //current vertical speed
 vsp_max = 9; //max speed when falling
 vspjump = -6.5; //how high the player jumps
+jumpbuffer = 0; //checks if you pressed the jump button before touching the ground
+jumpbuffertime = 15; //the amount of buffer;
 canjump = 0; //can we jump?
 global.grv = 0.3; //gravity
+
 //dash variables
 candash = false; //resets when touching ground
 dashdistance = 82; // how far the dash goes
 dashtime = 10; // the amount of time the dash is used
-dashlimit = 2; // the limit of the dash
+dashlimit = 2; // the limit of dash presses
 
 //shoot variables
 global.ammo = 0; //how much ammo the boy has
 shootdelay = 0; // the cooldown of shooting the balls
 shootdelaymax = 7; // the amount for the cooldown
 
-//health variables
+//health & other variables
 global.HP = 1; //how much health the player has
 if(object_index = Obj_boy){
 	global.HP = 2;	
@@ -74,8 +77,20 @@ stateFree = function(){
 	
 	//jump
 	if (canjump -- > 0) && (jump){
-		vsp = vspjump;
+		jumpbuffer = jumpbuffertime;
 		canjump = 0;
+	}
+	
+	if(jumpbuffer > 0){
+		jumpbuffer -= 1;	
+		if(place_meeting(x,y+1,Obj_solid)){
+			vsp = vspjump;
+			jumpbuffer = 0;
+		}
+	}
+	
+	if(!jump_held) && (vsp < 0){
+		vsp = max(vsp,vspjump/3);
 	}
 	//shoot inputs
 	if(object_index != Obj_slime){
@@ -137,6 +152,7 @@ stateFree = function(){
 			canjump = 7;
 			dashlimit = 2;
 			candash = true;
+			jumpbuffer = 0;
 		}
 		while (abs(vsp) > 0.1){
 			vsp *= 0.5;

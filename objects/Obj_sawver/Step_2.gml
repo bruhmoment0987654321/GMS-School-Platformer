@@ -9,4 +9,4 @@
 	}
 #endregion
 y += vsp1;
-
+eyever.y = y;

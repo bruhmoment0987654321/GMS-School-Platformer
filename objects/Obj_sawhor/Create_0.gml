@@ -1,2 +1,2 @@
-instance_create_layer(x,y,"moving_plats",Obj_eye);
+eyehor = instance_create_layer(x,y,"Behind",Obj_eye);
 hsp1 = 0;
