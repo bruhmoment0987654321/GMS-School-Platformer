@@ -1,22 +1,19 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "Obj_slime",
+  "name": "Obj_timer",
   "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "player(s)",
-    "path": "folders/Objects/player(s).yy",
+    "name": "essiencials",
+    "path": "folders/Objects/GUI & essencials/essiencials.yy",
   },
-  "parentObjectId": {
-    "name": "Obj_player",
-    "path": "objects/Obj_player/Obj_player.yy",
-  },
-  "persistent": false,
+  "parentObjectId": null,
+  "persistent": true,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
   "physicsFriction": 0.2,
@@ -31,13 +28,7 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": {
-    "name": "Spr_slimeidle",
-    "path": "sprites/Spr_slimeidle/Spr_slimeidle.yy",
-  },
-  "spriteMaskId": {
-    "name": "Spr_slimehat",
-    "path": "sprites/Spr_slimehat/Spr_slimehat.yy",
-  },
+  "spriteId": null,
+  "spriteMaskId": null,
   "visible": true,
 }

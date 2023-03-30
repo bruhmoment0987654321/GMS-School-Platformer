@@ -1,7 +1,7 @@
 draw_set_color(c_white);
 
 //timer
-draw_text_transformed(1250,720,string(besttime),3,3,0);
+draw_text_transformed(1250,720,string(global.stopwatch),3,3,0);
 
 switch(room){
 	case Rm_start:
@@ -34,7 +34,6 @@ switch(room){
 	case Rm_level2ground:
 		#region level GUI for slime
 		draw_text_transformed(1100,40,"Deaths: " + string(global.death_total),2.5,2.5,0);
-		
 		if(instance_exists(Obj_slime)){
 			draw_sprite_general(Spr_healthbg,0,0,0,110,40,110/2+25,40/2-5,1.3,1.3,0,c_grey,c_gray,c_gray,c_gray,1);
 			draw_sprite_ext(Spr_health,global.HP,110,40,1.3,1.3,0,c_white,1);

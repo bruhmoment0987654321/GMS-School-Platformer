@@ -1,15 +1,11 @@
 bye = keyboard_check_pressed(ord("L"));
-//stopping the watch
-if(global.stopwatchstart = true){
-	stopwatch += delta_time/1000000;
-}
-
 switch(room){
 	case Rm_start:
 	case Rm_test:
 	case Rm_test_boy:
 	break;
 	case Rm_level1ground:
+	global.stopwatchstart = true;
 	case Rm_level2ground:
 		#region timer and teleporting to checkpoint
 		if(timer <= 0){
@@ -30,7 +26,6 @@ switch(room){
 				timer = room_speed;
 			}
 		}
-		global.stopwatchstart = true;
 		#endregion
 	break;
 	case Rm_end:

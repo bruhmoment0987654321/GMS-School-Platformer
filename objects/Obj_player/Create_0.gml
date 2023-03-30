@@ -41,6 +41,8 @@ invincibility = false; //if you got hit or not and gives you iframes
 invincible_timer = room_speed*1.5; //how long the iframes last
 blinktimer = invincible_timer; //the player flashes white when hit
 slime_splat = 0; //used when you die and game over screen
+xscale = 1; //for gummy effect
+yscale = 1; //for gummy effect
 
 #region the normal, free state
 stateFree = function(){

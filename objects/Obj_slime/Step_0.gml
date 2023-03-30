@@ -11,51 +11,36 @@ if(room = Rm_ctrls){
 #region big man
 if (place_meeting(x,y,Obj_bigman)){
 	var _enemy = instance_place(x,y,Obj_bigman);
-	if (y < _enemy.bbox_top +10) && (_enemy._state != "STOMPED"){ //if touched on top?
-		candash = true;
-		vsp = vspjump;
+	if(state == statedash){
 		with(_enemy){
-			_state = "STOMPED";
-			alarm[0] = room_speed/2;
+			_state = "DASHED";
+			alarm[0] = room_speed/3;
 		}
-	}else{ //if touched anywhere :L?
-		if(state == statedash){
-			with(_enemy){
-				_state = "DASHED";
-				alarm[0] = room_speed/3;
-			}
-			}else if(invincibility == false){
-				invincibility = true;
-				global.HP -= 1;
-		}
+		}else if(invincibility == false){
+			invincibility = true;
+			global.HP -= 1;
 	}
 }
 #endregion
 #region bat
 if (place_meeting(x,y,Obj_bat)){
-	var _enemy1 = instance_place(x,y,Obj_bat)
-	if (y < _enemy1.bbox_top+10) && (_enemy1._state != "STOMPED"){ //if touched on top?
+	var _enemy1 = instance_place(x,y,Obj_bat);
+	if (state == statedash){
 		with(_enemy1){
-			_state = "STOMPED";
-			alarm[0] = room_speed/2;
+			_state = "DASHED";
+			alarm[0] = room_speed/3;
 		}
-		vsp = vspjump
-		candash = true;
-	}else{ //if touched anywhere :L?
-		if (state == statedash){
-			with(_enemy1){
-				_state = "DASHED";
-				alarm[0] = room_speed/3;
-			}
-		}else if(invincibility == false){
-			invincibility = true;
-			global.HP -= 1;
-		}
+	}else if(invincibility == false){
+		invincibility = true;
+		global.HP -= 1;
 	}
 }
 #endregion
 
 #region animations
+xscale = approach(xscale,1,0.05);
+yscale = approach(yscale,1,0.05);
+#region basic animation
 if (!place_meeting(x,y+1,Obj_solid)){
 	image_speed = 0;
 	if (dashtime > 0) && (dash){
@@ -91,7 +76,6 @@ if (!place_meeting(x,y+1,Obj_solid)){
 	}else{
 		sprite_index = Spr_slimejump;
 		if (sign(vsp) > 0) image_index = 1;	else image_index = 0; 	
-	
 }
 
 }else{
@@ -103,6 +87,25 @@ if (!place_meeting(x,y+1,Obj_solid)){
 		 
 	 }
 }
+#endregion
+	#region gummy effect
+	//for jumping and falling
+	if(jump){
+		Gummy(0.6,1.5);	
+	}
+	if(sprite_index == Spr_slimejump) && (vsp > 0){
+		Gummy(1,0.7);	
+	}
+
+		//dashing
+	if(dash) && (up){
+		Gummy(0.4,1.3);		
+	}
+
+	if(dash) && (down){
+		Gummy(1.7,0.3);		
+	}
+	#endregion
 
 if (hsp != 0) image_xscale = sign(hsp);
 #endregion

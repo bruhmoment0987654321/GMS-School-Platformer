@@ -1,0 +1,1 @@
+global.death_total = 0;
