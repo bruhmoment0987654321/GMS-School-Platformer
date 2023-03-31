@@ -6,7 +6,6 @@ draw_text_transformed(1250,720,string(global.stopwatch),3,3,0);
 switch(room){
 	case Rm_start:
 	case Rm_test:
-	case Rm_brightness:
 	break;
 	case Rm_test_boy:
 		#region viewing ammo
@@ -27,7 +26,7 @@ switch(room){
 	
 	draw_text_transformed(5,60,controls,2,2,0);
 	
-	draw_text_ext_transformed(560,50,"Press 1 to go back to the title screen :)",10,300,3,3,0);
+	draw_text_ext_transformed(560,50,"Press Esc to go back to the title screen :)",10,300,3,3,0);
 	#endregion
 	break;
 	case Rm_level1ground:

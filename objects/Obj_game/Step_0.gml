@@ -40,7 +40,7 @@ switch(room){
 	case Rm_ctrls:
 		#region controls 
 		//go back to title screen
-		if(keyboard_check_pressed(ord(1))){
+		if(keyboard_check_pressed(vk_escape)){
 			room = Rm_start;
 		}
 		

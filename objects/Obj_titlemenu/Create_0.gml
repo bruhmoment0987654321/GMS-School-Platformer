@@ -13,9 +13,8 @@ options[0,2] = "Quit :(";
 
 //settings
 options[1,0] = "Window Size"
-options[1,1] = "Brightness B]"
-options[1,2] = "Controls"
-options[1,3] = "BACK!"
+options[1,1] = "Controls"
+options[1,2] = "BACK!"
 
 options[2,0] = "Full Screen"
 options[2,1] = "Windowed"
