@@ -17,12 +17,11 @@ switch(room){
 				Obj_player.y = Obj_start.y;
 				timer = room_speed;
 			}else{
-				var _near = instance_nearest(Obj_player.x,Obj_player.y,Obj_checkpoint);
 				global.HP = 1;
 				Obj_player.image_alpha = 1;
 				Obj_player.state = Obj_player.stateFree;
-				Obj_player.x = _near.x;
-				Obj_player.y = _near.y;
+				Obj_player.x = global.checkpointx;
+				Obj_player.y = global.checkpointy;
 				timer = room_speed;
 			}
 		}
@@ -51,7 +50,9 @@ switch(room){
 
 			Shift (either one): Run
 
-			WASD + Enter: Dash";
+			WASD + Enter: Dash
+			
+			Space: Jump";
 		}else if(instance_exists(Obj_boy)){
 			controls = @"Default controls for boy:
 		
@@ -59,7 +60,9 @@ switch(room){
 		
 			Shift (either one): Run 
 		
-			Enter: Shoot";	
+			Enter: Shoot
+			
+			Space: Jump";	
 		}
 	#endregion
 	break;

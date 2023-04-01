@@ -1,7 +1,7 @@
 draw_set_color(c_white);
 
 //timer
-draw_text_transformed(1250,720,string(global.stopwatch),3,3,0);
+draw_text_transformed(1200,720,string(global.stopwatchdays) + ":" + string(global.stopwatchhrs) + ":" + string(global.stopwatchmin) + ":" + string(global.stopwatchseconds),2,2,0);
 
 switch(room){
 	case Rm_start:
@@ -27,6 +27,7 @@ switch(room){
 	draw_text_transformed(5,60,controls,2,2,0);
 	
 	draw_text_ext_transformed(560,50,"Press Esc to go back to the title screen :)",10,300,3,3,0);
+	draw_text_ext_transformed(560,110,"Press T to switch characters",10,300,3,3,0);
 	#endregion
 	break;
 	case Rm_level1ground:

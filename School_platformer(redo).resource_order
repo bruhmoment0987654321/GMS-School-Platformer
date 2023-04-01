@@ -134,6 +134,7 @@
     {"name":"Obj_teleout","order":2,"path":"objects/Obj_teleout/Obj_teleout.yy",},
     {"name":"Spr_dashsideleft","order":10,"path":"sprites/Spr_dashsideleft/Spr_dashsideleft.yy",},
     {"name":"Spr_dashcornerrightdown","order":3,"path":"sprites/Spr_dashcornerrightdown/Spr_dashcornerrightdown.yy",},
+    {"name":"Obj_checkpointctrl","order":9,"path":"objects/Obj_checkpointctrl/Obj_checkpointctrl.yy",},
     {"name":"Spr_dashcornerleftdown","order":2,"path":"sprites/Spr_dashcornerleftdown/Spr_dashcornerleftdown.yy",},
     {"name":"Spr_play","order":2,"path":"sprites/Spr_play/Spr_play.yy",},
     {"name":"Rm_level2ground","order":1,"path":"rooms/Rm_level2ground/Rm_level2ground.yy",},

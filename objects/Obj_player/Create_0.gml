@@ -225,7 +225,6 @@ statedash = function(){
 			dashlimit -= 1;
 		}
 		#endregion
-	
 }
 #endregion
 #region the dead state

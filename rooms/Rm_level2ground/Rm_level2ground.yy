@@ -10,6 +10,7 @@
     {"name":"inst_1B6DCE59","path":"rooms/Rm_level2ground/Rm_level2ground.yy",},
     {"name":"inst_1BD49706","path":"rooms/Rm_level2ground/Rm_level2ground.yy",},
     {"name":"inst_79E88672","path":"rooms/Rm_level2ground/Rm_level2ground.yy",},
+    {"name":"inst_5AE5B8D4","path":"rooms/Rm_level2ground/Rm_level2ground.yy",},
     {"name":"inst_20DE66F2","path":"rooms/Rm_level2ground/Rm_level2ground.yy",},
     {"name":"inst_1DE9891D","path":"rooms/Rm_level2ground/Rm_level2ground.yy",},
     {"name":"inst_5B935DC","path":"rooms/Rm_level2ground/Rm_level2ground.yy",},
@@ -168,6 +169,7 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_79E88672","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":true,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"Obj_debug_thingamajigy","path":"objects/Obj_debug_thingamajigy/Obj_debug_thingamajigy.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":64.0,"y":0.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5FDA5747","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"Obj_game","path":"objects/Obj_game/Obj_game.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":96.0,"y":0.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_38A872FD","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"Obj_start","path":"objects/Obj_start/Obj_start.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":96.0,"y":560.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5AE5B8D4","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"Obj_checkpointctrl","path":"objects/Obj_checkpointctrl/Obj_checkpointctrl.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":64.0,"y":0.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"moving_plats","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_295ECB59","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"Obj_moveplath","path":"objects/Obj_moveplath/Obj_moveplath.yy",},"properties":[

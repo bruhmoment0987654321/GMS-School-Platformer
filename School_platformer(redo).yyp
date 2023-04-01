@@ -181,6 +181,7 @@
     {"id":{"name":"Obj_teleout","path":"objects/Obj_teleout/Obj_teleout.yy",},},
     {"id":{"name":"Spr_dashsideleft","path":"sprites/Spr_dashsideleft/Spr_dashsideleft.yy",},},
     {"id":{"name":"Spr_dashcornerrightdown","path":"sprites/Spr_dashcornerrightdown/Spr_dashcornerrightdown.yy",},},
+    {"id":{"name":"Obj_checkpointctrl","path":"objects/Obj_checkpointctrl/Obj_checkpointctrl.yy",},},
     {"id":{"name":"Spr_dashcornerleftdown","path":"sprites/Spr_dashcornerleftdown/Spr_dashcornerleftdown.yy",},},
     {"id":{"name":"placeholder","path":"sprites/placeholder/placeholder.yy",},},
     {"id":{"name":"Spr_play","path":"sprites/Spr_play/Spr_play.yy",},},
