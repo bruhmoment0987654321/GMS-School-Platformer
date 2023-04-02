@@ -48,8 +48,6 @@ switch(room){
 
 			W & D: Left and Right
 
-			Shift (either one): Run
-
 			WASD + Enter: Dash
 			
 			Space: Jump";
@@ -57,8 +55,6 @@ switch(room){
 			controls = @"Default controls for boy:
 		
 			W & D: Left and Right
-		
-			Shift (either one): Run 
 		
 			Enter: Shoot
 			

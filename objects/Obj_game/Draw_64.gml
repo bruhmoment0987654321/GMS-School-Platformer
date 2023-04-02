@@ -1,7 +1,7 @@
 draw_set_color(c_white);
 
 //timer
-draw_text_transformed(1200,720,string(global.stopwatchdays) + ":" + string(global.stopwatchhrs) + ":" + string(global.stopwatchmin) + ":" + string(global.stopwatchseconds),2,2,0);
+draw_text_transformed(1200,740,string(global.stopwatchdays) + ":" + string(global.stopwatchhrs) + ":" + string(global.stopwatchmin) + ":" + string(global.stopwatchseconds),2,2,0);
 
 switch(room){
 	case Rm_start:

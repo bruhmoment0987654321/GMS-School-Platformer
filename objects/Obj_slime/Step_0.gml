@@ -7,33 +7,11 @@ if(room = Rm_ctrls){
 	}
 }
 #endregion
-//enemy collision
-#region big man
-if (place_meeting(x,y,Obj_bigman)){
-	var _enemy = instance_place(x,y,Obj_bigman);
-	if(state == statedash){
-		with(_enemy){
-			_state = "DASHED";
-			alarm[0] = room_speed/3;
-		}
-		}else if(invincibility == false){
-			invincibility = true;
-			global.HP -= 1;
-	}
-}
-#endregion
+
 #region bat
 if (place_meeting(x,y,Obj_bat)){
 	var _enemy1 = instance_place(x,y,Obj_bat);
-	if (state == statedash){
-		with(_enemy1){
-			_state = "DASHED";
-			alarm[0] = room_speed/3;
-		}
-	}else if(invincibility == false){
-		invincibility = true;
-		global.HP -= 1;
-	}
+
 }
 #endregion
 

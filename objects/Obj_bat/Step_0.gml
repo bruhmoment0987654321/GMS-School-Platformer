@@ -22,7 +22,8 @@ switch(_state){
 		sprite_index = Spr_bIGmanstomp;
 		hsp = 0; 
 		vsp = 0;
-	break;
+	break
+
 	case ("DASHED"):
 	sprite_index = Spr_bigmanhit;
 	if (Obj_slime.x<x){

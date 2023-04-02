@@ -2,7 +2,6 @@
 hsp = 0; //current horizontal speed
 max_hsp = 3; //the max horizontal speed you go
 walksp = 0.7; //how fast the player goes
-runsp = 1.3; // how fast you can go while running
 
 //friction
 friction_ = 0.2; //this slows you down if you're not moving
@@ -52,13 +51,8 @@ stateFree = function(){
 		//horizontal movement
 		var move = right - left;
 		if (move !=0){
-			if (!run){
-				hsp += move*(onground ? walksp*2 : walksp);
-				max_hsp = 3;
-			}else{
-				hsp += move*(onground ? (runsp*0.2)*2 : runsp*0.2);
-				max_hsp = 5.5;
-			}
+			hsp += move*(onground ? walksp*2 : walksp);
+			max_hsp = 3;
 			hsp = clamp(hsp,-max_hsp,max_hsp);
 		}else{
 			if(image_xscale = 1){
@@ -91,7 +85,7 @@ stateFree = function(){
 		}
 	}
 	
-	if(!jump_held) && (vsp < 0){
+	if(!jump_held){
 		vsp = max(vsp,vspjump/3);
 	}
 	//shoot inputs
@@ -117,13 +111,8 @@ stateFree = function(){
 			canjump = 0;
 			var move = right - left;
 			if (move !=0){
-				if (!run){
-					hsp += move*walksp;
-					max_hsp = 3;
-				}else{
-					hsp += move*runsp;
-					max_hsp = 5;
-				}
+				hsp += move*walksp;
+				max_hsp = 3;
 			}
 			dashdirection = point_direction(0,0, right-left,down-up);
 			dashdistance = 82;
@@ -131,11 +120,6 @@ stateFree = function(){
 			dashenergy = dashdistance;
 			state = statedash;
 		}
-	}
-
-	//run animation
-	if (run){
-		image_speed = 2;	
 	}
 	#endregion
 	#region collisions
@@ -164,6 +148,54 @@ stateFree = function(){
 		vsp = 0;
 		
 	}
+	
+		#region getting unstuck on that dang solid blocks
+		if(place_meeting(x,y,Obj_solid)){
+			for(var i = 0; i < 1000; ++i){
+				//right
+				if(!place_meeting(x+i,y,Obj_solid)){
+					x += i;
+					break;
+				}
+				//left
+				if(!place_meeting(x-i,y,Obj_solid)){
+					x -= i;
+					break;
+				}
+				//up 
+				if(!place_meeting(x,y-i,Obj_solid)){
+					y -= i;
+					break;
+				}
+				//down
+				if(!place_meeting(x,y+i,Obj_solid)){
+					y += i;
+					break;
+				}					
+				//top left
+				if(!place_meeting(x+i,y-i,Obj_solid)){
+					x += i;
+					y -= i;
+				}
+				//top right
+				if(!place_meeting(x-i,y-i,Obj_solid)){
+					x -= i;
+					y -= i;
+				}
+				//bottom left
+				if(!place_meeting(x+i,y+i,Obj_solid)){
+					x += i;
+					y += i;
+				}
+				//bottom right
+				if(!place_meeting(x-i,y+i,Obj_solid)){
+					x -= i;
+					y += i;
+				}
+			}
+		}
+	#endregion 
+	
 	x += hsp; 
 	y += vsp;
 	#endregion
@@ -176,13 +208,8 @@ statedash = function(){
 	//move while dashing
 		var move = right - left;
 		if (move !=0){
-			if (!run){
-				hsp += move*walksp;
-				max_hsp = 3;
-			}else{
-				hsp += move*runsp;
-				max_hsp = 5;
-			}
+			hsp += move*walksp;
+			max_hsp = 3;
 		}
 		//move via the dash
 		hsp = lengthdir_x(dashsp,dashdirection);
@@ -204,8 +231,8 @@ statedash = function(){
 			}
 			hsp = 0;
 		}
-		x += hsp; 
-
+		
+		
 		//vertical collision
 		if (place_meeting(x,y+vsp,Obj_solid)){
 			while (abs(vsp) > 0.1){
@@ -214,8 +241,58 @@ statedash = function(){
 			}
 			vsp = 0;
 		}
+		
+		#region getting unstuck on that dang solid blocks
+			if(place_meeting(x,y,Obj_solid)){
+				for(var i = 0; i < 1000; ++i){
+					//right
+					if(!place_meeting(x+i,y,Obj_solid)){
+						x += i;
+						break;
+					}
+					//left
+					if(!place_meeting(x-i,y,Obj_solid)){
+						x -= i;
+						break;
+					}
+					//up 
+					if(!place_meeting(x,y-i,Obj_solid)){
+						y -= i;
+						break;
+					}
+					//down
+					if(!place_meeting(x,y+i,Obj_solid)){
+						y += i;
+						break;
+					}					
+					//top left
+					if(!place_meeting(x+i,y-i,Obj_solid)){
+						x += i;
+						y -= i;
+					}
+					//top right
+					if(!place_meeting(x-i,y-i,Obj_solid)){
+						x -= i;
+						y -= i;
+					}
+					//bottom left
+					if(!place_meeting(x+i,y+i,Obj_solid)){
+						x += i;
+						y += i;
+					}
+					//bottom right
+					if(!place_meeting(x-i,y+i,Obj_solid)){
+						x -= i;
+						y += i;
+					}
+				}
+			
+			}
+		#endregion 
+		
+		x += hsp; 
 		y += vsp;
-	
+		
 		//ending the dash
 		dashenergy -= dashsp;
 		if (dashenergy <= 0){
