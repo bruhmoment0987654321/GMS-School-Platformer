@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "invisible",
-    "path": "folders/Sprites/outside objects/invisible.yy",
+    "name": "essencials in the game",
+    "path": "folders/Sprites/essencials in the game.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

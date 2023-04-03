@@ -10,3 +10,5 @@ follow = Obj_player;
 xTo = x;
 yTo = y;
 
+lerp_speed = 0.1;
+

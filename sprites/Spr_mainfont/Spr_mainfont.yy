@@ -119,7 +119,7 @@
   "origin": 0,
   "parent": {
     "name": "Menu System",
-    "path": "folders/Sprites/Menu System.yy",
+    "path": "folders/Sprites/essencials in the game/Menu System.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

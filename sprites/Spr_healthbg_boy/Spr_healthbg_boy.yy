@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "health and gettin hit",
-    "path": "folders/Sprites/health and gettin hit.yy",
+    "name": "essencials in the game",
+    "path": "folders/Sprites/essencials in the game.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
