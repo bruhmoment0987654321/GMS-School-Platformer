@@ -13,10 +13,9 @@ if(focus_point_instance == noone){
 					original_cam_offset_y = camera_instance.y_offset;
 					original_cam_lerp = camera_instance.lerp_speed;
 				}
-			
 				camera_instance.follow = focus_point_instance;
-				camera_instance.x_offset = 0;
-				camera_instance.y_offset = 0;
+				camera_instance.x_offset = X_offset;
+				camera_instance.y_offset = Y_offset;
 				camera_instance.lerp_speed = lerp_speed;
 			}
 		}else{
