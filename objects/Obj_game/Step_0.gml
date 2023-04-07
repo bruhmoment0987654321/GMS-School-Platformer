@@ -30,8 +30,25 @@ switch(room){
 	case Rm_ground_chase:
 		#region timer to restart level
 		if(timer <= 0){
-			Obj_cam.follow = Obj_player;
-			room_restart();
+			if(!instance_exists(Obj_checkpoint)){
+				global.HP = 1;
+				Obj_player.image_alpha = 1;
+				Obj_player.state = Obj_player.stateFree;
+				Obj_player.x = Obj_start.x;
+				Obj_player.y = Obj_start.y;
+				if(instance_exists(Obj_autoscroll)){
+					Obj_autoscroll.path_position = 0;	
+				}
+				timer = room_speed;
+			}else{
+				global.HP = 1;
+				Obj_player.image_alpha = 1;
+				Obj_player.state = Obj_player.stateFree;
+				Obj_player.x = global.checkpointx;
+				Obj_player.y = global.checkpointy;
+				Obj_autoscroll.path_position = global.checkpointcampos;
+				timer = room_speed;
+			}
 		}
 		#endregion
 	break;

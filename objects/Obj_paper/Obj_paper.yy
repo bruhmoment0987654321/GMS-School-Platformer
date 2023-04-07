@@ -9,7 +9,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "paper ball",
-    "path": "folders/Objects/player(s)/paper ball.yy",
+    "path": "folders/Objects/Player(s)/paper ball.yy",
   },
   "parentObjectId": null,
   "persistent": false,

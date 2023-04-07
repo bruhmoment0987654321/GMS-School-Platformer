@@ -6,8 +6,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "visible",
-    "path": "folders/Objects/Outside Objects/visible.yy",
+    "name": "Look Here!",
+    "path": "folders/Objects/Outside Objects/visible/Look Here!.yy",
   },
   "parentObjectId": null,
   "persistent": false,

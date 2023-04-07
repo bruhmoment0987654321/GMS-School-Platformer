@@ -218,7 +218,7 @@ statedash = function(){
 				hsp *= 0.5;
 				if(!place_meeting(x+hsp,y,Obj_solid)) x +=hsp;
 			}
-			hsp = 0;
+			
 		}
 		
 		
@@ -228,7 +228,7 @@ statedash = function(){
 				vsp *= 0.5;
 				if(!place_meeting(x,y+vsp,Obj_solid)) y += vsp
 			}
-			vsp = 0;
+			
 		}
 		
 		#region getting unstuck on that dang solid blocks

@@ -9,8 +9,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "menu system",
-    "path": "folders/Objects/GUI & essencials/menu system.yy",
+    "name": "title system",
+    "path": "folders/Objects/GUI & essencials/title system.yy",
   },
   "parentObjectId": null,
   "persistent": true,
