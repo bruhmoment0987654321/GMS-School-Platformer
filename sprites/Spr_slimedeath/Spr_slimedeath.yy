@@ -29,7 +29,7 @@
   "origin": 0,
   "parent": {
     "name": "death",
-    "path": "folders/Sprites/health and gettin hit/death.yy",
+    "path": "folders/Sprites/essencials in the game/health and gettin hit/death.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

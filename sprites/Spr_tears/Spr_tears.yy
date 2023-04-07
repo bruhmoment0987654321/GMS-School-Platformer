@@ -30,7 +30,7 @@
   "origin": 4,
   "parent": {
     "name": "health and gettin hit",
-    "path": "folders/Sprites/health and gettin hit.yy",
+    "path": "folders/Sprites/essencials in the game/health and gettin hit.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

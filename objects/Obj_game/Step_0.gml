@@ -27,6 +27,14 @@ switch(room){
 		}
 		#endregion
 	break;
+	case Rm_ground_chase:
+		#region timer to restart level
+		if(timer <= 0){
+			Obj_cam.follow = Obj_player;
+			room_restart();
+		}
+		#endregion
+	break;
 	case Rm_end:
 		#region saying goodbye and stopping the watch
 		global.stopwatchstart = false;

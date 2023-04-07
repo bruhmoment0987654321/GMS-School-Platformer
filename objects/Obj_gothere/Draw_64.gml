@@ -1,0 +1,1 @@
+draw_sprite(Spr_gothere,0,500,500);

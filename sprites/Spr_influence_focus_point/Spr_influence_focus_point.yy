@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 4,
   "parent": {
-    "name": "essencials in the game",
-    "path": "folders/Sprites/essencials in the game.yy",
+    "name": "camera",
+    "path": "folders/Sprites/essencials in the game/camera.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

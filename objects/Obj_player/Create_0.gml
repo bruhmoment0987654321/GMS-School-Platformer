@@ -109,11 +109,6 @@ stateFree = function(){
 		if (inputs) && (dash) && (dashlimit > 0){
 			candash = false;
 			canjump = 0;
-			var move = right - left;
-			if (move !=0){
-				hsp += move*walksp;
-				max_hsp = 3;
-			}
 			dashdirection = point_direction(0,0, right-left,down-up);
 			dashdistance = 82;
 			dashsp = dashdistance/dashtime;
@@ -205,12 +200,6 @@ stateFree = function(){
 #region the dashing state
 statedash = function(){
 	#region dashing
-	//move while dashing
-		var move = right - left;
-		if (move !=0){
-			hsp += move*walksp;
-			max_hsp = 3;
-		}
 		//move via the dash
 		hsp = lengthdir_x(dashsp,dashdirection);
 		vsp = lengthdir_y(dashsp,dashdirection);

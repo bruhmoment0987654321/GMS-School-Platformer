@@ -32,6 +32,7 @@ switch(room){
 	break;
 	case Rm_level1ground:
 	case Rm_level2ground:
+	case Rm_ground_chase:
 		#region level GUI for slime
 		draw_text_transformed(1100,40,"Deaths: " + string(global.death_total),2.5,2.5,0);
 		if(instance_exists(Obj_slime)){
