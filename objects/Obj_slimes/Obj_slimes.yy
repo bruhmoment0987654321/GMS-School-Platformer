@@ -1,17 +1,18 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "Obj_end",
-  "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":{"name":"Obj_player","path":"objects/Obj_player/Obj_player.yy",},"eventNum":0,"eventType":4,"isDnD":false,},
-  ],
+  "name": "Obj_slimes",
+  "eventList": [],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "essiencials",
-    "path": "folders/Objects/GUI & essencials/essiencials.yy",
+    "name": "killing",
+    "path": "folders/Objects/Outside Objects/visible/killing.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "Obj_killyou",
+    "path": "objects/Obj_killyou/Obj_killyou.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
@@ -28,9 +29,9 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "Spr_end",
-    "path": "sprites/Spr_end/Spr_end.yy",
+    "name": "Spr_deathpit",
+    "path": "sprites/Spr_deathpit/Spr_deathpit.yy",
   },
   "spriteMaskId": null,
-  "visible": false,
+  "visible": true,
 }

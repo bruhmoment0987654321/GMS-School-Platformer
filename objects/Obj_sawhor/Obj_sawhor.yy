@@ -10,8 +10,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "killing",
-    "path": "folders/Objects/Outside Objects/visible/killing.yy",
+    "name": "saaw",
+    "path": "folders/Objects/Outside Objects/visible/killing/saaw.yy",
   },
   "parentObjectId": {
     "name": "Obj_sawpar",

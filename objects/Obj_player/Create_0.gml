@@ -42,12 +42,13 @@ blinktimer = invincible_timer; //the player flashes white when hit
 slime_splat = 0; //used when you die and game over screen
 xscale = 1; //for gummy effect
 yscale = 1; //for gummy effect
+hascontrol = true; //giving the player control or not
 
 #region the normal, free state
 stateFree = function(){
 	shootdelay = max(shootdelay - 1,0);
 	#region movement
-
+	if(hascontrol){
 		//horizontal movement
 		var move = right - left;
 		if (move !=0){
@@ -68,53 +69,59 @@ stateFree = function(){
 			hsp = lerp(hsp,0,friction_);
 		}
 	
-	vsp += global.grv;
-	vsp = clamp(vsp,-vsp_max,vsp_max);
+		vsp += global.grv;
+		vsp = clamp(vsp,-vsp_max,vsp_max);
 	
-	//jump
-	if (canjump -- > 0) && (jump){
-		jumpbuffer = jumpbuffertime;
-		canjump = 0;
-	}
-	
-	if(jumpbuffer > 0){
-		jumpbuffer -= 1;	
-		if(place_meeting(x,y+1,Obj_solid)){
-			vsp = vspjump;
-			jumpbuffer = 0;
+		//jump
+		if (canjump -- > 0) && (jump){
+			jumpbuffer = jumpbuffertime;
+			canjump = 0;
 		}
-	}
 	
-	if(!jump_held){
-		vsp = max(vsp,vspjump/3);
-	}
-	//shoot inputs
-	if(object_index != Obj_slime){
-		if(place_meeting(x,y,Obj_paper)){
-				global.ammo += 1;
-		}
-	}
-	
-	if(global.ammo > 0){
-		if(shootdelay == 0){
-			if(shoot){
-				instance_create_layer(x,y,"Player",Obj_paperball);
-				shootdelay = shootdelaymax;
+		if(jumpbuffer > 0){
+			jumpbuffer -= 1;	
+			if(place_meeting(x,y+1,Obj_solid)){
+				vsp = vspjump;
+				jumpbuffer = 0;
 			}
 		}
-	}
 	
-	//dash input
-	if(object_index != Obj_boy){
-		if (inputs) && (dash) && (dashlimit > 0){
-			candash = false;
-			canjump = 0;
-			dashdirection = point_direction(0,0, right-left,down-up);
-			dashdistance = 82;
-			dashsp = dashdistance/dashtime;
-			dashenergy = dashdistance;
-			state = statedash;
+		if(!jump_held){
+			vsp = max(vsp,vspjump/3);
 		}
+		//shoot inputs
+		if(object_index != Obj_slime){
+			if(place_meeting(x,y,Obj_paper)){
+					global.ammo += 1;
+			}
+		}
+	
+		if(global.ammo > 0){
+			if(shootdelay == 0){
+				if(shoot){
+					instance_create_layer(x,y,"Player",Obj_paperball);
+					shootdelay = shootdelaymax;
+				}
+			}
+		}
+	
+		//dash input
+		if(object_index != Obj_boy){
+			if (inputs) && (dash) && (dashlimit > 0){
+				candash = false;
+				canjump = 0;
+				dashdirection = point_direction(0,0, right-left,down-up);
+				dashdistance = 82;
+				dashsp = dashdistance/dashtime;
+				dashenergy = dashdistance;
+				state = statedash;
+			}
+		}
+	}else{
+		left = 0;
+		right = 0;
+		jump = 0;
+		dash = 0;
 	}
 	#endregion
 	#region collisions
@@ -200,15 +207,17 @@ stateFree = function(){
 #region the dashing state
 statedash = function(){
 	#region dashing
-		//move via the dash
-		hsp = lengthdir_x(dashsp,dashdirection);
-		vsp = lengthdir_y(dashsp,dashdirection);
+		if(hascontrol){
+			//move via the dash
+			hsp = lengthdir_x(dashsp,dashdirection);
+			vsp = lengthdir_y(dashsp,dashdirection);
 	
-		//trail effect
-		with (instance_create_depth(x,y,depth+1,Obj_trail)){
-			sprite_index = other.sprite_index;
-			image_blend = #09E444;
-			image_alpha = 0.9;
+			//trail effect
+			with (instance_create_depth(x,y,depth+1,Obj_trail)){
+				sprite_index = other.sprite_index;
+				image_blend = #09E444;
+				image_alpha = 0.9;
+			}
 		}
 		#endregion
 	#region collisions
@@ -218,6 +227,7 @@ statedash = function(){
 				hsp *= 0.5;
 				if(!place_meeting(x+hsp,y,Obj_solid)) x +=hsp;
 			}
+			hsp = 0;
 			
 		}
 		
@@ -228,6 +238,7 @@ statedash = function(){
 				vsp *= 0.5;
 				if(!place_meeting(x,y+vsp,Obj_solid)) y += vsp
 			}
+			vsp = 0;
 			
 		}
 		
