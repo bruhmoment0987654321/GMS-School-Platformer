@@ -8,8 +8,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Enemies",
-    "path": "folders/Objects/Enemies.yy",
+    "name": "bat",
+    "path": "folders/Objects/Enemies/bat.yy",
   },
   "parentObjectId": null,
   "persistent": false,

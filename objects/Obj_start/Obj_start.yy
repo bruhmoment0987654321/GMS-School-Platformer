@@ -6,8 +6,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "essiencials",
-    "path": "folders/Objects/GUI & essencials/essiencials.yy",
+    "name": "for the player's sake",
+    "path": "folders/Objects/GUI & essencials/essiencials/for the player's sake.yy",
   },
   "parentObjectId": null,
   "persistent": false,

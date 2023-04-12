@@ -2,6 +2,8 @@
 xcam = 0;
 global.ycam = 0;
 
+global.camShake = 0;
+
 global.camW = 400;
 global.camH = 225;
 

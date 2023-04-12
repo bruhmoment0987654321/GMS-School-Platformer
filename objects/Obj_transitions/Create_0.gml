@@ -5,7 +5,6 @@ h_half = h/2;
 enum TRANS_MODE{
 	OFF,
 	NEXT,
-	GOTO,
 	RESTART,
 	INTRO
 }

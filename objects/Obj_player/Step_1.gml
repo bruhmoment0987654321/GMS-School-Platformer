@@ -32,8 +32,9 @@ if (invincibility == false){
 #endregion
 #region cause of death
 if(state != stateDead) && (global.HP <= 0){
+	global.camShake = 4;
 	state = stateDead;
-	slime_splat = 0;	
+	slime_splat = 0;
 }
 #endregion
 

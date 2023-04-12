@@ -108,6 +108,7 @@ stateFree = function(){
 		//dash input
 		if(object_index != Obj_boy){
 			if (inputs) && (dash) && (dashlimit > 0){
+				global.camShake = 1.5;
 				candash = false;
 				canjump = 0;
 				dashdirection = point_direction(0,0, right-left,down-up);

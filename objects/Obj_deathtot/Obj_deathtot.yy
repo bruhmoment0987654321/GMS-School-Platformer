@@ -8,8 +8,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "essiencials",
-    "path": "folders/Objects/GUI & essencials/essiencials.yy",
+    "name": "viewing GUI",
+    "path": "folders/Objects/GUI & essencials/essiencials/viewing GUI.yy",
   },
   "parentObjectId": null,
   "persistent": true,

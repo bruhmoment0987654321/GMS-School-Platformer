@@ -36,8 +36,11 @@ switch(room){
 				Obj_player.state = Obj_player.stateFree;
 				Obj_player.x = Obj_start.x;
 				Obj_player.y = Obj_start.y;
-				if(instance_exists(Obj_autoscroll)){
-					Obj_autoscroll.path_position = 0;	
+				if(instance_exists(Obj_autoscroll)) && (instance_exists(Obj_sliem)) && (instance_exists(Obj_sliem2)){
+					Obj_autoscroll.path_position = 0;
+					Obj_sliem.path_position = 0;
+					Obj_sliem2.path_position = 0;
+					Obj_cam.follow = Obj_autoscroll;
 				}
 				timer = room_speed;
 			}else{
@@ -47,7 +50,10 @@ switch(room){
 				Obj_player.x = global.checkpointx;
 				Obj_player.y = global.checkpointy;
 				Obj_autoscroll.path_position = global.checkpointcampos;
+				Obj_sliem.path_position = global.checkpointslimpos1;
+				Obj_sliem2.path_position = global.checkpointslimpos2;
 				timer = room_speed;
+				Obj_cam.follow = Obj_autoscroll;
 			}
 		}
 		#endregion
@@ -59,8 +65,18 @@ switch(room){
 			instance_create_layer(Obj_slime.x,Obj_slime.y-30,"Behind",Obj_bye)
 			alarm[0] = room_speed;
 		}
+		if(keyboard_check_pressed(vk_escape)){
+			room_goto(Rm_cool_content);	
+		}
 		#endregion
 	break;
+	case Rm_cool_content:
+	if (keyboard_check_pressed(vk_escape)){
+		instance_create_layer(Obj_slime.x,Obj_slime.y-30,"Behind",Obj_bye)
+		alarm[0] = room_speed;
+	}
+	break;
+	
 	case Rm_ctrls:
 		#region controls 
 		//go back to title screen

@@ -19,7 +19,7 @@ if (accept_key){
 		//start menu
 			switch(pos){
 				//start game
-				case 0: room_goto_next(); break;
+				case 0: SlideTransition(TRANS_MODE.NEXT); break;
 				//show options
 				case 1: menu_level = 1; break;
 				//close game
