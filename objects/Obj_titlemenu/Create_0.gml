@@ -12,13 +12,14 @@ options[0,1] = "Options";
 options[0,2] = "Quit :(";
 
 //settings
-options[1,0] = "Window Size"
-options[1,1] = "Controls"
-options[1,2] = "BACK!"
+options[1,0] = "Window Size";
+options[1,1] = "Controls";
+options[1,2] = "Credits";
+options[1,3] = "BACK!";
 
-options[2,0] = "Full Screen"
-options[2,1] = "Windowed"
-options[2,2] = "Go Back"
+options[2,0] = "Full Screen";
+options[2,1] = "Windowed";
+options[2,2] = "Go Back";
 
 
 

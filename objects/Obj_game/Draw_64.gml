@@ -42,6 +42,9 @@ switch(room){
 		#endregion
 	break;
 	case Rm_end:
+		#region level GUI for slime
+		draw_text_transformed(1100,40,"Deaths: " + string(global.death_total),2.5,2.5,0);
+		#endregion
 		#region ending of the game
 		draw_set_halign(fa_middle);
 		draw_text_ext_transformed(1180,200,"Press L to end game",3,10000000,2,2,0);

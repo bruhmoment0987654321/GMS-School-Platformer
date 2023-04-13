@@ -58,6 +58,12 @@ switch(room){
 		}
 		#endregion
 	break;
+	case Rm_credits:
+		if(keyboard_check_pressed(vk_escape)){
+			room = Rm_start;
+		}
+	break;
+	
 	case Rm_end:
 		#region saying goodbye and stopping the watch
 		global.stopwatchstart = false;

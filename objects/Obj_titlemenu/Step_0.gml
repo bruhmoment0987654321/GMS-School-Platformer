@@ -33,8 +33,10 @@ if (accept_key){
 				case 0: menu_level = 2; break;
 				//controls
 				case 1: room = Rm_ctrls; break;
+				//credits
+				case 2: room = Rm_credits; break;
 				//go back to start menu
-				case 2: menu_level = 0; break;
+				case 3: menu_level = 0; break;
 				
 			}
 		break;
