@@ -43,6 +43,7 @@ slime_splat = 0; //used when you die and game over screen
 xscale = 1; //for gummy effect
 yscale = 1; //for gummy effect
 hascontrol = true; //giving the player control or not
+imageblend = c_white; //controling the color of the player
 
 #region the normal, free state
 stateFree = function(){
@@ -138,7 +139,7 @@ stateFree = function(){
 	//vertical collision
 	if (place_meeting(x,y+vsp,Obj_solid)){
 		if(vsp>0){
-			canjump = 7;
+			canjump = 10;
 			dashlimit = 2;
 			candash = true;
 			jumpbuffer = 0;

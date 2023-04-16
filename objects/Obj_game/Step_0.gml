@@ -36,11 +36,12 @@ switch(room){
 				Obj_player.state = Obj_player.stateFree;
 				Obj_player.x = Obj_start.x;
 				Obj_player.y = Obj_start.y;
-				if(instance_exists(Obj_autoscroll)) && (instance_exists(Obj_sliem)) && (instance_exists(Obj_sliem2)){
+				Obj_ghost.frames = 50;
+				if(instance_exists(Obj_autoscroll)){
 					Obj_autoscroll.path_position = 0;
-					Obj_sliem.path_position = 0;
-					Obj_sliem2.path_position = 0;
+					Obj_kill_line.path_position = 0;
 					Obj_cam.follow = Obj_autoscroll;
+					Obj_ghost.frames = 200;
 				}
 				timer = room_speed;
 			}else{
@@ -50,10 +51,10 @@ switch(room){
 				Obj_player.x = global.checkpointx;
 				Obj_player.y = global.checkpointy;
 				Obj_autoscroll.path_position = global.checkpointcampos;
-				Obj_sliem.path_position = global.checkpointslimpos1;
-				Obj_sliem2.path_position = global.checkpointslimpos2;
+				Obj_kill_line.path_position = global.checkpointkillcampos;
+				Obj_ghost.frames = global.checkpointslimeframes;
+				
 				timer = room_speed;
-				Obj_cam.follow = Obj_autoscroll;
 			}
 		}
 		#endregion

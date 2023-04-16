@@ -9,8 +9,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "camera",
-    "path": "folders/Objects/GUI & essencials/essiencials/camera.yy",
+    "name": "autoscroll",
+    "path": "folders/Objects/GUI & essencials/essiencials/camera/autoscroll.yy",
   },
   "parentObjectId": null,
   "persistent": false,

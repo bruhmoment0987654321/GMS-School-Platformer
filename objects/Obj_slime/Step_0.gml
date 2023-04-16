@@ -8,13 +8,6 @@ if(room = Rm_ctrls){
 }
 #endregion
 
-#region bat
-if (place_meeting(x,y,Obj_bat)){
-	var _enemy1 = instance_place(x,y,Obj_bat);
-
-}
-#endregion
-
 #region animations
 xscale = approach(xscale,1,0.05);
 yscale = approach(yscale,1,0.05);
@@ -84,7 +77,11 @@ if (!place_meeting(x,y+1,Obj_solid)){
 		Gummy(1.7,0.3);		
 	}
 	#endregion
-
+if(dashlimit == 0){
+	imageblend = #FF8AFF
+}else{
+	imageblend = c_white;	
+}
 if (hsp != 0) image_xscale = sign(hsp);
 #endregion
 
