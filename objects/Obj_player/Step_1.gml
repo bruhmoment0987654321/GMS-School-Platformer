@@ -30,6 +30,7 @@ if (invincibility == false){
 	blinktimer = invincible_timer;
 }
 #endregion
+
 #region cause of death
 if(state != stateDead) && (global.HP <= 0){
 	global.camShake = 4;

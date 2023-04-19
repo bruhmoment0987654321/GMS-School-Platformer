@@ -1,20 +1,12 @@
 bye = keyboard_check_pressed(ord("L"));
 switch(room){
-	case Rm_start:
-	case Rm_test:
-	case Rm_test_boy:
-	break;
 	case Rm_level1ground:
 	global.stopwatchstart = true;
 	case Rm_level2ground:
 		#region timer and teleporting to checkpoint
 		if(timer <= 0){
 			if(!instance_exists(Obj_checkpoint)){
-				global.HP = 1;
-				Obj_player.image_alpha = 1;
-				Obj_player.state = Obj_player.stateFree;
-				Obj_player.x = Obj_start.x;
-				Obj_player.y = Obj_start.y;
+				room_restart();
 				timer = room_speed;
 			}else{
 				global.HP = 1;
@@ -31,19 +23,10 @@ switch(room){
 		#region timer to restart level
 		if(timer <= 0){
 			if(!instance_exists(Obj_checkpoint)){
-				global.HP = 1;
-				Obj_player.image_alpha = 1;
-				Obj_player.state = Obj_player.stateFree;
-				Obj_player.x = Obj_start.x;
-				Obj_player.y = Obj_start.y;
-				Obj_ghost.frames = 50;
-				if(instance_exists(Obj_autoscroll)){
-					Obj_autoscroll.path_position = 0;
-					Obj_kill_line.path_position = 0;
-					Obj_cam.follow = Obj_autoscroll;
-					Obj_ghost.frames = 200;
-				}
+				Obj_cam.follow = Obj_player;
+				room_restart();
 				timer = room_speed;
+				
 			}else{
 				global.HP = 1;
 				Obj_player.image_alpha = 1;
@@ -52,8 +35,7 @@ switch(room){
 				Obj_player.y = global.checkpointy;
 				Obj_autoscroll.path_position = global.checkpointcampos;
 				Obj_kill_line.path_position = global.checkpointkillcampos;
-				Obj_ghost.frames = global.checkpointslimeframes;
-				
+				//Obj_sliem.frames = global.checkpointslimeframes;
 				timer = room_speed;
 			}
 		}
@@ -92,9 +74,9 @@ switch(room){
 		}
 		
 		if(instance_exists(Obj_slime)){	
-			controls = @"Default Controls for slime:
+			controls = @"Default controls for slime:
 
-			W & D: Left and Right
+			W/D: Left and Right
 
 			WASD + Enter: Dash
 			
@@ -102,9 +84,9 @@ switch(room){
 		}else if(instance_exists(Obj_boy)){
 			controls = @"Default controls for boy:
 		
-			W & D: Left and Right
+			W/D: Left and Right
 		
-			Enter: Shoot
+			P: Shoot
 			
 			Space: Jump";	
 		}

@@ -3,10 +3,12 @@ draw_set_color(c_white);
 //timer
 draw_text_transformed(1200,740,string(global.stopwatchdays) + ":" + string(global.stopwatchhrs) + ":" + string(global.stopwatchmin) + ":" + string(global.stopwatchseconds),2,2,0);
 
+draw_set_color(c_red);
+//draw_text(60,10,string(Obj_sliem.frames));
+
+draw_set_color(c_white);
 switch(room){
-	case Rm_start:
-	case Rm_test:
-	break;
+
 	case Rm_test_boy:
 		#region viewing ammo
 		if(global.ammo > 0){

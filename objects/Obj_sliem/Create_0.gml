@@ -1,4 +1,5 @@
-/// @description Load Ghost Data
+/// @description Load Ghost Data & eyes
+instance_create_layer(x,y,"Behind",Obj_sliem_eyes)
 
 //setup
 frames = 0;

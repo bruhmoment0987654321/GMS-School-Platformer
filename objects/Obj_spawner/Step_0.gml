@@ -1,9 +1,5 @@
 timer--;
 switch(room){
-	case Rm_start:
-	case Rm_test:
-	case Rm_end:
-	break;
 	case Rm_level1ground:
 	if (timer <= 0 && spawn < spawnMax){
 		spawn++;

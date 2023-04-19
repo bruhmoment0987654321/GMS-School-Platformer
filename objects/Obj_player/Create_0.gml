@@ -13,9 +13,9 @@ onground = false; //are we on the ground?
 vsp = 0; //current vertical speed
 vsp_max = 9; //max speed when falling
 vspjump = -6.5; //how high the player jumps
-jumpbuffer = 0; //checks if you pressed the jump button before touching the ground
-jumpbuffertime = 15; //the amount of buffer;
 canjump = 0; //can we jump?
+jump_buffer = 10; //number of grace period frames between player pressing jump and hitting the ground when they will still jump
+jump_buffer_timer = jump_buffer;
 global.grv = 0.3; //gravity
 
 //dash variables
@@ -74,17 +74,27 @@ stateFree = function(){
 		vsp = clamp(vsp,-vsp_max,vsp_max);
 	
 		//jump
-		if (canjump -- > 0) && (jump){
-			jumpbuffer = jumpbuffertime;
-			canjump = 0;
+		//Jump Input Buffering
+		if (jump){
+		    jump_buffer_timer = jump_buffer;
 		}
-	
-		if(jumpbuffer > 0){
-			jumpbuffer -= 1;	
-			if(place_meeting(x,y+1,Obj_solid)){
-				vsp = vspjump;
-				jumpbuffer = 0;
-			}
+		
+		if (jump_buffer_timer > 0){
+		    jump_is_inside_buffer = true;
+		}else{
+		    jump_is_inside_buffer = false;
+		}
+		//this is sort of a failsafe for when the buffer frames are set to 0, just use the old jump
+		if (jump_buffer = 0){
+		    jump_is_inside_buffer = jump;
+		}
+		if(jump_is_inside_buffer){
+		    if (is_on_ground || canjump >0){
+		        vsp = vspjump;
+		        canjump = 0;
+		        jump_buffer_timer = 0;
+		    }
+		    jump_buffer_timer--;
 		}
 	
 		if(!jump_held){
@@ -126,6 +136,7 @@ stateFree = function(){
 		dash = 0;
 	}
 	#endregion
+	
 	#region collisions
 	//horizontal collision
 	if (place_meeting(x+hsp,y,Obj_solid)){
@@ -142,7 +153,8 @@ stateFree = function(){
 			canjump = 10;
 			dashlimit = 2;
 			candash = true;
-			jumpbuffer = 0;
+			is_on_ground = true;
+
 		}
 		while (abs(vsp) > 0.1){
 			vsp *= 0.5;
@@ -203,6 +215,9 @@ stateFree = function(){
 	x += hsp; 
 	y += vsp;
 	#endregion
+	
+	
+	
 
 }
 #endregion

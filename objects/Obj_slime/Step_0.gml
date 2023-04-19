@@ -14,40 +14,8 @@ yscale = approach(yscale,1,0.05);
 #region basic animation
 if (!place_meeting(x,y+1,Obj_solid)){
 	image_speed = 0;
-	if (dashtime > 0) && (dash){
-		if (left){
-			sprite_index = Spr_dashsideleft;
-		}
-		
-		if (right){
-			sprite_index = Spr_dashside;	
-		}
-		if (up){
-			sprite_index = Spr_dashsideup;
-		}
-		
-		if (down){
-			sprite_index = Spr_dashsidedown;	
-		}
-		if (left) && (up){
-			sprite_index = Spr_dashcornerleftup;
-		}
-		
-		if (left) && (down){
-			sprite_index = Spr_dashcornerleftdown;
-		}
-		
-		if (right) && (up){
-			sprite_index = Spr_dashcorner;			
-		}
-		
-		if (right) && (down){
-			sprite_index = Spr_dashcornerrightdown;
-		}
-	}else{
-		sprite_index = Spr_slimejump;
-		if (sign(vsp) > 0) image_index = 1;	else image_index = 0; 	
-}
+	sprite_index = Spr_slimejump;
+	if (sign(vsp) > 0) image_index = 1;	else image_index = 0; 	
 
 }else{
 	image_speed = 1;

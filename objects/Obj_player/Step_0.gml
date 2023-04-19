@@ -7,6 +7,8 @@ dash = keyboard_check_pressed(vk_enter);
 jump = keyboard_check_pressed(vk_space);
 jump_held = keyboard_check(vk_space);
 inputs = left||right||up||down;
-shoot = keyboard_check_pressed(ord("P"));		
+shoot = keyboard_check_pressed(ord("P"));	
+jump_is_inside_buffer = false; 
+is_on_ground = false;
 #endregion
 state();

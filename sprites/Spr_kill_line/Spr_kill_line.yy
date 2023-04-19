@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "invisible",
-    "path": "folders/Sprites/outside objects/invisible.yy",
+    "name": "camera",
+    "path": "folders/Sprites/essencials in the game/camera.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
