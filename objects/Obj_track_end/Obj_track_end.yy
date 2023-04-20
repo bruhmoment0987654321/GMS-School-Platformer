@@ -1,15 +1,13 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "Obj_end",
-  "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":{"name":"Obj_player","path":"objects/Obj_player/Obj_player.yy",},"eventNum":0,"eventType":4,"isDnD":false,},
-  ],
+  "name": "Obj_track_end",
+  "eventList": [],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "for the player's sake",
-    "path": "folders/Objects/GUI & essencials/essiencials/for the player's sake.yy",
+    "name": "platforms",
+    "path": "folders/Objects/Outside Objects/visible/platforms.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -28,8 +26,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "Spr_end",
-    "path": "sprites/Spr_end/Spr_end.yy",
+    "name": "Spr_Track_end",
+    "path": "sprites/Spr_Track_end/Spr_Track_end.yy",
   },
   "spriteMaskId": null,
   "visible": true,

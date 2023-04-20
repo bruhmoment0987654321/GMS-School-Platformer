@@ -1,7 +1,7 @@
 #region plat movement
 hsp1 = platdir * movespeed;
 
-var wallcollision = place_meeting(x+hsp1,y,Obj_line);
+var wallcollision = place_meeting(x+hsp1,y,Obj_track_end);
 if(wallcollision){
 	platdir *= -1;	
 }

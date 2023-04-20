@@ -23,7 +23,6 @@ switch(room){
 		#region timer to restart level
 		if(timer <= 0){
 			if(!instance_exists(Obj_checkpoint)){
-				Obj_cam.follow = Obj_player;
 				room_restart();
 				timer = room_speed;
 				
@@ -35,7 +34,7 @@ switch(room){
 				Obj_player.y = global.checkpointy;
 				Obj_autoscroll.path_position = global.checkpointcampos;
 				Obj_kill_line.path_position = global.checkpointkillcampos;
-				//Obj_sliem.frames = global.checkpointslimeframes;
+				Obj_sliem.frames = global.checkpointslimeframes;
 				timer = room_speed;
 			}
 		}

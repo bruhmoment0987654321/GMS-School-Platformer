@@ -1,7 +1,9 @@
 switch(_state){
-	case ("STILL"):
-		sprite_index = Spr_bIGmanwalk;
-		image_speed = 0;
+	case ("WALK"):
+		sprite_index = Spr_lilman;
+		image_speed = animationspeed;
+		//movement
+		hsp = dir*maxSpeed;
 		
 	break;
 	
@@ -17,16 +19,23 @@ switch(_state){
 	break;
 	
 	case ("SHOT"):
-		
+		sprite_index = Spr_bigmanhit;
+		if (Obj_slime.x<x){
+			hsp = 1;
+			vsp = -1;
+		}else{
+			hsp = -1;
+			vsp = -1;
+		}
 	break;
 }
 
 //gravity
 if (vsp < 5) vsp += global.grv;
 
-//collisions
+#region collisions
 	//horizontal collision
-	if (place_meeting(x+hsp,y,Obj_solid)){
+	if (place_meeting(x+hsp,y,Obj_solid)) || (place_meeting(x+hsp,y,Obj_line)){
 		dir *= -1;
 	}
 
@@ -38,8 +47,11 @@ if (vsp < 5) vsp += global.grv;
 		}
 		vsp = 0;
 	}
+#endregion
+
 	if(hsp != 0){
-	image_xscale = -sign(hsp);
+	image_xscale = sign(hsp);
 	}
 	x += hsp; 
 	y += vsp;
+	

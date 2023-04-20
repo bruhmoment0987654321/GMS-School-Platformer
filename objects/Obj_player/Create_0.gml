@@ -13,7 +13,8 @@ onground = false; //are we on the ground?
 vsp = 0; //current vertical speed
 vsp_max = 9; //max speed when falling
 vspjump = -6.5; //how high the player jumps
-canjump = 0; //can we jump?
+grace_timer = 10; //can we jump?
+grace_jump_time = grace_timer;
 jump_buffer = 10; //number of grace period frames between player pressing jump and hitting the ground when they will still jump
 jump_buffer_timer = jump_buffer;
 global.grv = 0.3; //gravity
@@ -74,28 +75,35 @@ stateFree = function(){
 		vsp = clamp(vsp,-vsp_max,vsp_max);
 	
 		//jump
-		//Jump Input Buffering
-		if (jump){
-		    jump_buffer_timer = jump_buffer;
-		}
-		
-		if (jump_buffer_timer > 0){
-		    jump_is_inside_buffer = true;
+		#region Jump Input Buffering
+		if (place_meeting(x,y+1,Obj_solid)){
+		    is_on_ground = true;
+		    grace_timer = grace_jump_time;
 		}else{
-		    jump_is_inside_buffer = false;
+		    is_on_ground = false;
+		    grace_timer--;
 		}
-		//this is sort of a failsafe for when the buffer frames are set to 0, just use the old jump
+		if (jump){
+			jump_buffer_timer = jump_buffer;
+		}
+
+		if (jump_buffer_timer > 0){
+			jump_is_inside_buffer = true;
+		}else{
+			jump_is_inside_buffer = false;
+		}
 		if (jump_buffer = 0){
-		    jump_is_inside_buffer = jump;
+			jump_is_inside_buffer = jump;
 		}
 		if(jump_is_inside_buffer){
-		    if (is_on_ground || canjump >0){
-		        vsp = vspjump;
-		        canjump = 0;
-		        jump_buffer_timer = 0;
-		    }
-		    jump_buffer_timer--;
-		}
+			if (is_on_ground || grace_timer >0){
+			        vsp = vspjump;
+			        grace_timer = 0;
+			        jump_buffer_timer = 0;
+			    }
+			    jump_buffer_timer--;
+			}
+		#endregion
 	
 		if(!jump_held){
 			vsp = max(vsp,vspjump/3);
@@ -116,12 +124,12 @@ stateFree = function(){
 			}
 		}
 	
-		//dash input
+		#region dash input
 		if(object_index != Obj_boy){
 			if (inputs) && (dash) && (dashlimit > 0){
 				global.camShake = 1.5;
 				candash = false;
-				canjump = 0;
+				jump_timer = 0;
 				dashdirection = point_direction(0,0, right-left,down-up);
 				dashdistance = 82;
 				dashsp = dashdistance/dashtime;
@@ -129,6 +137,7 @@ stateFree = function(){
 				state = statedash;
 			}
 		}
+		#endregion
 	}else{
 		left = 0;
 		right = 0;
@@ -150,10 +159,8 @@ stateFree = function(){
 	//vertical collision
 	if (place_meeting(x,y+vsp,Obj_solid)){
 		if(vsp>0){
-			canjump = 10;
 			dashlimit = 2;
 			candash = true;
-			is_on_ground = true;
 
 		}
 		while (abs(vsp) > 0.1){
