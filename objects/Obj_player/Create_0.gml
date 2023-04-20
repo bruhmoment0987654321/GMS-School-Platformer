@@ -129,7 +129,7 @@ stateFree = function(){
 			if (inputs) && (dash) && (dashlimit > 0){
 				global.camShake = 1.5;
 				candash = false;
-				jump_timer = 0;
+				grace_timer = 0;
 				dashdirection = point_direction(0,0, right-left,down-up);
 				dashdistance = 82;
 				dashsp = dashdistance/dashtime;
@@ -243,7 +243,38 @@ statedash = function(){
 				image_alpha = 0.9;
 			}
 		}
+		#region Jump Input Buffering
+		if (place_meeting(x,y+1,Obj_solid)){
+		    is_on_ground = true;
+		    grace_timer = grace_jump_time;
+		}else{
+		    is_on_ground = false;
+		    grace_timer--;
+		}
+		if (jump){
+			jump_buffer_timer = jump_buffer;
+		}
+
+		if (jump_buffer_timer > 0){
+			jump_is_inside_buffer = true;
+		}else{
+			jump_is_inside_buffer = false;
+		}
+		if (jump_buffer = 0){
+			jump_is_inside_buffer = jump;
+		}
+		if(jump_is_inside_buffer){
+			if (is_on_ground || grace_timer >0){
+					dashenergy = 0;
+			        vsp = vspjump;
+			        grace_timer = 0;
+			        jump_buffer_timer = 0;
+
+			    }
+			    jump_buffer_timer--;
+			}
 		#endregion
+	#endregion
 	#region collisions
 		//horizontal collision 
 		if (place_meeting(x+hsp,y,Obj_solid)){
@@ -317,15 +348,17 @@ statedash = function(){
 		x += hsp; 
 		y += vsp;
 		
+
+		#endregion
 		//ending the dash
 		dashenergy -= dashsp;
 		if (dashenergy <= 0){
-			vsp = 0;
-			hsp = 0;
+
 			state = stateFree;
 			dashlimit -= 1;
 		}
-		#endregion
+		
+	
 }
 #endregion
 #region the dead state

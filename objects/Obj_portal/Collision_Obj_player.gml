@@ -2,7 +2,7 @@
 with(other){
 	if(hascontrol){
 		hascontrol = false;
-		SlideTransition(TRANS_MODE.GOTO,Rm_tutorial);
+		SlideTransition(TRANS_MODE.GOTO,other.Pick);
 	}
 	
 }

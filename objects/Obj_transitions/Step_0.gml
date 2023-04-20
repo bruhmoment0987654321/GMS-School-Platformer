@@ -19,7 +19,7 @@ if(mode != TRANS_MODE.OFF){
 			break;
 			
 			case TRANS_MODE.RESTART:
-				game_restart();
+				room_restart();
 			break;
 			
 			case TRANS_MODE.GOTO:

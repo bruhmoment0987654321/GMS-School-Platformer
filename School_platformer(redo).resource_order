@@ -29,6 +29,7 @@
     {"name":"The boss","order":2,"path":"folders/Rooms/ground levels/The boss.yy",},
     {"name":"settings room","order":3,"path":"folders/Rooms/settings room.yy",},
     {"name":"test rooms","order":2,"path":"folders/Rooms/test rooms.yy",},
+    {"name":"Tutorial rooms","order":8,"path":"folders/Rooms/Tutorial rooms.yy",},
     {"name":"Scripts","order":5,"path":"folders/Scripts.yy",},
     {"name":"Sequences","order":11,"path":"folders/Sequences.yy",},
     {"name":"Shaders","order":6,"path":"folders/Shaders.yy",},
@@ -53,7 +54,6 @@
     {"name":"silly things for the game","order":6,"path":"folders/Sprites/silly things for the game.yy",},
     {"name":"Tile Sets","order":2,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
-    {"name":"Tutorial rooms","order":8,"path":"folders/Rooms/Tutorial rooms.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"Spr_paper","order":6,"path":"sprites/Spr_paper/Spr_paper.yy",},
@@ -82,7 +82,6 @@
     {"name":"Obj_sawver","order":1,"path":"objects/Obj_sawver/Obj_sawver.yy",},
     {"name":"Spr_deathpit","order":1,"path":"sprites/Spr_deathpit/Spr_deathpit.yy",},
     {"name":"P_sliem_path2","order":2,"path":"paths/P_sliem_path2/P_sliem_path2.yy",},
-    {"name":"Obj_start","order":2,"path":"objects/Obj_start/Obj_start.yy",},
     {"name":"Spr_slimeidle","order":14,"path":"sprites/Spr_slimeidle/Spr_slimeidle.yy",},
     {"name":"Obj_sign","order":6,"path":"objects/Obj_sign/Obj_sign.yy",},
     {"name":"Spr_dashcornerleftup","order":1,"path":"sprites/Spr_dashcornerleftup/Spr_dashcornerleftup.yy",},

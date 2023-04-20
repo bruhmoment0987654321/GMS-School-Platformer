@@ -3,6 +3,7 @@ switch(room){
 	case Rm_level1ground:
 	global.stopwatchstart = true;
 	case Rm_level2ground:
+	case Rm_tutorial:
 		#region timer and teleporting to checkpoint
 		if(timer <= 0){
 			if(!instance_exists(Obj_checkpoint)){

@@ -50,7 +50,7 @@ if (vsp < 5) vsp += global.grv;
 #endregion
 
 	if(hsp != 0){
-	image_xscale = sign(hsp);
+		image_xscale = sign(hsp);
 	}
 	x += hsp; 
 	y += vsp;

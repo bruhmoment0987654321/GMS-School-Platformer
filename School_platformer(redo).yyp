@@ -44,6 +44,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"The boss","folderPath":"folders/Rooms/ground levels/The boss.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"settings room","folderPath":"folders/Rooms/settings room.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"test rooms","folderPath":"folders/Rooms/test rooms.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tutorial rooms","folderPath":"folders/Rooms/Tutorial rooms.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Scripts","folderPath":"folders/Scripts.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sequences","folderPath":"folders/Sequences.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Shaders","folderPath":"folders/Shaders.yy",},
@@ -72,7 +73,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"silly things for the game","folderPath":"folders/Sprites/silly things for the game.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tutorial rooms","folderPath":"folders/Rooms/Tutorial rooms.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"recording.json","CopyToMask":-1,"filePath":"datafiles",},
@@ -118,7 +118,6 @@
     {"id":{"name":"Obj_sawver","path":"objects/Obj_sawver/Obj_sawver.yy",},},
     {"id":{"name":"Spr_deathpit","path":"sprites/Spr_deathpit/Spr_deathpit.yy",},},
     {"id":{"name":"P_sliem_path2","path":"paths/P_sliem_path2/P_sliem_path2.yy",},},
-    {"id":{"name":"Obj_start","path":"objects/Obj_start/Obj_start.yy",},},
     {"id":{"name":"Spr_slimeidle","path":"sprites/Spr_slimeidle/Spr_slimeidle.yy",},},
     {"id":{"name":"Obj_bye","path":"objects/Obj_bye/Obj_bye.yy",},},
     {"id":{"name":"Obj_sign","path":"objects/Obj_sign/Obj_sign.yy",},},
