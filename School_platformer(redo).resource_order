@@ -53,6 +53,7 @@
     {"name":"silly things for the game","order":6,"path":"folders/Sprites/silly things for the game.yy",},
     {"name":"Tile Sets","order":2,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
+    {"name":"Tutorial rooms","order":8,"path":"folders/Rooms/Tutorial rooms.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"Spr_paper","order":6,"path":"sprites/Spr_paper/Spr_paper.yy",},
@@ -73,6 +74,7 @@
     {"name":"Spr_slimehat","order":5,"path":"sprites/Spr_slimehat/Spr_slimehat.yy",},
     {"name":"Spr_healthbg","order":4,"path":"sprites/Spr_healthbg/Spr_healthbg.yy",},
     {"name":"Spr_tele_out","order":1,"path":"sprites/Spr_tele_out/Spr_tele_out.yy",},
+    {"name":"Obj_portal","order":8,"path":"objects/Obj_portal/Obj_portal.yy",},
     {"name":"Spr_gothere","order":6,"path":"sprites/Spr_gothere/Spr_gothere.yy",},
     {"name":"Spr_saw_spin","order":2,"path":"sprites/Spr_saw_spin/Spr_saw_spin.yy",},
     {"name":"Spr_bye","order":3,"path":"sprites/Spr_bye/Spr_bye.yy",},
@@ -157,6 +159,7 @@
     {"name":"Spr_transformation2","order":9,"path":"sprites/Spr_transformation2/Spr_transformation2.yy",},
     {"name":"Spr_wow","order":4,"path":"sprites/Spr_wow/Spr_wow.yy",},
     {"name":"Spr_slimedeath","order":1,"path":"sprites/Spr_slimedeath/Spr_slimedeath.yy",},
+    {"name":"Spr_portal","order":11,"path":"sprites/Spr_portal/Spr_portal.yy",},
     {"name":"Spr_sign_talk","order":6,"path":"sprites/Spr_sign_talk/Spr_sign_talk.yy",},
     {"name":"Spr_slimehit","order":13,"path":"sprites/Spr_slimehit/Spr_slimehit.yy",},
     {"name":"Obj_checkpoint_d","order":4,"path":"objects/Obj_checkpoint_d/Obj_checkpoint_d.yy",},

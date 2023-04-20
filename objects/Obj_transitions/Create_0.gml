@@ -6,10 +6,11 @@ enum TRANS_MODE{
 	OFF,
 	NEXT,
 	RESTART,
-	INTRO
+	INTRO,
+	GOTO
 }
 
 mode = TRANS_MODE.INTRO;
 percent = 1;
-percent_target = 1.2;
+percent_target = 1.5;
 target = room;
