@@ -1,7 +1,7 @@
 {
   "resourceType": "GMTileSet",
   "resourceVersion": "1.0",
-  "name": "Ts_firstlevel",
+  "name": "Ts_tutorial",
   "autoTileSets": [],
   "macroPageTiles": {
     "SerialiseHeight": 0,
@@ -16,8 +16,8 @@
     "path": "folders/Tile Sets.yy",
   },
   "spriteId": {
-    "name": "Spr_Ground",
-    "path": "sprites/Spr_Ground/Spr_Ground.yy",
+    "name": "Spr_voidGround",
+    "path": "sprites/Spr_voidGround/Spr_voidGround.yy",
   },
   "spriteNoExport": true,
   "textureGroupId": {

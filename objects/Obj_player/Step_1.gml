@@ -8,9 +8,9 @@ if (invincibility = true){
 	//making iframes visible
 	if (blinktimer <= 0) blinktimer = invincible_timer;
 	switch (image_blend){
-		case c_white: image_blend = c_aqua;
+		case c_white: image_blend = c_grey;
 		break;
-		case c_aqua: image_blend = c_white;
+		case c_grey: image_blend = c_white;
 		
 	}
 	if (tears > 2){
