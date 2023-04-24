@@ -76,19 +76,19 @@ switch(room){
 		if(instance_exists(Obj_slime)){	
 			controls = @"Default controls for slime:
 
-			W/D: Left and Right
+W/D: Left and Right
 
-			WASD + Enter: Dash
-			
-			Space: Jump";
+WASD + K: Dash
+
+Space: Jump";
 		}else if(instance_exists(Obj_boy)){
 			controls = @"Default controls for boy:
-		
-			W/D: Left and Right
-		
-			P: Shoot
-			
-			Space: Jump";	
+
+W/D: Left and Right
+
+P: Shoot
+
+Space: Jump";	
 		}
 	#endregion
 	break;

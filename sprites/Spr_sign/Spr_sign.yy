@@ -27,7 +27,7 @@
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"1d6e3919-cdb1-480b-9ec1-9f161187d029","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
-  "origin": 0,
+  "origin": 1,
   "parent": {
     "name": "interact",
     "path": "folders/Sprites/outside objects/visible/interact.yy",
@@ -67,7 +67,7 @@
     ],
     "visibleRange": null,
     "volume": 1.0,
-    "xorigin": 0,
+    "xorigin": 16,
     "yorigin": 0,
   },
   "swatchColours": null,

@@ -1,7 +1,7 @@
 draw_set_color(c_white);
 
 //timer
-draw_text_transformed(1200,740,string(global.stopwatchdays) + ":" + string(global.stopwatchhrs) + ":" + string(global.stopwatchmin) + ":" + string(global.stopwatchseconds),2,2,0);
+draw_text_transformed(1260,740,string(global.stopwatchdays) + ":" + string(global.stopwatchhrs) + ":" + string(global.stopwatchmin) + ":" + string(global.stopwatchseconds),2,2,0);
 
 draw_set_color(c_red);
 //draw_text(60,10,string(Obj_sliem.frames));
@@ -26,10 +26,10 @@ switch(room){
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	
-	draw_text_transformed(5,60,controls,2,2,0);
+	draw_text_transformed(20,60,controls,2,2,0);
 	
-	draw_text_ext_transformed(560,50,"Press Esc to go back to the title screen :)",10,300,3,3,0);
-	draw_text_ext_transformed(560,110,"Press T to switch characters",10,300,3,3,0);
+	draw_text_ext_transformed(600,50,"Press Esc to go back to the title screen :)",10,300,3,3,0);
+	draw_text_ext_transformed(600,110,"Press T to switch characters",10,300,3,3,0);
 	#endregion
 	break;
 	case Rm_level1ground:
@@ -37,7 +37,7 @@ switch(room){
 	case Rm_level2ground:
 	case Rm_ground_chase:
 		#region level GUI for slime
-		draw_text_transformed(1100,40,"Deaths: " + string(global.death_total),2.5,2.5,0);
+		draw_text_transformed(1200,40,"Deaths: " + string(global.death_total),2.5,2.5,0);
 		#endregion
 	break;
 	case Rm_end:

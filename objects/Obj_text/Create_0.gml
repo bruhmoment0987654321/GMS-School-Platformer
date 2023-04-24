@@ -1,0 +1,11 @@
+spd = 0.25;
+letters = 0;
+text = "This is text!\nSecond Line :}";
+length = string_length(text);
+text_current = "";
+w = 0;
+h = 0;
+border = 8;
+radius = 20;
+bborderoffset = 0;
+boxoffset = 0;
