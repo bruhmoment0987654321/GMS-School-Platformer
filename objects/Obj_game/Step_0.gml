@@ -1,4 +1,9 @@
-bye = keyboard_check_pressed(ord("L"));
+if(!refresh){
+	refresh = true;
+	Scr_default_buttons();
+}
+bye = keyboard_check_pressed(global.keyBacktoTitle);
+keybind_settings = keyboard_check_pressed(ord("R"));
 switch(room){
 	case Rm_level1ground:
 	global.stopwatchstart = true;
@@ -68,28 +73,24 @@ switch(room){
 	
 	case Rm_ctrls:
 		#region controls 
+		if(keybind_settings){
+			room_goto(Rm_keybinds);
+		}
 		//go back to title screen
 		if(keyboard_check_pressed(vk_escape)){
 			room = Rm_start;
 		}
 		
 		if(instance_exists(Obj_slime)){	
-			controls = @"Default controls for slime:
-
-W/D: Left and Right
-
-WASD + K: Dash
-
-Space: Jump";
+			controls = "Controls for slime:\n" + getUnicodeString(vk_escape) + ": Pause\n" + getUnicodeString(global.keyBacktoTitle) + ": Go back to the title screen (While paused)\n" + getUnicodeString(global.keyLeft) + "/" + getUnicodeString(global.keyRight) + ": Left and Right\n" + getUnicodeString(global.keyUp) + ": Up\n" + getUnicodeString(global.keyDown) + ": Down\n" + getUnicodeString(global.keyJump) + ": Jump\n" + getUnicodeString(global.keyRun) + ": Run\n" + getUnicodeString(global.keyDash) + ": Dash";
 		}else if(instance_exists(Obj_boy)){
-			controls = @"Default controls for boy:
-
-W/D: Left and Right
-
-P: Shoot
-
-Space: Jump";	
+			controls = "Controls for boy:\n" + getUnicodeString(vk_escape) + ": Pause\n" + getUnicodeString(global.keyBacktoTitle) + ": Go back to the title screen (While paused)\n" + getUnicodeString(global.keyLeft) + "/" + getUnicodeString(global.keyRight) + ": Left and Right\n" + getUnicodeString(global.keyUp) + ": Up\n" + getUnicodeString(global.keyDown) + ": Down\n" + getUnicodeString(global.keyJump) + ": Jump\n" + getUnicodeString(global.keyRun) + ": Run\n" + getUnicodeString(global.keyShoot) + ": Shoot";	
 		}
 	#endregion
+	break;
+	case Rm_keybinds:
+		if(keyboard_check_pressed(vk_escape)){
+			room = Rm_ctrls;
+		}
 	break;
 }

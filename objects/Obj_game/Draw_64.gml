@@ -23,21 +23,30 @@ switch(room){
 	break;
 	case Rm_ctrls:
 		#region draw control layout
-	draw_set_halign(fa_left);
-	draw_set_valign(fa_top);
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_top);
 	
-	draw_text_transformed(20,60,controls,2,2,0);
+		draw_text_transformed(20,60,controls,2,2,0);
 	
-	draw_text_ext_transformed(600,50,"Press Esc to go back to the title screen :)",10,300,3,3,0);
-	draw_text_ext_transformed(600,110,"Press T to switch characters",10,300,3,3,0);
-	#endregion
+		draw_text_ext_transformed(600,80,"Press Escape to go back to the title screen :)",10,300,3,3,0);
+		draw_text_ext_transformed(600,110,"Press T to switch characters",10,300,3,3,0);
+		draw_text_ext_transformed(600,140,"Press K to change keybinds :o",10,300,3,3,0);
+		#endregion
 	break;
+	
+	case Rm_keybinds:
+		#region showing keybinds ;)
+		draw_text_transformed(30,60,keybinds,2.5,2.5,0);
+		draw_text_ext_transformed(600,80,"Press Escape to go back to controls",10,300,3,3,0);
+		#endregion
+	break;
+	
 	case Rm_level1ground:
 	case Rm_tutorial:
 	case Rm_level2ground:
 	case Rm_ground_chase:
 		#region level GUI for slime
-		draw_text_transformed(1200,40,"Deaths: " + string(global.death_total),2.5,2.5,0);
+		draw_text_transformed(1230,30,"Deaths: " + string(global.death_total),2.5,2.5,0);
 		#endregion
 	break;
 	case Rm_end:

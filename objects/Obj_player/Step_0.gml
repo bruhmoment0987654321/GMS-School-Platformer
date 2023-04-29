@@ -1,13 +1,13 @@
 #region controls
-left = keyboard_check(ord("A"));
-right = keyboard_check(ord("D"));
-up = keyboard_check(ord("W"));
-down = keyboard_check(ord("S"));
-dash = keyboard_check_pressed(ord("K"));
-jump = keyboard_check_pressed(vk_space);
-jump_held = keyboard_check(vk_space);
-inputs = left||right||up||down;
-shoot = keyboard_check_pressed(ord("P"));	
+left = keyboard_check(global.keyLeft);
+right = keyboard_check(global.keyRight);
+up = keyboard_check(global.keyUp);
+down = keyboard_check(global.keyDown);
+dash = keyboard_check_pressed(global.keyDash);
+jump = keyboard_check_pressed(global.keyJump);
+jump_held = keyboard_check(global.keyJump);
+shoot = keyboard_check_pressed(global.keyShoot);	
+run = keyboard_check(global.keyRun);
 jump_is_inside_buffer = false; 
 is_on_ground = false;
 #endregion

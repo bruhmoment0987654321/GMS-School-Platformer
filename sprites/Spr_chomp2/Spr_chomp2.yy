@@ -28,8 +28,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "silly things for the game",
-    "path": "folders/Sprites/silly things for the game.yy",
+    "name": "Platforms",
+    "path": "folders/Sprites/Unused/Platforms.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

@@ -2,6 +2,9 @@
 hsp = 0; //current horizontal speed
 max_hsp = 3; //the max horizontal speed you go
 walksp = 0.7; //how fast the player goes
+walk_multiplier = 1; //its a normal walking speed when walking
+run_multiplier = 1.6; //this multiplies the amount you walk while you're running
+running = false; // checks if you're running at all or holding the run button
 
 //friction
 friction_ = 0.2; //this slows you down if you're not moving
@@ -46,17 +49,29 @@ yscale = 1; //for gummy effect
 hascontrol = true; //giving the player control or not
 imageblend = c_white; //controling the color of the player
 
-#region the normal, free state
 stateFree = function(){
 	shootdelay = max(shootdelay - 1,0);
-	#region movement
+	
 	if(hascontrol){
+		#region walking
+		if(run){
+			running = true;	
+		}else{
+			running = false;	
+		}
 		//horizontal movement
 		var move = right - left;
 		if (move !=0){
+			var multiplier = walk_multiplier;
+			if(run) && (place_meeting(x,y+1,Obj_solid)){
+				multiplier = run_multiplier;
+			}
+			move *= multiplier;
 			hsp += move*(onground ? walksp*2 : walksp);
 			max_hsp = 3;
-			hsp = clamp(hsp,-max_hsp,max_hsp);
+			
+			
+			hsp = clamp(hsp,-(max_hsp*multiplier),(max_hsp*multiplier));
 		}else{
 			if(image_xscale = 1){
 				if(hsp < 0.1){
@@ -73,6 +88,7 @@ stateFree = function(){
 	
 		vsp += global.grv;
 		vsp = clamp(vsp,-vsp_max,vsp_max);
+		#endregion
 	
 		//jump
 		#region Jump Input Buffering
@@ -95,6 +111,8 @@ stateFree = function(){
 		if (jump_buffer = 0){
 			jump_is_inside_buffer = jump;
 		}
+		
+		var jumpmultiplier = walk_multiplier;
 		if(jump_is_inside_buffer){
 			if (is_on_ground || grace_timer >0){
 			        vsp = vspjump;
@@ -106,9 +124,9 @@ stateFree = function(){
 		#endregion
 	
 		if(!jump_held){
-			vsp = max(vsp,vspjump/3);
+			vsp = max(vsp,(vspjump/3*jumpmultiplier));
 		}
-		//shoot inputs
+		#region shoot inputs
 		if(object_index != Obj_slime){
 			if(place_meeting(x,y,Obj_paper)){
 					global.ammo += 1;
@@ -123,18 +141,24 @@ stateFree = function(){
 				}
 			}
 		}
-	
+		#endregion
 		#region dash input
 		if(object_index != Obj_boy){
-			if (inputs) && (dash) && (dashlimit > 0){
-				global.camShake = 1.5;
-				candash = false;
-				grace_timer = 0;
-				dashdirection = point_direction(0,0, right-left,down-up);
-				dashdistance = 82;
-				dashsp = dashdistance/dashtime;
-				dashenergy = dashdistance;
-				state = statedash;
+			if(dash) && (dashlimit > 0){
+					global.camShake = 1.5;
+					candash = false;
+					grace_timer = 0;
+					if(move != 0){
+						dashdirection = point_direction(0,0, right-left,down-up);
+					}else if(up||down){
+						dashdirection = point_direction(0,0,0,down-up);	
+					}else{
+						dashdirection = point_direction(0,0,sign(image_xscale),0);		
+					}
+					dashdistance = 82;
+					dashsp = dashdistance/dashtime;
+					dashenergy = dashdistance;
+					state = statedash;
 			}
 		}
 		#endregion
@@ -144,15 +168,11 @@ stateFree = function(){
 		jump = 0;
 		dash = 0;
 	}
-	#endregion
 	
 	#region collisions
 	//horizontal collision
 	if (place_meeting(x+hsp,y,Obj_solid)){
-		while(abs(hsp) > 0.1){
-			hsp *= 0.5;
-			if(!place_meeting(x+hsp,y,Obj_solid)) x += hsp;
-		}
+
 		hsp = 0;
 	}
 
@@ -161,7 +181,6 @@ stateFree = function(){
 		if(vsp>0){
 			dashlimit = 2;
 			candash = true;
-
 		}
 		while (abs(vsp) > 0.1){
 			vsp *= 0.5;
@@ -169,55 +188,55 @@ stateFree = function(){
 			
 		}
 		vsp = 0;
-		
 	}
 	
-		#region getting unstuck on that dang solid blocks
-		if(place_meeting(x,y,Obj_solid)){
-			for(var i = 0; i < 1000; ++i){
-				//right
-				if(!place_meeting(x+i,y,Obj_solid)){
-					x += i;
-					break;
+	#region getting unstuck on that dang solid blocks
+			if(place_meeting(x,y,Obj_solid)){
+				for(var i = 0; i < 1000; ++i){
+					//right
+					if(!place_meeting(x+i,y,Obj_solid)){
+						x += i;
+						break;
+					}
+					//left
+					if(!place_meeting(x-i,y,Obj_solid)){
+						x -= i;
+						break;
+					}
+					//up 
+					if(!place_meeting(x,y-i,Obj_solid)){
+						y -= i;
+						break;
+					}
+					//down
+					if(!place_meeting(x,y+i,Obj_solid)){
+						y += i;
+						break;
+					}					
+					//top left
+					if(!place_meeting(x+i,y-i,Obj_solid)){
+						x += i;
+						y -= i;
+					}
+					//top right
+					if(!place_meeting(x-i,y-i,Obj_solid)){
+						x -= i;
+						y -= i;
+					}
+					//bottom left
+					if(!place_meeting(x+i,y+i,Obj_solid)){
+						x += i;
+						y += i;
+					}
+					//bottom right
+					if(!place_meeting(x-i,y+i,Obj_solid)){
+						x -= i;
+						y += i;
+					}
 				}
-				//left
-				if(!place_meeting(x-i,y,Obj_solid)){
-					x -= i;
-					break;
-				}
-				//up 
-				if(!place_meeting(x,y-i,Obj_solid)){
-					y -= i;
-					break;
-				}
-				//down
-				if(!place_meeting(x,y+i,Obj_solid)){
-					y += i;
-					break;
-				}					
-				//top left
-				if(!place_meeting(x+i,y-i,Obj_solid)){
-					x += i;
-					y -= i;
-				}
-				//top right
-				if(!place_meeting(x-i,y-i,Obj_solid)){
-					x -= i;
-					y -= i;
-				}
-				//bottom left
-				if(!place_meeting(x+i,y+i,Obj_solid)){
-					x += i;
-					y += i;
-				}
-				//bottom right
-				if(!place_meeting(x-i,y+i,Obj_solid)){
-					x -= i;
-					y += i;
-				}
+			
 			}
-		}
-	#endregion 
+		#endregion 
 	
 	x += hsp; 
 	y += vsp;
@@ -227,8 +246,6 @@ stateFree = function(){
 	
 
 }
-#endregion
-#region the dashing state
 statedash = function(){
 	#region dashing
 		if(hascontrol){
@@ -265,8 +282,8 @@ statedash = function(){
 		}
 		if(jump_is_inside_buffer){
 			if (is_on_ground || grace_timer >0){
-					dashenergy = 0;
 			        vsp = vspjump;
+					state = stateFree;
 			        grace_timer = 0;
 			        jump_buffer_timer = 0;
 
@@ -353,15 +370,14 @@ statedash = function(){
 		//ending the dash
 		dashenergy -= dashsp;
 		if (dashenergy <= 0){
-
+			vsp = 0;
+			hsp = 0;
 			state = stateFree;
 			dashlimit -= 1;
 		}
 		
 	
 }
-#endregion
-#region the dead state
 stateDead = function(){
 	hsp = 0;
 	vsp = 0;
@@ -378,5 +394,5 @@ stateDead = function(){
 	#endregion
 	
 }
-#endregion
+
 state = stateFree;

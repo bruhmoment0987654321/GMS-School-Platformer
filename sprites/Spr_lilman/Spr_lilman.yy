@@ -4,8 +4,8 @@
   "name": "Spr_lilman",
   "bbox_bottom": 31,
   "bbox_left": 7,
-  "bbox_right": 22,
-  "bbox_top": 6,
+  "bbox_right": 20,
+  "bbox_top": 4,
   "bboxMode": 2,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -28,8 +28,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "enemies",
-    "path": "folders/Sprites/enemies.yy",
+    "name": "Lilman",
+    "path": "folders/Sprites/enemies/Lilman.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

@@ -36,6 +36,9 @@
     "name": "Spr_lilman",
     "path": "sprites/Spr_lilman/Spr_lilman.yy",
   },
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "Spr_lilman",
+    "path": "sprites/Spr_lilman/Spr_lilman.yy",
+  },
   "visible": true,
 }

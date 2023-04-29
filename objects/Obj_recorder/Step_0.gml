@@ -1,5 +1,5 @@
 /// @description toggle recording
-/*
+
 if(keyboard_check_pressed(vk_f2)){
 	ghost_record = !ghost_record;
 	

@@ -17,15 +17,9 @@ switch(_state){
 			vsp = -1;
 		}
 	break;
-	
-	case ("STOMPED"):
-		sprite_index = Spr_bIGmanstomp;
-		hsp = 0; 
-		vsp = 0;
-	break
 
 	case ("DASHED"):
-	sprite_index = Spr_bigmanhit;
+	sprite_index = Spr_batdead;
 	if (Obj_slime.x<x){
 		hsp = 10;
 		vsp = -10;

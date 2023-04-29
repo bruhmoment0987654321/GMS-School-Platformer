@@ -4,7 +4,7 @@ if (state == statedash){
 		alarm[0] = room_speed/3;
 		global.camShake = 2.5;
 	}
-}else if(invincibility == false){
+}else if(invincibility == false) && (other._state != "DASHED"){
 	invincibility = true;
 	global.camShake = 2;
 	global.HP -= 1;

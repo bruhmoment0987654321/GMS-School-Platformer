@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 4,
   "parent": {
-    "name": "silly things for the game",
-    "path": "folders/Sprites/silly things for the game.yy",
+    "name": "Sliem",
+    "path": "folders/Sprites/Unused/Sliem.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

@@ -7,17 +7,16 @@
   "inheritCreationOrder": false,
   "inheritLayers": false,
   "instanceCreationOrder": [
-    {"name":"inst_1F7F9F6A","path":"rooms/Rm_start/Rm_start.yy",},
+    {"name":"inst_2BCC28F2","path":"rooms/Rm_start/Rm_start.yy",},
     {"name":"inst_6C815C68","path":"rooms/Rm_start/Rm_start.yy",},
     {"name":"inst_49E9F404","path":"rooms/Rm_start/Rm_start.yy",},
     {"name":"inst_705B6EBA","path":"rooms/Rm_start/Rm_start.yy",},
-    {"name":"inst_2BCC28F2","path":"rooms/Rm_start/Rm_start.yy",},
     {"name":"inst_4AECC1B3","path":"rooms/Rm_start/Rm_start.yy",},
+    {"name":"inst_1F7F9F6A","path":"rooms/Rm_start/Rm_start.yy",},
   ],
   "isDnd": false,
   "layers": [
     {"resourceType":"GMRAssetLayer","resourceVersion":"1.0","name":"title","assets":[
-        {"resourceType":"GMRSpriteGraphic","resourceVersion":"1.0","name":"graphic_2722814","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"rotation":0.0,"scaleX":0.5,"scaleY":0.5,"spriteId":{"name":"Spr_titie2","path":"sprites/Spr_titie2/Spr_titie2.yy",},"x":64.0,"y":64.0,},
         {"resourceType":"GMRSpriteGraphic","resourceVersion":"1.0","name":"graphic_5D28AAC9","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"rotation":0.0,"scaleX":0.75,"scaleY":0.75,"spriteId":{"name":"Spr_title","path":"sprites/Spr_title/Spr_title.yy",},"x":160.0,"y":0.0,},
       ],"depth":0,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Instances","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[

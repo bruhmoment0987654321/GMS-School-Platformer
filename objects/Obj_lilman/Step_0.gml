@@ -8,7 +8,7 @@ switch(_state){
 	break;
 	
 	case ("DASHED"):
-		sprite_index = Spr_bigmanhit;
+		sprite_index = Spr_lilman_hit;
 		if (Obj_slime.x<x){
 			hsp = 10;
 			vsp = -10;
@@ -19,7 +19,7 @@ switch(_state){
 	break;
 	
 	case ("SHOT"):
-		sprite_index = Spr_bigmanhit;
+		sprite_index = Spr_lilman_hit;
 		if (Obj_slime.x<x){
 			hsp = 1;
 			vsp = -1;

@@ -32,8 +32,8 @@
   "nineSlice": null,
   "origin": 7,
   "parent": {
-    "name": "slime",
-    "path": "folders/Sprites/Player/slime.yy",
+    "name": "Slime",
+    "path": "folders/Sprites/Unused/Slime.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
