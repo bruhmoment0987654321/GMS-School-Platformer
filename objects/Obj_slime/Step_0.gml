@@ -3,7 +3,7 @@ event_inherited();
 #region in the control room
 if(room = Rm_ctrls){
 	if(keyboard_check_pressed(ord("T"))){
-		instance_change(Obj_boy,true);
+		instance_change(Obj_boy,true);	
 	}
 }
 #endregion

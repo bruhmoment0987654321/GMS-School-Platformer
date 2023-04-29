@@ -30,14 +30,14 @@ switch(room){
 	
 		draw_text_ext_transformed(600,80,"Press Escape to go back to the title screen :)",10,300,3,3,0);
 		draw_text_ext_transformed(600,110,"Press T to switch characters",10,300,3,3,0);
-		draw_text_ext_transformed(600,140,"Press K to change keybinds :o",10,300,3,3,0);
+		draw_text_ext_transformed(600,140,"Press R to change keybinds :o",10,300,3,3,0);
 		#endregion
 	break;
 	
 	case Rm_keybinds:
 		#region showing keybinds ;)
 		draw_text_transformed(30,60,keybinds,2.5,2.5,0);
-		draw_text_ext_transformed(600,80,"Press Escape to go back to controls",10,300,3,3,0);
+		draw_text_ext_transformed(600,80,"Press Escape to go back to controls.\nUse the mouse you have to select the keys to change.",10,300,3,3,0);
 		#endregion
 	break;
 	

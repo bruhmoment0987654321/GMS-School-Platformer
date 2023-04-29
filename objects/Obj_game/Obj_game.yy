@@ -12,8 +12,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "viewing GUI",
-    "path": "folders/Objects/GUI & essencials/essiencials/viewing GUI.yy",
+    "name": "don't remove",
+    "path": "folders/Objects/GUI & essencials/essiencials/don't remove.yy",
   },
   "parentObjectId": null,
   "persistent": true,

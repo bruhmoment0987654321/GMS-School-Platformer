@@ -3,6 +3,9 @@
 function Scr_refreshkeybinds(){
 	with(Obj_key){
 		switch(keytype){
+				case Keys.Default:
+					keystring = "None"
+				break;
 				case Keys.Up:
 					keystring = getUnicodeString(global.keyUp);
 				break;

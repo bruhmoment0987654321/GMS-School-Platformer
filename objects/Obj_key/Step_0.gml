@@ -10,7 +10,6 @@ switch(rectangle_in_rectangle(x, y, x + sprite_width, y + sprite_height, mouse_x
 
 if(rectangle_in_rectangle(x, y, x + sprite_width, y + sprite_height, mouse_x, mouse_y, mouse_x, mouse_y)) && (mouse_check_button_pressed(mb_left)){
 		show_debug_message("Clicked");
-		keystring = "Press Any Key";
 		if(!instance_exists(Obj_keybinds)){
 			with(instance_create_depth(0,0,depth,Obj_keybinds)){
 					which_key = other.keytype;

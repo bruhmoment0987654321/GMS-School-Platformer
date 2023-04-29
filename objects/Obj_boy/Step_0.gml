@@ -2,7 +2,7 @@ event_inherited();
 #region changing player in control room 
 if(room = Rm_ctrls){
 	if(keyboard_check_pressed(ord("T"))){
-		instance_change(Obj_slime,true);
+		instance_change(Obj_slime,true);	
 	}
 }
 #endregion

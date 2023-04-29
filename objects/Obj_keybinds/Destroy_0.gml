@@ -1,2 +1,2 @@
+instance_activate_all();
 Scr_refreshkeybinds();
-show_debug_message("I'm Dead");

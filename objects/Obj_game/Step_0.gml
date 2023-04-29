@@ -1,9 +1,3 @@
-if(!refresh){
-	refresh = true;
-	Scr_default_buttons();
-}
-bye = keyboard_check_pressed(global.keyBacktoTitle);
-keybind_settings = keyboard_check_pressed(ord("R"));
 switch(room){
 	case Rm_level1ground:
 	global.stopwatchstart = true;
@@ -55,7 +49,7 @@ switch(room){
 	case Rm_end:
 		#region saying goodbye and stopping the watch
 		global.stopwatchstart = false;
-		if (bye){
+		if (keyboard_check_pressed(ord("L"))){
 			instance_create_layer(Obj_slime.x,Obj_slime.y-30,"Behind",Obj_bye)
 			alarm[0] = room_speed;
 		}
@@ -73,7 +67,7 @@ switch(room){
 	
 	case Rm_ctrls:
 		#region controls 
-		if(keybind_settings){
+		if(keyboard_check_pressed(ord("R"))){
 			room_goto(Rm_keybinds);
 		}
 		//go back to title screen

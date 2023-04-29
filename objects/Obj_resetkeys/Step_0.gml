@@ -9,8 +9,20 @@ switch(rectangle_in_rectangle(x, y, x + sprite_width, y + sprite_height, mouse_x
 }
 
 if(rectangle_in_rectangle(x, y, x + sprite_width, y + sprite_height, mouse_x, mouse_y, mouse_x, mouse_y)) && (mouse_check_button_pressed(mb_left)){
-	show_debug_message("Clicked2");
+	var _saveData = array_create(0);
 	Scr_default_buttons();
+	var _saveEntity = {
+		keyup : global.keyUp,
+		keydown : global.keyDown,
+		keyleft : global.keyLeft,
+		keyright : global.keyRight,
+		keyrun : global.keyRun,
+		keyjump : global.keyJump,
+		keydash : global.keyDash,
+		keyshoot : global.keyShoot,
+		keybackto : global.keyBacktoTitle
+	}
+	array_push(_saveData,_saveEntity);
 	Scr_refreshkeybinds();
 }
 
