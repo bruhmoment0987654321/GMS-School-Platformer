@@ -156,7 +156,6 @@ if(!keyboard_check_pressed(vk_escape)){
 		buffer_write(_buffer,buffer_string,_string);
 		buffer_save(_buffer,"ChangedKeys.sav");
 		buffer_delete(_buffer);
-		show_debug_message("Game Saved" + _string);
 	}
 	instance_destroy();
 }

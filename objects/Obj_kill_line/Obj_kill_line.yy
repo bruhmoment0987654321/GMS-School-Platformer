@@ -9,7 +9,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "autoscroll",
-    "path": "folders/Objects/GUI & essencials/essiencials/camera/autoscroll.yy",
+    "path": "folders/Objects/GUI & essencials/essiencials/don't remove/camera/autoscroll.yy",
   },
   "parentObjectId": {
     "name": "Obj_killyou",

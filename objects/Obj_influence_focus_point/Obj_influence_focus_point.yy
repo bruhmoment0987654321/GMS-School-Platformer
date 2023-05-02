@@ -7,7 +7,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "camera",
-    "path": "folders/Objects/GUI & essencials/essiencials/camera.yy",
+    "path": "folders/Objects/GUI & essencials/essiencials/don't remove/camera.yy",
   },
   "parentObjectId": null,
   "persistent": false,

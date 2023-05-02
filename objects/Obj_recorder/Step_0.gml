@@ -1,5 +1,5 @@
 /// @description toggle recording
-
+/*
 if(keyboard_check_pressed(vk_f2)){
 	ghost_record = !ghost_record;
 	
@@ -30,7 +30,7 @@ if(ghost_record) && (instance_exists(Obj_player)){
 		frameToRecord[? "y"] = y;
 		frameToRecord[? "xscale"] = image_xscale;
 		frameToRecord[? "yscale"] = image_yscale;
-		frameToRecord[? "sprite_index"] = sprite_index;
+		frameToRecord[? "sprite_index"] = Obj_slime.sprite_index;
 		frameToRecord[? "image"] = image_index;
 	}
 	ds_list_add(ghost_recordList, frameToRecord);

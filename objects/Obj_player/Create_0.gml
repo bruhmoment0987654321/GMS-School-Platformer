@@ -8,10 +8,6 @@ running = false; // checks if you're running at all or holding the run button
 
 //friction
 friction_ = 0.2; //this slows you down if you're not moving
-
-//on the ground
-onground = false; //are we on the ground?
-
 //vertical speed variables
 vsp = 0; //current vertical speed
 vsp_max = 9; //max speed when falling
@@ -63,11 +59,11 @@ stateFree = function(){
 		var move = right - left;
 		if (move !=0){
 			var multiplier = walk_multiplier;
-			if(run) && (place_meeting(x,y+1,Obj_solid)){
+			if(run) && (place_meeting(x,y+1,Obj_solid)) || (place_meeting(x,y+1,Obj_moveplath)){
 				multiplier = run_multiplier;
 			}
 			move *= multiplier;
-			hsp += move*(onground ? walksp*2 : walksp);
+			hsp += move*walksp;
 			max_hsp = 3;
 			
 			
@@ -92,7 +88,7 @@ stateFree = function(){
 	
 		//jump
 		#region Jump Input Buffering
-		if (place_meeting(x,y+1,Obj_solid)){
+		if (place_meeting(x,y+1,Obj_solid)) || (place_meeting(x,y+1,Obj_moveplath)){
 		    is_on_ground = true;
 		    grace_timer = grace_jump_time;
 		}else{
@@ -111,8 +107,6 @@ stateFree = function(){
 		if (jump_buffer = 0){
 			jump_is_inside_buffer = jump;
 		}
-		
-		var jumpmultiplier = walk_multiplier;
 		if(jump_is_inside_buffer){
 			if (is_on_ground || grace_timer >0){
 			        vsp = vspjump;
@@ -124,7 +118,7 @@ stateFree = function(){
 		#endregion
 	
 		if(!jump_held){
-			vsp = max(vsp,(vspjump/3*jumpmultiplier));
+			vsp = max(vsp,(vspjump/3));
 		}
 		#region shoot inputs
 		if(object_index != Obj_slime){
@@ -172,20 +166,19 @@ stateFree = function(){
 	#region collisions
 	//horizontal collision
 	if (place_meeting(x+hsp,y,Obj_solid)){
-
+		while (abs(hsp) > 0.1){
+			hsp *= 0.5;
+			if(!place_meeting(x+hsp,y,Obj_solid)) x += hsp
+		}
 		hsp = 0;
 	}
 
 	//vertical collision
 	if (place_meeting(x,y+vsp,Obj_solid)){
-		if(vsp>0){
-			dashlimit = 2;
-			candash = true;
-		}
+		if(vsp>0) dashlimit = 2; candash = true;
 		while (abs(vsp) > 0.1){
 			vsp *= 0.5;
 			if(!place_meeting(x,y+vsp,Obj_solid)) y += vsp
-			
 		}
 		vsp = 0;
 	}
@@ -260,37 +253,6 @@ statedash = function(){
 				image_alpha = 0.9;
 			}
 		}
-		#region Jump Input Buffering
-		if (place_meeting(x,y+1,Obj_solid)){
-		    is_on_ground = true;
-		    grace_timer = grace_jump_time;
-		}else{
-		    is_on_ground = false;
-		    grace_timer--;
-		}
-		if (jump){
-			jump_buffer_timer = jump_buffer;
-		}
-
-		if (jump_buffer_timer > 0){
-			jump_is_inside_buffer = true;
-		}else{
-			jump_is_inside_buffer = false;
-		}
-		if (jump_buffer = 0){
-			jump_is_inside_buffer = jump;
-		}
-		if(jump_is_inside_buffer){
-			if (is_on_ground || grace_timer >0){
-			        vsp = vspjump;
-					state = stateFree;
-			        grace_timer = 0;
-			        jump_buffer_timer = 0;
-
-			    }
-			    jump_buffer_timer--;
-			}
-		#endregion
 	#endregion
 	#region collisions
 		//horizontal collision 
@@ -367,7 +329,7 @@ statedash = function(){
 		
 
 		#endregion
-		//ending the dash
+	#region ending the dash
 		dashenergy -= dashsp;
 		if (dashenergy <= 0){
 			vsp = 0;
@@ -375,8 +337,42 @@ statedash = function(){
 			state = stateFree;
 			dashlimit -= 1;
 		}
-		
-	
+		#region Jump Input Buffering
+		if (place_meeting(x,y+1,Obj_solid)){
+		    is_on_ground = true;
+		    grace_timer = grace_jump_time;
+		}else{
+		    is_on_ground = false;
+		    grace_timer--;
+		}
+		if (jump){
+			jump_buffer_timer = jump_buffer;
+		}
+
+		if (jump_buffer_timer > 0){
+			jump_is_inside_buffer = true;
+		}else{
+			jump_is_inside_buffer = false;
+		}
+		if (jump_buffer = 0){
+			jump_is_inside_buffer = jump;
+		}
+		if(jump_is_inside_buffer){
+			if (is_on_ground || grace_timer >0){
+			        vsp = vspjump;
+					state = stateFree;
+			        grace_timer = 0;
+			        jump_buffer_timer = 0;
+				with (instance_create_depth(x,y,depth+1,Obj_trail)){
+					sprite_index = other.sprite_index;
+					image_blend = #09E444;
+					image_alpha = 0.9;
+				}
+			    jump_buffer_timer--;
+			}
+		}
+		#endregion
+	#endregion
 }
 stateDead = function(){
 	hsp = 0;

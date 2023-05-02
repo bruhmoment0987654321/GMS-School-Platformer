@@ -2,10 +2,7 @@
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
   "name": "Obj_moveplath",
-  "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":2,"eventType":3,"isDnD":false,},
-  ],
+  "eventList": [],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
@@ -13,8 +10,8 @@
     "path": "folders/Objects/Outside Objects/visible/platforms.yy",
   },
   "parentObjectId": {
-    "name": "Obj_solid",
-    "path": "objects/Obj_solid/Obj_solid.yy",
+    "name": "Obj_jumpthrough",
+    "path": "objects/Obj_jumpthrough/Obj_jumpthrough.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
