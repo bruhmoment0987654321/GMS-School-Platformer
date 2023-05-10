@@ -1,4 +1,4 @@
-if (state == statedash){
+if (state == statedash)||(other._state = "DASHED"){
 	with(other){
 		_state = "DASHED";
 		alarm[0] = room_speed/3;

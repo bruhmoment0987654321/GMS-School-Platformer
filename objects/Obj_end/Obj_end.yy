@@ -9,7 +9,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "for the player's sake",
-    "path": "folders/Objects/GUI & essencials/essiencials/for the player's sake.yy",
+    "path": "folders/Objects/GUI & essencials/essiencials/don't remove/for the player's sake.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -25,7 +25,14 @@
   "physicsShape": 1,
   "physicsShapePoints": [],
   "physicsStartAwake": true,
-  "properties": [],
+  "properties": [
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"goto_next","filters":[
+        "GMRoom",
+      ],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"noone","varType":5,},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"transition","filters":[
+        "GMSequence",
+      ],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"noone","varType":5,},
+  ],
   "solid": false,
   "spriteId": {
     "name": "Spr_end",

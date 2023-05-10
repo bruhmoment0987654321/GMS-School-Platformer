@@ -9,7 +9,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "for the player's sake",
-    "path": "folders/Objects/GUI & essencials/essiencials/for the player's sake.yy",
+    "path": "folders/Objects/GUI & essencials/essiencials/don't remove/for the player's sake.yy",
   },
   "parentObjectId": null,
   "persistent": false,

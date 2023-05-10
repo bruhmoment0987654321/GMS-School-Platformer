@@ -1,6 +1,4 @@
-
 var halfw = w/2;
-
 //draw the box
 draw_set_color(c_black);
 draw_set_alpha(0.5);

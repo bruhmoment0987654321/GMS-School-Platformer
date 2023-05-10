@@ -9,7 +9,7 @@ switch(_state){
 	
 	case ("DASHED"):
 		sprite_index = Spr_bigmanhit;
-		if (Obj_slime.x<x){
+		if (Obj_player.x<x){
 			hsp = 10;
 			vsp = -10;
 		}else{
@@ -20,12 +20,25 @@ switch(_state){
 	
 	case ("SHOT"):
 		sprite_index = Spr_bigmanhit;
-		if (Obj_slime.x<x){
+		if (Obj_player.x<x){
 			hsp = 1;
 			vsp = -1;
 		}else{
 			hsp = -1;
 			vsp = -1;
+		}
+		hp = hp - 1;
+		if(hp <= 0){
+			_state = "DEAD";	
+		}
+	break;
+	case("DEAD"):
+		if (Obj_player.x<x){
+			hsp = 10;
+			vsp = -10;
+		}else{
+			hsp = -10;
+			vsp = -10;
 		}
 	break;
 }

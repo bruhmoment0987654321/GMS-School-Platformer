@@ -1,14 +1,8 @@
-///@desc SlideTransition(mode,room)
-
-// _mode sets transtion mode between text, restart, & goto
-// _target sets target room when using the goto mode
-
+// Script assets have changed for v2.3.0 see
+// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function SlideTransition(_mode,_target){
-	with(Obj_transitions){
-		mode = argument[0];
-		if(argument_count > 1){
-			target = argument[1];	
-		}
-		
+	with(Obj_transition){
+		mode = argument0;
+		if(argument_count > 1) target = argument[1];
 	}
 }

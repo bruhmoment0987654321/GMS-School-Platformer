@@ -3,17 +3,15 @@ if (follow != noone){
 	yTo = follow.y;
 }
 
+	xcam = clamp(xTo - global.camW/2,0,room_width-global.camW) + x_offset;
+	ycam = clamp(yTo - global.camH/2,0,room_height-global.camH) + y_offset;
 
-xcam = clamp(xTo - global.camW/2,0,room_width-global.camW) + x_offset;
-ycam = clamp(yTo - global.camH/2,0,room_height-global.camH) + y_offset;
-
-global.curx = camera_get_view_x(view_camera[0]);
-global.cury = camera_get_view_y(view_camera[0]);
-
+curx = camera_get_view_x(view_camera[0]);
+cury = camera_get_view_y(view_camera[0]);
 
 
-newx = lerp(global.curx,xcam,lerp_speed);
-newy = lerp(global.cury,ycam,lerp_speed);
+newx = lerp(curx,xcam,lerp_speed);
+newy = lerp(cury,ycam,lerp_speed);
 
 //cam shake
 newx += random_range(-global.camShake,global.camShake);

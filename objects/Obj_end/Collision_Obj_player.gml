@@ -2,7 +2,7 @@
 with(Obj_player){
 	if(hascontrol){
 		hascontrol = false;
-		SlideTransition(TRANS_MODE.NEXT,room_goto_next);
+		SlideTransition(TRANS_MODE.NEXT);
 	}
 	
 }

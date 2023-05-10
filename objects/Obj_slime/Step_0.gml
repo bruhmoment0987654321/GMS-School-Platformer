@@ -26,6 +26,29 @@ if (!place_meeting(x,y+1,Obj_solid)){
 		 
 	 }
 }
+if(dashlimit == 0){
+	imageblend = #FF8AFF
+}else{
+	imageblend = c_white;	
+}
+
+if(place_meeting(x+1,y,Obj_moveplath)){
+	sprite_index = Spr_slime_wall_hang;	
+	if(image_xscale = 1){
+		image_xscale = 1;
+	}else{
+		image_xscale = 1;
+	}
+}
+
+if(place_meeting(x-1,y,Obj_moveplath)){
+	sprite_index = Spr_slime_wall_hang;	
+	if(image_xscale = 1){
+		image_xscale = -1;
+	}else{
+		image_xscale = -1;
+	}
+}
 #endregion
 	#region gummy effect
 	//for jumping and falling
@@ -45,11 +68,6 @@ if (!place_meeting(x,y+1,Obj_solid)){
 		Gummy(1.7,0.3);		
 	}
 	#endregion
-if(dashlimit == 0){
-	imageblend = #FF8AFF
-}else{
-	imageblend = c_white;	
-}
 if (hsp != 0) image_xscale = sign(hsp);
 #endregion
 

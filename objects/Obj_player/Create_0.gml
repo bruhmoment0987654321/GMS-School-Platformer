@@ -31,9 +31,6 @@ shootdelaymax = 7; // the amount for the cooldown
 
 //health & other variables
 global.HP = 1; //how much health the player has
-if(object_index = Obj_boy){
-	global.HP = 2;	
-}
 HP_max_boy = 2; //max health of boy
 tears = 0; //crying particles
 invincibility = false; //if you got hit or not and gives you iframes
@@ -122,18 +119,7 @@ stateFree = function(){
 		}
 		#region shoot inputs
 		if(object_index != Obj_slime){
-			if(place_meeting(x,y,Obj_paper)){
-					global.ammo += 1;
-			}
-		}
-	
-		if(global.ammo > 0){
-			if(shootdelay == 0){
-				if(shoot){
-					instance_create_layer(x,y,"Player",Obj_paperball);
-					shootdelay = shootdelaymax;
-				}
-			}
+			
 		}
 		#endregion
 		#region dash input
