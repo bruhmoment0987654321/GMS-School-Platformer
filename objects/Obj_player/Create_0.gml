@@ -25,13 +25,10 @@ dashtime = 10; // the amount of time the dash is used
 dashlimit = 2; // the limit of dash presses
 
 //shoot variables
-global.ammo = 0; //how much ammo the boy has
-shootdelay = 0; // the cooldown of shooting the balls
-shootdelaymax = 7; // the amount for the cooldown
+shoot_meter = 100;
 
 //health & other variables
 global.HP = 1; //how much health the player has
-HP_max_boy = 2; //max health of boy
 tears = 0; //crying particles
 invincibility = false; //if you got hit or not and gives you iframes
 invincible_timer = room_speed*1.5; //how long the iframes last
@@ -43,7 +40,6 @@ hascontrol = true; //giving the player control or not
 imageblend = c_white; //controling the color of the player
 
 stateFree = function(){
-	shootdelay = max(shootdelay - 1,0);
 	
 	if(hascontrol){
 		#region walking
@@ -119,7 +115,9 @@ stateFree = function(){
 		}
 		#region shoot inputs
 		if(object_index != Obj_slime){
-			
+			if(shoot){
+				
+			}
 		}
 		#endregion
 		#region dash input
@@ -375,6 +373,10 @@ stateDead = function(){
 	Obj_game.timer--;
 	#endregion
 	
+}
+	
+stateShoot = function(){
+		
 }
 
 state = stateFree;

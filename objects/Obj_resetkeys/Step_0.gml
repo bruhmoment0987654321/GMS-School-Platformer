@@ -19,7 +19,6 @@ if(rectangle_in_rectangle(x, y, x + sprite_width, y + sprite_height, mouse_x, mo
 		keyrun : global.keyRun,
 		keyjump : global.keyJump,
 		keydash : global.keyDash,
-		keyshoot : global.keyShoot,
 		keybackto : global.keyBacktoTitle
 	}
 	array_push(_saveData,_saveEntity);

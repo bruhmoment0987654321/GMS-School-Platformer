@@ -13,7 +13,6 @@ if(file_exists("ChangedKeys.sav")){
 		global.keyRun = _loadEntitiy.keyrun;
 		global.keyJump = _loadEntitiy.keyjump;
 		global.keyDash = _loadEntitiy.keydash;
-		global.keyShoot = _loadEntitiy.keyshoot;
 		global.keyBacktoTitle = _loadEntitiy.keybackto;
 	}
 	show_debug_message("Game Loaded!" + _string);
@@ -22,7 +21,7 @@ if(file_exists("ChangedKeys.sav")){
 }
 time = room_speed;
 timer = time;
-keybinds = "Up:\n\nDown:\n\nLeft:\n\nRight:\n\nRun:\n\nJump:\n\nDash:\n\nShoot:\n\nGoing back to the title:"
+keybinds = "Up:\n\nDown:\n\nLeft:\n\nRight:\n\nRun:\n\nJump:\n\nDash:\n\nGoing back to the title:"
 
 enum Keys{
 	Default,
@@ -33,6 +32,5 @@ enum Keys{
 	Run,
 	Jump,
 	Dash,
-	Shoot,
 	BacktoTitle
 }

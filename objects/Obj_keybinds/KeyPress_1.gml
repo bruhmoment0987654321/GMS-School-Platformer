@@ -15,7 +15,6 @@ if(!keyboard_check_pressed(vk_escape)){
 					keyrun : global.keyRun,
 					keyjump : global.keyJump,
 					keydash : global.keyDash,
-					keyshoot : global.keyShoot,
 					keybackto : global.keyBacktoTitle
 				}
 				array_push(_saveData,_saveEntity);
@@ -31,7 +30,6 @@ if(!keyboard_check_pressed(vk_escape)){
 					keyrun : global.keyRun,
 					keyjump : global.keyJump,
 					keydash : global.keyDash,
-					keyshoot : global.keyShoot,
 					keybackto : global.keyBacktoTitle
 				}
 				array_push(_saveData,_saveEntity);
@@ -47,7 +45,6 @@ if(!keyboard_check_pressed(vk_escape)){
 					keyrun : global.keyRun,
 					keyjump : global.keyJump,
 					keydash : global.keyDash,
-					keyshoot : global.keyShoot,
 					keybackto : global.keyBacktoTitle
 				}
 				array_push(_saveData,_saveEntity);
@@ -63,7 +60,6 @@ if(!keyboard_check_pressed(vk_escape)){
 					keyrun : global.keyRun,
 					keyjump : global.keyJump,
 					keydash : global.keyDash,
-					keyshoot : global.keyShoot,
 					keybackto : global.keyBacktoTitle
 				}
 				array_push(_saveData,_saveEntity);
@@ -79,7 +75,6 @@ if(!keyboard_check_pressed(vk_escape)){
 					keyrun : global.keyRun,
 					keyjump : global.keyJump,
 					keydash : global.keyDash,
-					keyshoot : global.keyShoot,
 					keybackto : global.keyBacktoTitle
 				}
 				array_push(_saveData,_saveEntity);
@@ -95,7 +90,6 @@ if(!keyboard_check_pressed(vk_escape)){
 					keyrun : global.keyRun,
 					keyjump : global.keyJump,
 					keydash : global.keyDash,
-					keyshoot : global.keyShoot,
 					keybackto : global.keyBacktoTitle
 				}
 				array_push(_saveData,_saveEntity);
@@ -111,23 +105,6 @@ if(!keyboard_check_pressed(vk_escape)){
 					keyrun : global.keyRun,
 					keyjump : global.keyJump,
 					keydash : global.keyDash,
-					keyshoot : global.keyShoot,
-					keybackto : global.keyBacktoTitle
-				}
-				array_push(_saveData,_saveEntity);
-			break;
-			case Keys.Shoot:
-				global.keyShoot = newKey;
-				//saving
-				var _saveEntity = {
-					keyup : global.keyUp,
-					keydown : global.keyDown,
-					keyleft : global.keyLeft,
-					keyright : global.keyRight,
-					keyrun : global.keyRun,
-					keyjump : global.keyJump,
-					keydash : global.keyDash,
-					keyshoot : global.keyShoot,
 					keybackto : global.keyBacktoTitle
 				}
 				array_push(_saveData,_saveEntity);
@@ -143,7 +120,6 @@ if(!keyboard_check_pressed(vk_escape)){
 					keyrun : global.keyRun,
 					keyjump : global.keyJump,
 					keydash : global.keyDash,
-					keyshoot : global.keyShoot,
 					keybackto : global.keyBacktoTitle
 				}
 				array_push(_saveData,_saveEntity);

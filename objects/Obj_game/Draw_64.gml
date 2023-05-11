@@ -10,16 +10,7 @@ draw_set_color(c_white);
 switch(room){
 
 	case Rm_test_boy:
-		#region viewing ammo
-		if(global.ammo > 0){
-			draw_sprite_ext(Spr_paper,0,5,60,3,3,0,c_white,1);
-			draw_text_ext_transformed(100,80,": " + string(global.ammo),100,100,3,3,0);	
-		}else{
-			if(Obj_player.object_index = Obj_boy){
-				draw_sprite_ext(Spr_paper,0,5,60,3,3,0,c_grey,1);
-			}
-		}
-		#endregion
+		
 	break;
 	case Rm_ctrls:
 		#region draw control layout

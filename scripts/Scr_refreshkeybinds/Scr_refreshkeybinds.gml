@@ -28,9 +28,6 @@ function Scr_refreshkeybinds(){
 				case Keys.Dash:
 					keystring = getUnicodeString(global.keyDash);
 				break;
-				case Keys.Shoot:
-					keystring = getUnicodeString(global.keyShoot);
-				break;
 				case Keys.BacktoTitle:
 					keystring = getUnicodeString(global.keyBacktoTitle);
 				break;

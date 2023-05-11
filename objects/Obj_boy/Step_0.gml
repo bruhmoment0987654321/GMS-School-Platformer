@@ -19,7 +19,7 @@ if (!place_meeting(x,y+1,Obj_solid)){
 	if (hsp == 0){
 		sprite_index = Spr_schoolboy;
 	 }else{
-		 sprite_index = Spr_schoolboyrun;
+		 sprite_index = Spr_schoolboywalk;
 		 
 	 }
 }
