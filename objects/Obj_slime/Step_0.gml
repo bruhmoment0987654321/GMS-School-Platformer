@@ -52,7 +52,7 @@ if(place_meeting(x-1,y,Obj_moveplath)){
 #endregion
 	#region gummy effect
 	//for jumping and falling
-	if(jump){
+	if(jump) && (is_on_ground){
 		Gummy(0.6,1.5);	
 	}
 	if(sprite_index == Spr_slimejump) && (vsp > 0){
@@ -60,11 +60,11 @@ if(place_meeting(x-1,y,Obj_moveplath)){
 	}
 
 		//dashing
-	if(dash) && (up){
+	if(dash) && (up) && (dashlimit > 0){
 		Gummy(0.4,1.3);		
 	}
 
-	if(dash) && (down){
+	if(dash) && (down) && (dashlimit > 0){
 		Gummy(1.7,0.3);		
 	}
 	#endregion

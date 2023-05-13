@@ -18,14 +18,25 @@ jump_buffer = 10; //number of grace period frames between player pressing jump a
 jump_buffer_timer = jump_buffer;
 global.grv = 0.3; //gravity
 
+
+
+//shoot variables
+launchoffsetX = 0;
+launchoffsetY = 0;
+
+function launch (launchpower,angle){
+	angle += 180;
+	launchoffsetX = lengthdir_x(launchpower,angle);
+	launchoffsetY = lengthdir_y(launchpower,angle);
+}
+
 //dash variables
 candash = false; //resets when touching ground
 dashdistance = 82; // how far the dash goes
 dashtime = 10; // the amount of time the dash is used
 dashlimit = 2; // the limit of dash presses
 
-//shoot variables
-shoot_meter = 100;
+//gun variables
 
 //health & other variables
 global.HP = 1; //how much health the player has
@@ -40,7 +51,6 @@ hascontrol = true; //giving the player control or not
 imageblend = c_white; //controling the color of the player
 
 stateFree = function(){
-	
 	if(hascontrol){
 		#region walking
 		if(run){
@@ -81,6 +91,9 @@ stateFree = function(){
 	
 		//jump
 		#region Jump Input Buffering
+		if(object_index != Obj_slime){
+			vspjump = -5;
+		}
 		if (place_meeting(x,y+1,Obj_solid)) || (place_meeting(x,y+1,Obj_moveplath)){
 		    is_on_ground = true;
 		    grace_timer = grace_jump_time;
@@ -109,17 +122,10 @@ stateFree = function(){
 			    jump_buffer_timer--;
 			}
 		#endregion
-	
+		
 		if(!jump_held){
 			vsp = max(vsp,(vspjump/3));
 		}
-		#region shoot inputs
-		if(object_index != Obj_slime){
-			if(shoot){
-				
-			}
-		}
-		#endregion
 		#region dash input
 		if(object_index != Obj_boy){
 			if(dash) && (dashlimit > 0){
@@ -147,6 +153,16 @@ stateFree = function(){
 		dash = 0;
 	}
 	
+	#region shoot properties
+	hsp += launchoffsetX;
+	vsp += launchoffsetY;
+	
+	launchoffsetX += -sign(launchoffsetX);
+	launchoffsetY += -sign(launchoffsetY);
+	
+	launchoffsetX = round(launchoffsetX);
+	launchoffsetY = round(launchoffsetY);
+	#endregion
 	#region collisions
 	//horizontal collision
 	if (place_meeting(x+hsp,y,Obj_solid)){
@@ -218,10 +234,6 @@ stateFree = function(){
 	x += hsp; 
 	y += vsp;
 	#endregion
-	
-	
-	
-
 }
 statedash = function(){
 	#region dashing
@@ -347,11 +359,6 @@ statedash = function(){
 					state = stateFree;
 			        grace_timer = 0;
 			        jump_buffer_timer = 0;
-				with (instance_create_depth(x,y,depth+1,Obj_trail)){
-					sprite_index = other.sprite_index;
-					image_blend = #09E444;
-					image_alpha = 0.9;
-				}
 			    jump_buffer_timer--;
 			}
 		}
@@ -375,8 +382,6 @@ stateDead = function(){
 	
 }
 	
-stateShoot = function(){
-		
-}
+
 
 state = stateFree;

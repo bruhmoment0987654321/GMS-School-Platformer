@@ -5,7 +5,7 @@ function Scr_default_buttons(){
 	global.keyDown = ord("S");
 	global.keyLeft = ord("A");
 	global.keyRight = ord("D");
-	global.keyRun = ord("J");
+	global.keyRun = vk_lshift;
 	global.keyJump = vk_space;
 	global.keyDash = ord("K");
 	global.keyBacktoTitle = ord("L");
