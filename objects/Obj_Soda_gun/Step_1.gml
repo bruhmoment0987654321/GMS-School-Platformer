@@ -7,12 +7,13 @@ image_angle = point_direction(x,y,mouse_x,mouse_y);
 firing_delay--;
 recoil = max(0,recoil-1);
 //the shooting function itself
+
 if(mouse_check_button_pressed(mb_left)) && (firing_delay <= 0) && (ammo > 0) && (shoot){
 		global.camShake = 1;
 		if(!jump_held){
 			ammo -= 20;
 		}else{
-			ammo -= 99;	
+			ammo = 0;	
 		}
 		firing_delay = 5;
 		recoil = recoil_frames;

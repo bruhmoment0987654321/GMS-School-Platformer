@@ -53,6 +53,7 @@
     {"name":"death","order":2,"path":"folders/Sprites/essencials in the game/health and gettin hit/death.yy",},
     {"name":"ground tile sets","order":2,"path":"folders/Sprites/ground tile sets.yy",},
     {"name":"ground","order":2,"path":"folders/Sprites/ground tile sets/ground.yy",},
+    {"name":"GUI","order":11,"path":"folders/Sprites/GUI.yy",},
     {"name":"outside objects","order":4,"path":"folders/Sprites/outside objects.yy",},
     {"name":"invisible","order":1,"path":"folders/Sprites/outside objects/invisible.yy",},
     {"name":"interact","order":13,"path":"folders/Sprites/outside objects/visible/interact.yy",},
@@ -68,7 +69,6 @@
     {"name":"The Boy","order":5,"path":"folders/Sprites/Unused/The Boy.yy",},
     {"name":"Tile Sets","order":2,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
-    {"name":"GUI","order":11,"path":"folders/Sprites/GUI.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"Spr_Sliem_transform_back","order":5,"path":"sprites/Spr_Sliem_transform_back/Spr_Sliem_transform_back.yy",},

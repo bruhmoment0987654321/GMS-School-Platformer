@@ -1,4 +1,6 @@
 jump_held = keyboard_check(global.keyJump);
+jump = keyboard_check_pressed(global.keyJump);
+
 //recharge the gun with this :)
 if(ammo <= ammo_max){
 	if(ammo <= 0){
