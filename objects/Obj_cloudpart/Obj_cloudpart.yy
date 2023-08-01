@@ -28,10 +28,7 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": {
-    "name": "Spr_cloud_part",
-    "path": "sprites/Spr_cloud_part/Spr_cloud_part.yy",
-  },
+  "spriteId": null,
   "spriteMaskId": null,
   "visible": true,
 }

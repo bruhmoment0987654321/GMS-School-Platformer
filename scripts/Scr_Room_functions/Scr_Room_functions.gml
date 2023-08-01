@@ -56,16 +56,7 @@ function Room_functions(){
 			instance_create_layer(Obj_slime.x,Obj_slime.y-30,"Behind",Obj_bye)
 			alarm[0] = room_speed;
 		}
-		if(keyboard_check_pressed(vk_escape)){
-			room_goto(Rm_cool_content);	
-		}
 		#endregion
-	break;
-	case Rm_cool_content:
-	if (keyboard_check_pressed(vk_escape)){
-		instance_create_layer(Obj_slime.x,Obj_slime.y-30,"Behind",Obj_bye)
-		alarm[0] = room_speed;
-	}
 	break;
 	
 	case Rm_ctrls:

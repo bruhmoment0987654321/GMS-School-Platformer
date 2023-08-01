@@ -29,7 +29,6 @@
     {"name":"inst_2D3A9868","path":"rooms/Rm_test/Rm_test.yy",},
     {"name":"inst_1F4F4F8A","path":"rooms/Rm_test/Rm_test.yy",},
     {"name":"inst_7D35D108","path":"rooms/Rm_test/Rm_test.yy",},
-    {"name":"inst_4CAC2BD6","path":"rooms/Rm_test/Rm_test.yy",},
     {"name":"inst_4359EB76","path":"rooms/Rm_test/Rm_test.yy",},
     {"name":"inst_6F91039A","path":"rooms/Rm_test/Rm_test.yy",},
     {"name":"inst_16FE4AA3","path":"rooms/Rm_test/Rm_test.yy",},
@@ -57,7 +56,6 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_28E54740","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"Obj_bigman","path":"objects/Obj_bigman/Obj_bigman.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":704.0,"y":224.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_144192C5","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"Obj_bigman","path":"objects/Obj_bigman/Obj_bigman.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":320.0,"y":224.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_B443F74","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"Obj_bigman","path":"objects/Obj_bigman/Obj_bigman.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":800.0,"y":224.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4CAC2BD6","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"Obj_healthPickUp","path":"objects/Obj_healthPickUp/Obj_healthPickUp.yy",},"properties":[],"rotation":0.0,"scaleX":0.5,"scaleY":0.5,"x":192.0,"y":128.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Outside_Objects","depth":400,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4359EB76","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"Obj_spike","path":"objects/Obj_spike/Obj_spike.yy",},"properties":[],"rotation":0.0,"scaleX":4.0,"scaleY":1.0,"x":1120.0,"y":256.0,},

@@ -62,7 +62,7 @@ stateFree = function(){
 		var move = right - left;
 		if (move !=0){
 			var multiplier = walk_multiplier;
-			if(run) && (place_meeting(x,y+1,Obj_solid)) || (place_meeting(x,y+1,Obj_moveplath)){
+			if(run) && (place_meeting(x,y+1,Obj_solid)){
 				multiplier = run_multiplier;
 			}
 			move *= multiplier;
@@ -94,7 +94,7 @@ stateFree = function(){
 		if(object_index != Obj_slime){
 			vspjump = -5;
 		}
-		if (place_meeting(x,y+1,Obj_solid)) || (place_meeting(x,y+1,Obj_moveplath)){
+		if (place_meeting(x,y+1,Obj_solid)){
 		    is_on_ground = true;
 		    grace_timer = grace_jump_time;
 		}else{
@@ -164,6 +164,7 @@ stateFree = function(){
 	launchoffsetY = round(launchoffsetY);
 	#endregion
 	#region collisions
+
 	//horizontal collision
 	if (place_meeting(x+hsp,y,Obj_solid)){
 		while (abs(hsp) > 0.1){
@@ -182,55 +183,56 @@ stateFree = function(){
 		}
 		vsp = 0;
 	}
-	
-	#region getting unstuck on that dang solid blocks
-			if(place_meeting(x,y,Obj_solid)){
-				for(var i = 0; i < 1000; ++i){
-					//right
-					if(!place_meeting(x+i,y,Obj_solid)){
-						x += i;
-						break;
-					}
-					//left
-					if(!place_meeting(x-i,y,Obj_solid)){
-						x -= i;
-						break;
-					}
-					//up 
-					if(!place_meeting(x,y-i,Obj_solid)){
-						y -= i;
-						break;
-					}
-					//down
-					if(!place_meeting(x,y+i,Obj_solid)){
-						y += i;
-						break;
-					}					
-					//top left
-					if(!place_meeting(x+i,y-i,Obj_solid)){
-						x += i;
-						y -= i;
-					}
-					//top right
-					if(!place_meeting(x-i,y-i,Obj_solid)){
-						x -= i;
-						y -= i;
-					}
-					//bottom left
-					if(!place_meeting(x+i,y+i,Obj_solid)){
-						x += i;
-						y += i;
-					}
-					//bottom right
-					if(!place_meeting(x-i,y+i,Obj_solid)){
-						x -= i;
-						y += i;
-					}
+	#region no stuck collisions
+		if(place_meeting(x,y,Obj_solid)){
+			for(var i = 0; i <1000; ++i){
+				//right
+				if(!place_meeting(x + i,y,Obj_solid)){
+					x += i;
+					break;
 				}
-			
+				//left
+				if(!place_meeting(x+i,y,Obj_solid)){
+					x -= i;
+					break;
+				}
+				//up
+				if(!place_meeting(x,y-i,Obj_solid)){
+					y -= i;
+					break;
+				}
+				//down
+				if(!place_meeting(x,y+i,Obj_solid)){
+					y += i;
+					break;
+				}
+				//top right
+				if(!place_meeting(x + i,y - i,Obj_solid)){
+					x += i;
+					y-=i
+					break;
+				}
+				//top left
+				if(!place_meeting(x - i,y - i,Obj_solid)){
+					x -= i;
+					y-=i
+					break;
+				}
+				//bottom left
+				if(!place_meeting(x + i,y + i,Obj_solid)){
+					x += i;
+					y+=i
+					break;
+				}
+				//bottom right
+				if(!place_meeting(x - i,y + i,Obj_solid)){
+					x -= i;
+					y+=i
+					break;
+				}
 			}
-		#endregion 
-	
+		}
+		#endregion
 	x += hsp; 
 	y += vsp;
 	#endregion
@@ -271,55 +273,56 @@ statedash = function(){
 			vsp = 0;
 			
 		}
-		
-		#region getting unstuck on that dang solid blocks
-			if(place_meeting(x,y,Obj_solid)){
-				for(var i = 0; i < 1000; ++i){
-					//right
-					if(!place_meeting(x+i,y,Obj_solid)){
-						x += i;
-						break;
-					}
-					//left
-					if(!place_meeting(x-i,y,Obj_solid)){
-						x -= i;
-						break;
-					}
-					//up 
-					if(!place_meeting(x,y-i,Obj_solid)){
-						y -= i;
-						break;
-					}
-					//down
-					if(!place_meeting(x,y+i,Obj_solid)){
-						y += i;
-						break;
-					}					
-					//top left
-					if(!place_meeting(x+i,y-i,Obj_solid)){
-						x += i;
-						y -= i;
-					}
-					//top right
-					if(!place_meeting(x-i,y-i,Obj_solid)){
-						x -= i;
-						y -= i;
-					}
-					//bottom left
-					if(!place_meeting(x+i,y+i,Obj_solid)){
-						x += i;
-						y += i;
-					}
-					//bottom right
-					if(!place_meeting(x-i,y+i,Obj_solid)){
-						x -= i;
-						y += i;
-					}
+		#region no stuck collisions
+		if(place_meeting(x,y,Obj_solid)){
+			for(var i = 0; i <1000; ++i){
+				//right
+				if(!place_meeting(x + i,y,Obj_solid)){
+					x += i;
+					break;
 				}
-			
+				//left
+				if(!place_meeting(x+i,y,Obj_solid)){
+					x -= i;
+					break;
+				}
+				//up
+				if(!place_meeting(x,y-i,Obj_solid)){
+					y -= i;
+					break;
+				}
+				//down
+				if(!place_meeting(x,y+i,Obj_solid)){
+					y += i;
+					break;
+				}
+				//top right
+				if(!place_meeting(x + i,y - i,Obj_solid)){
+					x += i;
+					y-=i
+					break;
+				}
+				//top left
+				if(!place_meeting(x - i,y - i,Obj_solid)){
+					x -= i;
+					y-=i
+					break;
+				}
+				//bottom left
+				if(!place_meeting(x + i,y + i,Obj_solid)){
+					x += i;
+					y+=i
+					break;
+				}
+				//bottom right
+				if(!place_meeting(x - i,y + i,Obj_solid)){
+					x -= i;
+					y+=i
+					break;
+				}
 			}
-		#endregion 
-		
+		}
+		#endregion
 		x += hsp; 
 		y += vsp;
 		
