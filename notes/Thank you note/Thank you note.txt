@@ -1,8 +1,8 @@
 I would like to thank all the people who have playtested my game:
 
 	369071 2458
-
-
+	Jason Pelkey
+	
 
 
 
@@ -22,7 +22,7 @@ And to the people that I have come across who have helped me in this journey:
 	Shawn Spalding - One of the pillars of Game Maker. Without him, none of this code would be possible. He is straight-foward,
 	to the point, and informative. His tutorials are great as well. Especially the Complete Platformer Tutorial. Great stuff. 
 	
-	
+	1up Indie - His videos are pretty well made, with the most useful vids are for his enemy AI.
 	
 	
 	

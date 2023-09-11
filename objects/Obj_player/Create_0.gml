@@ -39,7 +39,12 @@ dashlimit = 2; // the limit of dash presses
 //gun variables
 
 //health & other variables
-global.HP = 1; //how much health the player has
+if(global.Boss_time){
+	global.HP = 3;	
+}else{
+	global.HP = 1; 
+}//how much health the player has
+
 tears = 0; //crying particles
 invincibility = false; //if you got hit or not and gives you iframes
 invincible_timer = room_speed*1.5; //how long the iframes last
@@ -129,20 +134,20 @@ stateFree = function(){
 		#region dash input
 		if(object_index != Obj_boy){
 			if(dash) && (dashlimit > 0){
-					global.camShake = 1.5;
-					candash = false;
-					grace_timer = 0;
-					if(move != 0){
-						dashdirection = point_direction(0,0, right-left,down-up);
-					}else if(up||down){
-						dashdirection = point_direction(0,0,0,down-up);	
-					}else{
-						dashdirection = point_direction(0,0,sign(image_xscale),0);		
-					}
-					dashdistance = 82;
-					dashsp = dashdistance/dashtime;
-					dashenergy = dashdistance;
-					state = statedash;
+				global.camShake = 1.5;
+				candash = false;
+				grace_timer = 0;
+				if(move != 0){
+					dashdirection = point_direction(0,0, right-left,down-up);
+				}else if(up||down){
+					dashdirection = point_direction(0,0,0,down-up);	
+				}else{
+					dashdirection = point_direction(0,0,sign(image_xscale),0);		
+				}
+				dashdistance = 82;
+				dashsp = dashdistance/dashtime;
+				dashenergy = dashdistance;
+				state = statedash;
 			}
 		}
 		#endregion

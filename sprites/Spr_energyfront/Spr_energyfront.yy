@@ -48,8 +48,8 @@
   },
   "origin": 0,
   "parent": {
-    "name": "GUI",
-    "path": "folders/Sprites/GUI.yy",
+    "name": "energy",
+    "path": "folders/Sprites/GUI/energy.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

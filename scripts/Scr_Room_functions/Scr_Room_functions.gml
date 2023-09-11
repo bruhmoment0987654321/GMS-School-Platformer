@@ -5,6 +5,7 @@ function Room_functions(){
 	case Rm_level1ground:
 		global.stopwatchstart = true;
 	case Rm_level2ground:
+	case Rm_Boss1:
 	case Rm_tutorial:
 		#region timer and teleporting to checkpoint
 		if(timer <= 0){

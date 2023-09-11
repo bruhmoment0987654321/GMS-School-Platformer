@@ -34,3 +34,4 @@ enum Keys{
 	Dash,
 	BacktoTitle
 }
+global.Boss_time = false;

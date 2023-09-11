@@ -1,0 +1,1 @@
+global.Boss_time = true;
