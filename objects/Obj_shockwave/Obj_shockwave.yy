@@ -1,15 +1,21 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "Obj_sliem_eyes",
-  "eventList": [],
+  "name": "Obj_shockwave",
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
+  ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Sliem",
-    "path": "folders/Objects/Enemies/Sliem.yy",
+    "name": "Bosses",
+    "path": "folders/Objects/Bosses.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "Obj_killyou",
+    "path": "objects/Obj_killyou/Obj_killyou.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
@@ -26,8 +32,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "Spr_sliem_eyes",
-    "path": "sprites/Spr_sliem_eyes/Spr_sliem_eyes.yy",
+    "name": "Spr_shockwave",
+    "path": "sprites/Spr_shockwave/Spr_shockwave.yy",
   },
   "spriteMaskId": null,
   "visible": true,

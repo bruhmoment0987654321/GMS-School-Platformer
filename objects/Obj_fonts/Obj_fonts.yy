@@ -8,8 +8,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "title system",
-    "path": "folders/Objects/GUI & essencials/title system.yy",
+    "name": "don't remove",
+    "path": "folders/Objects/GUI & essencials/essiencials/don't remove.yy",
   },
   "parentObjectId": null,
   "persistent": false,

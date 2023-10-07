@@ -116,7 +116,7 @@
   "italic": false,
   "kerningPairs": [],
   "last": 0,
-  "lineHeight": 0,
+  "lineHeight": 14,
   "maintainGms1Font": false,
   "parent": {
     "name": "Fonts",

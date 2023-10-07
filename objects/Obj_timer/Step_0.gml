@@ -1,3 +1,4 @@
+
 //stopping the watch
 if(global.stopwatchstart = true){
 	global.stopwatchseconds += delta_time/1000000;
@@ -21,6 +22,5 @@ if(global.stopwatchhrs > 24){
 	global.stopwatchhrs = 0;
 	global.stopwatchdays += 1;
 }
-
 #endregion
 

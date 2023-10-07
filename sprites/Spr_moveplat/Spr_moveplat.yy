@@ -29,7 +29,7 @@
   "origin": 0,
   "parent": {
     "name": "moveplat",
-    "path": "folders/Sprites/outside objects/visible/interact/moveplat.yy",
+    "path": "folders/Sprites/Unused/moveplat.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

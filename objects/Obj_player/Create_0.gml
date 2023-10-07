@@ -36,6 +36,8 @@ dashdistance = 82; // how far the dash goes
 dashtime = 10; // the amount of time the dash is used
 dashlimit = 2; // the limit of dash presses
 
+//debug variables
+killable = false;
 //gun variables
 
 //health & other variables
@@ -47,7 +49,7 @@ if(global.Boss_time){
 
 tears = 0; //crying particles
 invincibility = false; //if you got hit or not and gives you iframes
-invincible_timer = room_speed*1.5; //how long the iframes last
+invincible_timer = 60*2; //how long the iframes last
 blinktimer = invincible_timer; //the player flashes white when hit
 slime_splat = 0; //used when you die and game over screen
 xscale = 1; //for gummy effect
@@ -67,13 +69,15 @@ stateFree = function(){
 		var move = right - left;
 		if (move !=0){
 			var multiplier = walk_multiplier;
-			if(run) && (place_meeting(x,y+1,Obj_solid)){
-				multiplier = run_multiplier;
+			if(object_index = Obj_boy){
+				if(run) && (place_meeting(x,y+1,Obj_solid)){
+					multiplier = run_multiplier;
+				}
 			}
+			
 			move *= multiplier;
 			hsp += move*walksp;
 			max_hsp = 3;
-			
 			
 			hsp = clamp(hsp,-(max_hsp*multiplier),(max_hsp*multiplier));
 		}else{

@@ -28,7 +28,7 @@
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"8c3ee1ab-4ad2-4d10-81e1-faa09bd16a4a","blendMode":0,"displayName":"Layer 1","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
-  "origin": 0,
+  "origin": 2,
   "parent": {
     "name": "Boss one, sliem upgreaded",
     "path": "folders/Sprites/GUI/health bars/Boss one, sliem upgreaded.yy",
@@ -68,7 +68,7 @@
     ],
     "visibleRange": null,
     "volume": 1.0,
-    "xorigin": 0,
+    "xorigin": 59,
     "yorigin": 0,
   },
   "swatchColours": null,

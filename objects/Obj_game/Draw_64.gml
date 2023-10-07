@@ -1,8 +1,12 @@
 draw_set_color(c_white);
-
+turn_on_timer = keyboard_check_pressed(vk_f2);
 //timer
-draw_text_transformed(1260,740,string(global.stopwatchdays) + ":" + string(global.stopwatchhrs) + ":" + string(global.stopwatchmin) + ":" + string(global.stopwatchseconds),2,2,0);
-
+if(turn_on_timer){
+	visible_ = true;	
+}
+if(visible_){
+	draw_text_transformed(1260,740,string(global.stopwatchdays) + ":" + string(global.stopwatchhrs) + ":" + string(global.stopwatchmin) + ":" + string(global.stopwatchseconds),2,2,0);
+}
 draw_set_color(c_red);
 //draw_text(60,10,string(Obj_sliem.frames));
 
@@ -11,9 +15,6 @@ switch(room){
 
 	case Rm_test_boy:
 		
-	break;
-	case Rm_Boss1:
-		draw_text_transformed(room_width/2,0,Obj_boss1.Boss_state,3,3,0);
 	break;
 	case Rm_ctrls:
 		#region draw control layout

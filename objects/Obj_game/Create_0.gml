@@ -19,6 +19,7 @@ if(file_exists("ChangedKeys.sav")){
 }else{
 	Scr_default_buttons();	
 }
+visible_ = false;
 time = room_speed;
 timer = time;
 keybinds = "Up:\n\nDown:\n\nLeft:\n\nRight:\n\nRun:\n\nJump:\n\nDash:\n\nGoing back to the title:"
@@ -35,3 +36,4 @@ enum Keys{
 	BacktoTitle
 }
 global.Boss_time = false;
+randomize();

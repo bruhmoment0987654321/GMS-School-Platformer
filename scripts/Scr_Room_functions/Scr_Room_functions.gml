@@ -71,7 +71,7 @@ function Room_functions(){
 		}
 		
 		if(instance_exists(Obj_slime)){	
-			controls = "Controls for slime:\n" + getUnicodeString(vk_escape) + ": Pause\n" + getUnicodeString(global.keyBacktoTitle) + ": Go back to the title screen (While paused)\n" + getUnicodeString(global.keyLeft) + "/" + getUnicodeString(global.keyRight) + ": Left and Right\n" + getUnicodeString(global.keyUp) + ": Up\n" + getUnicodeString(global.keyDown) + ": Down\n" + getUnicodeString(global.keyJump) + ": Jump\n" + getUnicodeString(global.keyRun) + ": Run\n" + getUnicodeString(global.keyDash) + ": Dash";
+			controls = "Controls for slime:\n" + getUnicodeString(vk_escape) + ": Pause\n" + getUnicodeString(global.keyBacktoTitle) + ": Go back to the title screen (While paused)\n" + getUnicodeString(global.keyLeft) + "/" + getUnicodeString(global.keyRight) + ": Left and Right\n" + getUnicodeString(global.keyUp) + ": Up\n" + getUnicodeString(global.keyDown) + ": Down\n" + getUnicodeString(global.keyJump) + ": Jump\n" + getUnicodeString(global.keyDash) + ": Dash";
 		}else if(instance_exists(Obj_boy)){
 			controls = "Controls for boy:\n" + getUnicodeString(vk_escape) + ": Pause\n" + getUnicodeString(global.keyBacktoTitle) + ": Go back to the title screen (While paused)\n" + getUnicodeString(global.keyLeft) + "/" + getUnicodeString(global.keyRight) + ": Left and Right\n" + getUnicodeString(global.keyUp) + ": Up\n" + getUnicodeString(global.keyDown) + ": Down\n" + getUnicodeString(global.keyJump) + ": Jump\n" + getUnicodeString(global.keyRun) + ": Run\n" + getUnicodeString(mb_left) + ": Shoot";	
 		}

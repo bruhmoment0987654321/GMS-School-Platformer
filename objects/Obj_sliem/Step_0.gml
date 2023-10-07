@@ -15,11 +15,6 @@ if(frames < ghostFrames){
 	}
 }
 
-with(Obj_sliem_eyes){
-	x = Obj_sliem.x;
-	y = Obj_sliem.y;
-}
-
 //shaking the screen when the sliem gets close
 if(distance_to_object(Obj_player) < 100){
 	global.camShake = 0.5;	
