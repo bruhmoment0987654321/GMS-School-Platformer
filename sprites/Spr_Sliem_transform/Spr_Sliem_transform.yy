@@ -45,8 +45,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "cutscene",
-    "path": "folders/Sprites/cutscene.yy",
+    "name": "ground chase cutscene",
+    "path": "folders/Sprites/cutscene/ground chase cutscene.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

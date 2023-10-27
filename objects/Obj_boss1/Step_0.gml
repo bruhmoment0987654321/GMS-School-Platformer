@@ -1,4 +1,4 @@
-switch(Boss_state){
+ switch(Boss_state){
 	case"wait":
 	//gives the player time to attack the foe. It will have different idle animations which will be random.
 	#region functionality
@@ -46,16 +46,26 @@ switch(Boss_state){
 				wait_time = wait_time_amount;	
 			}
 		}
-
+		
 	#endregion
 	break;
 	case"jump":
 	//goes up, beyond the screen, waits a bit, and goes back down close to the position of the player. 
 		#region timers and such
+			var goup = false;
 			jump_time -= 1;
+			if(move = false){
+				sprite_index = Spr_boss1_jump;
+				image_index = 1;
+			}
 			if(jump_time <= 0){
-				vsp -= 50;
+				move = true;
+				goup = true;
 				jump_time = 60;
+			}
+			if(goup){
+				image_index += 2;
+				vsp -= 40;	
 			}
 			if(y < -50){
 				vsp = 0;
@@ -111,6 +121,7 @@ switch(Boss_state){
 				stomp_location = 3;	
 			}
 			if(stomp_timer <= 0){
+				sprite_index = Spr_boss1_fall;
 				warning.x = -100;
 				if(!place_meeting(x,y-1,Obj_wall)){
 					vsp += 40;
@@ -153,20 +164,10 @@ switch(Boss_state){
 				repeat(spit_amount){
 					var laser_spit = instance_create_layer(x,y-32,"Spit",Obj_spit_ball);
 					laser_spit.speed = random_range(4,6);
-					if(abs(point_distance(x,y,Obj_player.x,Obj_player.y)) > 130){
-						if(dir > 0) laser_spit.direction = 120 + random_range(-15,5); else if(dir < 0) laser_spit.direction = 60 + random_range(-5,15);
-					}else{
-						if(dir > 0) laser_spit.direction = 177+ random_range(-3,3); else if(dir < 0) laser_spit.direction = 3 + random_range(-3,3);
-					}
+					if(dir > 0) laser_spit.direction = 120 + random_range(-15,5); else if(dir < 0) laser_spit.direction = 60 + random_range(-5,15);
 					laser_spit.gravity = 0.1;
 				}
-		
-				if(_health > lowered_health){
-					spit_time_amount = 3*60;
-				}else{
-					spit_time_amount = 1.5*60;
-				}
-		
+				spit_time_amount = 60;
 				spit_timer = spit_time_amount;
 				Boss_state = "wait";
 				wait = false;
@@ -180,10 +181,9 @@ switch(Boss_state){
 	and the sliem will chase the player. its going to be for about 5 seconds. Once the boss has only 2 health left, this state changes. 
 	The boss will transform itself into one of 2 enemies. The bigman, and the bat. The bat will move up and down, kinda like a sin wave. 
 	The big man will hold up one leg and stomp the ground, making you hide in between his legs. */
-	if(_health >= lowered_health){
+	if(_health > lowered_health){
 		#region the dashing part
 		var max_hsp = 10;
-		
 		 if(point_direction(x,y,Obj_player.x,Obj_player.y-4) >= 90){
 			dir = 1;
 		}else{
@@ -203,7 +203,6 @@ switch(Boss_state){
 			pre_boss_state = "dash/clone";
 			dash = true;
 		}
-		
 		dash_timer--;
 		#endregion
 	}else{
@@ -288,7 +287,11 @@ switch(Boss_state){
 	break;
 	case"hit":
 	//this makes the boss get pushed back and not be able to get hit again until the next wait state. 
+
 		#region the functions of the hit state
+		if(_health = lowered_health){
+			Boss_state = "scream";	
+		}
 		if(wait == false){
 			var height = 12;
 			var left_angle = 35;
@@ -327,11 +330,42 @@ switch(Boss_state){
 			
 				hit_timer = 2*60;
 				wait = false;
+			}else if(_health = lowered_health){
+				Boss_state = "scream";
 			}else{
 				Boss_state = "ded";			
 			}
 		}
 		#endregion
+	break;
+	case "scream":
+
+		if(point_direction(x,y,Obj_player.x,Obj_player.y-4) >= 90){
+			dir = 1;
+		}else{
+			dir = -1;	
+		}
+		scream_timer--;
+		var max_hsp = 4;
+		if(scream_timer <= 0){
+			if(x<160){
+				hsp += 1;
+				hsp = clamp(hsp,-max_hsp,max_hsp);
+			}else if(x>511){
+				hsp -= 1;
+				hsp = clamp(hsp,-max_hsp,max_hsp);
+			}else{
+				sprite_index = Spr_boss1_scream_o;	
+				hsp = 0;
+				if(image_index >= 7 && image_index <= 12){
+					global.camShake = 5;	
+				}
+				if(image_index > 17){
+					sprite_index = Spr_boss1_idle;
+					Boss_state = "dash/clone";
+				}
+			}
+		}
 	break;
 	case"ded":
 	//the boss has no health, probably does an animation, and transitions to a cutscene.
@@ -356,6 +390,7 @@ switch(Boss_state){
 			if(!place_meeting(x+hsp,y,Obj_solid)) x += hsp
 		}
 		hsp = 0;
+		
 	}
 	//vertical collision
 	if(place_meeting(x,y+vsp,Obj_solid)){
@@ -366,6 +401,13 @@ switch(Boss_state){
 		vsp = 0;
 	}
 	#endregion
+	
+	if(last_sprite != sprite_index){
+		image_index = 0;
+		last_sprite = sprite_index;
+		//for some reason, this makes the falling animation glitch a lil. fix it please :}
+	}
+
 	image_xscale = dir;
 	x += hsp;
 	y += vsp;

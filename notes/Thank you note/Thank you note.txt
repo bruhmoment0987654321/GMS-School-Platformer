@@ -2,6 +2,7 @@ I would like to thank all the people who have playtested my game:
 
 	369071 2458
 	Jason Pelkey
+	Conall Fossoy
 	
 
 
@@ -19,11 +20,14 @@ And to the people that I have come across who have helped me in this journey:
 	Jason Pelkey - A fellow coder in his game SE/N/SE. They have worked on it for about a year or 2. Don't remember.
 	But they are very smart. And I mean VERY. 
 	
-	Shawn Spalding - One of the pillars of Game Maker. Without him, none of this code would be possible. He is straight-foward,
+	Shawn Spalding - One of the pillars of Game Maker tutorials. Without him, none of this code would be possible. He is straight-foward,
 	to the point, and informative. His tutorials are great as well. Especially the Complete Platformer Tutorial. Great stuff. 
 	
 	1up Indie - His videos are pretty well made, with the most useful vids are for his enemy AI.
 	
+	Blobfish - He's the guy that started it all. Since I'm trying to find all the people that gave out the tutorials for the code, I'm going to give credit to them. 
+	And this guy is a great person for tutorials. His tutorials are super simple, easy to follow, and quick. It was his platformer tutorial that helped me get started one this 
+	game journey. 
 	
 	
 	
@@ -33,10 +37,11 @@ And to the people that I have come across who have helped me in this journey:
 	
 	
 	
-	Thank you to all of you :]
+	
+	Thank you for everything :]
 	
 	
 	
 	
 	
-	Sincerely, Walbert Kyle
+	Sincerely, Genaro Lopez. 
