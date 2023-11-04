@@ -1,9 +1,9 @@
 image_xscale = scale;
 image_yscale = scale;
 if(scale <= 1){
-	scale += 0.1;	
+	scale += scale_speed;	
 }else{
-	hsp -= 0.3*dir;
+	hsp -= speed_*dir;
 	timer--;
 }
 if(timer <= 0){

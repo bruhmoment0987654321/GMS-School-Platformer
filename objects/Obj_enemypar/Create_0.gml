@@ -1,1 +1,0 @@
-heartdrop = irandom_range(0,5);

@@ -92,6 +92,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Slime","folderPath":"folders/Sprites/Unused/Slime.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"boss 1","folderPath":"folders/Sprites/Bosses/boss 1.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"recording.json","CopyToMask":-1,"filePath":"datafiles",},
@@ -114,6 +115,7 @@
     {"id":{"name":"Obj_cry","path":"objects/Obj_cry/Obj_cry.yy",},},
     {"id":{"name":"Rm_keybinds","path":"rooms/Rm_keybinds/Rm_keybinds.yy",},},
     {"id":{"name":"Obj_influence_focus_point","path":"objects/Obj_influence_focus_point/Obj_influence_focus_point.yy",},},
+    {"id":{"name":"Spr_boss1_prepare","path":"sprites/Spr_boss1_prepare/Spr_boss1_prepare.yy",},},
     {"id":{"name":"Ts_firstlevel","path":"tilesets/Ts_firstlevel/Ts_firstlevel.yy",},},
     {"id":{"name":"Scr_refreshkeybinds","path":"scripts/Scr_refreshkeybinds/Scr_refreshkeybinds.yy",},},
     {"id":{"name":"Obj_shockwave","path":"objects/Obj_shockwave/Obj_shockwave.yy",},},
@@ -127,6 +129,7 @@
     {"id":{"name":"Spr_Sliem_scream","path":"sprites/Spr_Sliem_scream/Spr_Sliem_scream.yy",},},
     {"id":{"name":"Obj_ground_song","path":"objects/Obj_ground_song/Obj_ground_song.yy",},},
     {"id":{"name":"Spr_arrow","path":"sprites/Spr_arrow/Spr_arrow.yy",},},
+    {"id":{"name":"Spr_boss1_hit","path":"sprites/Spr_boss1_hit/Spr_boss1_hit.yy",},},
     {"id":{"name":"Spr_tele_out","path":"sprites/Spr_tele_out/Spr_tele_out.yy",},},
     {"id":{"name":"Obj_portal","path":"objects/Obj_portal/Obj_portal.yy",},},
     {"id":{"name":"Spr_gothere","path":"sprites/Spr_gothere/Spr_gothere.yy",},},

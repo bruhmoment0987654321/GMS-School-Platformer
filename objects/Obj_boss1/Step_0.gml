@@ -52,20 +52,15 @@
 	case"jump":
 	//goes up, beyond the screen, waits a bit, and goes back down close to the position of the player. 
 		#region timers and such
-			var goup = false;
 			jump_time -= 1;
 			if(move = false){
-				sprite_index = Spr_boss1_jump;
-				image_index = 1;
+				sprite_index = Spr_boss1_prepare;
 			}
 			if(jump_time <= 0){
 				move = true;
-				goup = true;
-				jump_time = 60;
-			}
-			if(goup){
-				image_index += 2;
+				sprite_index = Spr_boss1_jump;
 				vsp -= 40;	
+				jump_time = 60;
 			}
 			if(y < -50){
 				vsp = 0;
@@ -75,27 +70,27 @@
 				stomp_timer -= 1;
 				switch(stomp_location){
 					case 0:
-						x = 105;
-						warning.x = 112-16;
-						warning.y = 576+16;
+						x = 137;
+						warning.x = 124;
+						warning.y = 592;
 					break;
 					case 1:
-						x = 290;
-						warning.x = 304-16;
-						warning.y = 576+16;
+						x = 322;
+						warning.x = 320;
+						warning.y = 592;
 					break;
 					case 2:
-						x = 490;
-						warning.x = 496-16;
-						warning.y = 576+16;
+						x = 522;
+						warning.x = 512;
+						warning.y = 592;
 					break;
 					case 3:
-						if(Obj_player.x >= 75){
+						if(Obj_player.x >= 107){
 							x = Obj_player.x;
 						}else{
 							x = Obj_player.x + (sprite_width/2) - 5;
 						}
-						if(Obj_player.x <= 568){
+						if(Obj_player.x <= 600){
 							x = Obj_player.x;
 						}else{
 							x = Obj_player.x -(sprite_width/2) + 5;
@@ -121,15 +116,16 @@
 				stomp_location = 3;	
 			}
 			if(stomp_timer <= 0){
-				sprite_index = Spr_boss1_fall;
-				warning.x = -100;
-				if(!place_meeting(x,y-1,Obj_wall)){
+				if(!place_meeting(x,y-1,Obj_solid)){
+					sprite_index = Spr_boss1_fall;
+					warning.x = -100;
 					vsp += 40;
 				}
 				wait = false;
-				Boss_state = "wait";
 				dash = false;
+				move = false;
 				pre_boss_state = "jump";
+				Boss_state = "wait";
 				if(_health > lowered_health){
 					stomp_timer = stomp_timer_amount;	
 				}else{
@@ -142,6 +138,7 @@
 	/*waits a bit and creates an object that moves in an arch that goes towards the player.
 	once the object lands, the object stops moving and changes its sprite. */
 		#region turning on directions and all that.
+			sprite_index = Spr_boss1_idle;
 			wait = true;
 			if(point_direction(x,y,Obj_player.x,Obj_player.y-4) >= 90){
 				dir = 1;
@@ -178,46 +175,48 @@
 	break;
 	case"dash/clone":
 	/*probably the hardest thing. It'll act like the slime, where he dashes, even down to the trail effect. But, it'll be a bit slower
-	and the sliem will chase the player. its going to be for about 5 seconds. Once the boss has only 2 health left, this state changes. 
-	The boss will transform itself into one of 2 enemies. The bigman, and the bat. The bat will move up and down, kinda like a sin wave. 
-	The big man will hold up one leg and stomp the ground, making you hide in between his legs. */
+	and the sliem will chase the player. its going to be for about 5 seconds.  
+	when the boss has only 3 health left, he starts to lose it, turning himself into a bat chasing you until he does a giant stomp*/
 	if(_health > lowered_health){
 		#region the dashing part
-		var max_hsp = 10;
-		 if(point_direction(x,y,Obj_player.x,Obj_player.y-4) >= 90){
-			dir = 1;
-		}else{
-			dir = -1;	
-		}
-		with (instance_create_depth(x,y,depth+1,Obj_trail)){
-			sprite_index = other.sprite_index;
-			image_blend = #b2b2b2;
-			image_alpha = 0.9;
-		}
-		if(dash_timer >= 0){
-			hsp -= 0.1 * (dir);
-			hsp = clamp(hsp,-max_hsp,max_hsp);
-		}else{
-			dash_timer = 5*60;	
-			Boss_state = "wait";
-			pre_boss_state = "dash/clone";
-			dash = true;
-		}
-		dash_timer--;
+			sprite_index = Spr_boss1_idle;
+			var max_hsp = 10;
+			 if(point_direction(x,y,Obj_player.x,Obj_player.y-4) >= 90){
+				dir = 1;
+			}else{
+				dir = -1;	
+			}
+			with (instance_create_depth(x,y,depth+1,Obj_trail)){
+				sprite_index = other.sprite_index;
+				image_blend = #b2b2b2;
+				image_alpha = 0.9;
+			}
+			if(dash_timer >= 0){
+				hsp -= 0.1 * (dir);
+				hsp = clamp(hsp,-max_hsp,max_hsp);
+			}else{
+				dash_timer = 5*60;	
+				Boss_state = "wait";
+				pre_boss_state = "dash/clone";
+				dash = true;
+			}
+			dash_timer--;
 		#endregion
 	}else{
 		#region the clone part
 			var max_hsp = 3;
 			if(wait2){
-				if(x > 400) && (x < 450){
+				if(x > 432) && (x < 482){
 					dir = 1;
 					hsp = 0;
 					attack_time--;
-				}else if(x < 400){
+				}else if(x < 432){
+					sprite_index = Spr_boss1_idle;
 					dir = -1;
 					hsp += 1;
 					hsp = clamp(hsp,-max_hsp,max_hsp);
-				}else if(x > 450){
+				}else if(x > 482){
+					sprite_index = Spr_boss1_idle
 					dir = 1;
 					hsp -= 1;
 					hsp = clamp(hsp,-max_hsp,max_hsp);
@@ -267,6 +266,7 @@
 						warning.x = -100;
 						vsp += 40;
 					}else{
+						global.camShake = 5;
 						vsp = 0;
 						with(instance_create_layer((x-sprite_width/2),y,"Shockwave",Obj_shockwave)){
 							image_xscale *= -1;
@@ -287,10 +287,11 @@
 	break;
 	case"hit":
 	//this makes the boss get pushed back and not be able to get hit again until the next wait state. 
-
 		#region the functions of the hit state
 		if(_health = lowered_health){
 			Boss_state = "scream";	
+		}else{
+			sprite_index = Spr_boss1_hit;	
 		}
 		if(wait == false){
 			var height = 12;
@@ -327,11 +328,8 @@
 						Boss_state = choose("jump","spit");
 					break;
 				}
-			
 				hit_timer = 2*60;
 				wait = false;
-			}else if(_health = lowered_health){
-				Boss_state = "scream";
 			}else{
 				Boss_state = "ded";			
 			}
@@ -339,33 +337,36 @@
 		#endregion
 	break;
 	case "scream":
-
-		if(point_direction(x,y,Obj_player.x,Obj_player.y-4) >= 90){
-			dir = 1;
-		}else{
-			dir = -1;	
-		}
-		scream_timer--;
-		var max_hsp = 4;
-		if(scream_timer <= 0){
-			if(x<160){
-				hsp += 1;
-				hsp = clamp(hsp,-max_hsp,max_hsp);
-			}else if(x>511){
-				hsp -= 1;
-				hsp = clamp(hsp,-max_hsp,max_hsp);
+		#region screaming function
+			if(point_direction(x,y,Obj_player.x,Obj_player.y-4) >= 90){
+				dir = 1;
 			}else{
-				sprite_index = Spr_boss1_scream_o;	
-				hsp = 0;
-				if(image_index >= 7 && image_index <= 12){
-					global.camShake = 5;	
-				}
-				if(image_index > 17){
-					sprite_index = Spr_boss1_idle;
-					Boss_state = "dash/clone";
-				}
+				dir = -1;	
 			}
-		}
+			scream_timer--;
+			var max_hsp = 4;
+			if(scream_timer <= 0){
+				if(x<192){
+					hsp += 1;
+					hsp = clamp(hsp,-max_hsp,max_hsp);
+				}else if(x>543){
+					hsp -= 1;
+					hsp = clamp(hsp,-max_hsp,max_hsp);
+				}else{
+					sprite_index = Spr_boss1_scream_o;	
+					hsp = 0;
+					if(image_index >= 7 && image_index <= 12){
+						global.camShake = 5;	
+					}
+					if(image_index > 17){
+						sprite_index = Spr_boss1_idle;
+						Boss_state = "dash/clone";
+					}
+				}
+			}else{
+				sprite_index = Spr_boss1_idle;	
+			}
+		#endregion
 	break;
 	case"ded":
 	//the boss has no health, probably does an animation, and transitions to a cutscene.
