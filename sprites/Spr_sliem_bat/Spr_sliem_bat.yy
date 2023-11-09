@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "boss 1",
-    "path": "folders/Sprites/Bosses/boss 1.yy",
+    "name": "clone",
+    "path": "folders/Sprites/Bosses/boss 1/clone.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

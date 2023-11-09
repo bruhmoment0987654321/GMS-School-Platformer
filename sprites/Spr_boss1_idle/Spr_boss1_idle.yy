@@ -33,8 +33,8 @@
   "nineSlice": null,
   "origin": 7,
   "parent": {
-    "name": "boss 1",
-    "path": "folders/Sprites/Bosses/boss 1.yy",
+    "name": "idle",
+    "path": "folders/Sprites/Bosses/boss 1/idle.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

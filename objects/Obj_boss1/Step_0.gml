@@ -1,4 +1,4 @@
- switch(Boss_state){
+switch(Boss_state){
 	case"wait":
 	//gives the player time to attack the foe. It will have different idle animations which will be random.
 	#region functionality
@@ -138,7 +138,10 @@
 	/*waits a bit and creates an object that moves in an arch that goes towards the player.
 	once the object lands, the object stops moving and changes its sprite. */
 		#region turning on directions and all that.
-			sprite_index = Spr_boss1_idle;
+			if(spit_sprite){
+				sprite_index = Spr_boss1_spit_start;
+				spit_sprite = false;
+			}
 			wait = true;
 			if(point_direction(x,y,Obj_player.x,Obj_player.y-4) >= 90){
 				dir = 1;
@@ -148,22 +151,23 @@
 			if(wait){
 				spit_timer -= 1;	
 			}
-	#endregion
+		#endregion
 		#region The spit functionality and resetin timers
 			if(spit_timer <= 0){
+				sprite_index = Spr_boss1_spit_end;
 				var spit_amount;
 				if(_health >= 3){
 					spit_amount = 10;	
 				}else{
 					spit_amount = 20;
 				}
-		
 				repeat(spit_amount){
 					var laser_spit = instance_create_layer(x,y-32,"Spit",Obj_spit_ball);
 					laser_spit.speed = random_range(4,6);
 					if(dir > 0) laser_spit.direction = 120 + random_range(-15,5); else if(dir < 0) laser_spit.direction = 60 + random_range(-5,15);
 					laser_spit.gravity = 0.1;
 				}
+				spit_sprite = true;
 				spit_time_amount = 60;
 				spit_timer = spit_time_amount;
 				Boss_state = "wait";
@@ -228,7 +232,7 @@
 					sprite_index = Spr_sliem_bat;
 					wait2 = false;
 					bounce = true;
-					attack_time = 60;
+					attack_time = 10;
 				}
 			}
 			if(bounce){
