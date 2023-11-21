@@ -77,8 +77,7 @@ stateFree = function(){
 			
 			move *= multiplier;
 			hsp += move*walksp;
-			max_hsp = 3;
-			
+	
 			hsp = clamp(hsp,-(max_hsp*multiplier),(max_hsp*multiplier));
 		}else{
 			if(image_xscale = 1){
@@ -93,11 +92,9 @@ stateFree = function(){
 			}
 			hsp = lerp(hsp,0,friction_);
 		}
-	
+		#endregion
 		vsp += global.grv;
 		vsp = clamp(vsp,-vsp_max,vsp_max);
-		#endregion
-	
 		//jump
 		#region Jump Input Buffering
 		if(object_index != Obj_slime){
@@ -129,7 +126,7 @@ stateFree = function(){
 			        jump_buffer_timer = 0;
 			    }
 			    jump_buffer_timer--;
-			}
+		}
 		#endregion
 		
 		if(!jump_held){
